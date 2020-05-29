@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="templates/template-one.xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:jsf="http://xmlns.jcp.org/jsf"
+                xmlns:of="http://omnifaces.org/functions">
+
+    <ui:define name="title">
+        Menu Principal
+    </ui:define>
+
+    <ui:define name="head">
+        Menu Principal
+    </ui:define>
+
+    <ui:define name="content">
+        <h:form>
+            <legend>Menu Principal</legend>
+            <p:growl>
+                <p:autoUpdate />
+            </p:growl>
+
+            <p:panelMenu style="width:300px">
+                <p:submenu label="Usuarios">
+                    <p:menuitem value=" Buscar" class="glyphicon glyphicon-search" outcome="users"/>
+                    <p:menuitem value=" Perfil" class="glyphicon glyphicon-user" outcome="userProfile"/>
+                    <p:menuitem value=" Nuevo" class="glyphicon glyphicon-plus" outcome="create-users" rendered="#{p:ifAnyGranted(constants.adminDocente())}"/>
+                </p:submenu>
+                <p:submenu label="Grupos">
+                    <p:menuitem value=" Buscar" class="glyphicon glyphicon-search" outcome="groups"/>
+                    <p:menuitem value=" Crear" class="glyphicon glyphicon-plus" outcome="create-group"/>
+                </p:submenu>
+                <p:submenu label="Producto">
+                    <p:menuitem value=" Buscar" class="glyphicon glyphicon-search" outcome="products"/>
+                    <p:menuitem value=" Crear" class="glyphicon glyphicon-plus" outcome="createProduct"/>
+                </p:submenu>
+                <p:submenu label="Producción">
+                    <p:menuitem value=" Crear" class="glyphicon glyphicon-search" outcome="createProduction"/>
+                    <p:menuitem value=" Trabajar" class="glyphicon glyphicon-plus" outcome="processProduction"/>
+                    <p:menuitem value=" Calificar" class="glyphicon glyphicon-search" outcome="qualificationProduction"/>
+                    <p:menuitem value=" Buscar" class="glyphicon glyphicon-search" outcome="searchProduction"/>
+                </p:submenu>
+                <p:submenu label="Insumos">
+                    <p:menuitem value=" Buscar" class="glyphicon glyphicon-search" outcome="supplies"/>
+                    <p:menuitem value=" Nuevo" class="glyphicon glyphicon-plus" outcome="newSupply"/>
+                    <p:menuitem value=" Modificaciones" class="glyphicon glyphicon-plus" outcome="modifySupply"/>
+                    <p:menuitem value=" Calcular Insumos" class="glyphicon glyphicon-bitcoin" outcome="calcSupply"/>
+                    <p:menuitem value=" Calcular Mejor Produccion" class="glyphicon glyphicon-bitcoin" outcome="calcProduction"/>
+                </p:submenu>
+                <p:submenu label="Diseños">
+                    <p:menuitem value=" Buscar" class="glyphicon glyphicon-search" outcome="designs"/>
+                    <p:menuitem value=" Nuevo" class="glyphicon glyphicon-plus" outcome="createDesign"/>
+                </p:submenu>
+            </p:panelMenu>
+        </h:form>
+    </ui:define>
+
+</ui:composition>

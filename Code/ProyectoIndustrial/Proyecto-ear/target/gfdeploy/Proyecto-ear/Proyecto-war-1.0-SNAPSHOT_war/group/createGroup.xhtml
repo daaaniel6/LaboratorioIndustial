@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <body>
+
+        <ui:composition template="./../templates/template-one.xhtml">
+
+            <ui:define name="content">
+
+                <h:form>
+                    <p:panel header="Creacion del Grupo">
+
+                        <h:panelGrid columns="2" >
+                            <p:outputLabel for="txtName" value="Nombre:"/>
+                            <p:inputText id="txtName" value="#{groupView.groupIndustrial.name}" required="true"  />
+
+                            <p:outputLabel  value="Informacion del Grupo:"/>
+                            <p:inputTextarea rows="6" cols="33"  value="#{groupView.groupIndustrial.information}" />
+
+
+
+                            <p:outputLabel for="txtSection" value="Seccion:"/>
+                            <p:inputText id="txtSection"  value="#{groupView.groupIndustrial.section}" required="true" maxlength="1"  /> 
+
+
+                            <p:outputLabel  value="Seleccione los estudiantes del grupo:"/>
+                            <p:fieldset id="groupField" legend="Estudiantes Disponibles">
+                                <p:dataTable id="studentTable"  var="student" value="#{groupView.allStudents}" emptyMessage="No hay estudiantes">
+                                    <p:column headerText="Carne" filterBy="#{student.carnet}" filterMatchMode="contains" >
+                                        <h:outputText  value="#{student.carnet}"/>
+                                    </p:column>
+
+                                    <p:column headerText="Nombre" filterBy="#{student.name}" filterMatchMode="contains" >
+                                        <h:outputText value="#{student.name}" />
+                                    </p:column>
+
+                                    <p:column headerText="Carrera">
+                                        <h:outputText value="#{student.career.name}"/>
+                                    </p:column>
+
+                                    <p:column headerText="Correo">
+                                        <h:outputText  value="#{student.email}"/>
+                                    </p:column>
+
+                                    <p:column headerText="Numero">
+                                        <h:outputText value="#{student.phone}" />
+                                    </p:column>
+
+                                    <p:column>
+                                        <p:commandButton actionListener="#{groupView.AddStudent(student)}"
+                                                         update=":#{p:component('studentGroupTable')}, :#{p:component('studentTable')} "
+                                                         styleClass="glyphicon glyphicon-plus" value="" 
+                                                         process="@this">
+
+                                        </p:commandButton>
+                                    </p:column>
+
+
+                                </p:dataTable>
+                            </p:fieldset>
+
+
+                            <p:outputLabel  value="Integrantes del Grupo:"/> 
+                            <p:fieldset id="groupStudentsField" legend="Estudiantes del grupo">
+                                <p:dataTable id="studentGroupTable" value="#{groupView.groupList}" var="studentGroup" emptyMessage="Grupo sin estudiantes estudiantes">
+                                    <p:column headerText="Carne">
+                                        <h:outputText value="#{studentGroup.carnet}" />
+                                    </p:column>
+
+                                    <p:column headerText="Nombre">
+                                        <h:outputText  value="#{studentGroup.name}"/>
+                                    </p:column>
+
+
+                                </p:dataTable>
+                            </p:fieldset>
+
+
+                            
+                            <h:column/>
+                            <p:commandLink styleClass="btn btn-success" style="width: 60%;"
+                                           update="@form, :#{p:component('growl')}"
+                                           actionListener="#{groupView.createGroup()}" >
+                                <span class="glyphicon glyphicon-plus-sign"></span> Crear Grupo
+                      
+                            </p:commandLink>
+
+                            
+
+
+                        </h:panelGrid>
+
+
+
+                    </p:panel>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

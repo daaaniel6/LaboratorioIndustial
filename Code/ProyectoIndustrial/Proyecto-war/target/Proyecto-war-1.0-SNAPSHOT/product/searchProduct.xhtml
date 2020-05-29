@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="../templates/template-one.xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:jsf="http://xmlns.jcp.org/jsf"
+                xmlns:of="http://omnifaces.org/functions">
+
+    <ui:define name="head">
+        Productos
+    </ui:define>
+
+    <ui:define name="content">
+        <h:form id="productsSearch">
+            <fieldset>
+                <legend>Consultar Usuarios</legend>
+                <div class="row">
+                    <div class="form-group col-sm-4">
+                        <p:outputLabel for="code" value="Codigo:" />
+                        <p:inputText id="code"
+                                     styleClass="form-control"
+                                     pt:placeholder="codigo"
+                                     value="#{productsView.code}"/>
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <p:outputLabel for="name" value="Nombre:" />
+                        <p:inputText id="name"
+                                     styleClass="form-control"
+                                     pt:placeholder="Nombre del Producto"
+                                     value="#{productsView.name}"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="btn-group pull-right">
+                        <p:commandLink styleClass="btn btn-danger"
+                                       update=":#{p:component('name')},:#{p:component('code')}"
+                                       action="#{productsView.cleanSearch()}"
+                                       title="limpiar">
+                            &nbsp;<span class="glyphicon glyphicon-repeat"></span>&nbsp;
+                        </p:commandLink>
+                        <p:commandLink styleClass="btn btn-primary" update=":productsTable"
+                                       actionListener="#{productsView.findProducts()}">
+                            <span class="glyphicon glyphicon-search"></span> Buscar
+                        </p:commandLink>
+                    </div>
+                </div>
+            </fieldset>
+        </h:form>
+        <div class="row">
+            <p:dataTable id="productsTable" var="productF" value="#{productsView.products}"
+                         reflow="true">
+                <p:column headerText="Codigo">
+                    <h:outputText value="#{productF.idProduct}" />
+                </p:column>
+                <p:column headerText="Nombre">
+                    <h:outputText value="#{productF.name}" />
+                </p:column>
+                <p:column headerText="correo">
+                    <h:outputText value="#{productF.description}" />
+                </p:column>
+                <p:column headerText="Editar" rendered="#{p:ifAnyGranted(constants.adminDocente())}" styleClass="text-center">
+                    <p data-placement="top" data-toggle="tooltip" title="Editar">
+                        <p:commandLink styleClass="btn btn-primary btn-xs" oncomplete="PF('dlgEdit').show();"
+                                       update=":#{p:component('dlgEdit')}">
+                            <f:setPropertyActionListener value="#{productF}" target="#{productsView.selectedProduct}"/>
+                            <span class="glyphicon glyphicon-pencil"></span>
+                        </p:commandLink>
+                    </p>
+                </p:column>
+            </p:dataTable>
+
+            <p:dialog header="Producto Cod. ##{productsView.selectedProduct.idProduct}" id="dlgEdit" widgetVar="dlgEdit"
+                      fitViewport="true" modal="true" closeOnEscape="true">
+                <p:ajax event="close" listener="#{productsView.cleanSelectedProduct()}" update="@this" />
+                <h:form>
+                    <div class="modal-body">
+                        <fieldset>
+                            <div class="row form-group">
+                                <p:outputLabel for="name" value="Nombre:" styleClass="col-md-4 control-label"/>
+                                <div class="col-md-8">
+                                    <p:inputText id="name" styleClass="form-control" pt:placeholder="Nombre del producto"
+                                                 pt:required="true" maxlength="45" required="true"
+                                                 value="#{productsView.selectedProduct.name}"/>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <p:outputLabel for="desc" value="Descripción:" styleClass="col-md-4 control-label"/>
+                                <div class="col-md-8">
+                                    <p:inputTextarea id="desc" styleClass="form-control" pt:placeholder="Descripcion del producto"
+                                                     pt:required="true" maxlength="45" required="true"
+                                                     value="#{productsView.selectedProduct.description}"/>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="modal-footer ">
+                        <p:commandLink styleClass="btn btn-warning btn-lg" style="width: 100%;"
+                                       update="@form,:#{p:component('productsTable')},:#{p:component('growl')}"
+                                       actionListener="#{productsView.saveChanges('dlgEdit')}">
+                            <span class="glyphicon glyphicon-ok-sign"></span> Guardar
+                        </p:commandLink>
+                    </div>
+                </h:form>
+            </p:dialog>
+        </div>
+    </ui:define>
+
+</ui:composition>
+
+

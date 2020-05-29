@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="../templates/template-one.xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:jsf="http://xmlns.jcp.org/jsf"
+                xmlns:of="http://omnifaces.org/functions">
+
+    <ui:define name="head">
+        Insumos por Diseño
+    </ui:define>
+
+    <ui:define name="content">
+        <h:form id="supplyCalculator">
+            <fieldset>
+                <legend>Calcular Insumo Necesarios por Diseño</legend>
+                <div class="row">
+                    <div class="form-group col-sm-4">
+                        <p:outputLabel for="idDesign" value="Codigo de la Produccion:" />
+                        <p:spinner id="idDesign" styleClass="form-control"
+                                   min="0" value="#{supplyCalculatorView.id}"/>
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <p:outputLabel for="name" value="Nombre:" />
+                        <p:inputText id="name"
+                                     styleClass="form-control"
+                                     pt:placeholder="Nombre Produccion"
+                                     value="#{supplyCalculatorView.designName}"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="btn-group pull-right">
+                        <p:commandLink styleClass="btn btn-primary" update=":#{p:component('designsTable')}"
+                                       actionListener="#{supplyCalculatorView.searchDesign()}">
+                            <span class="glyphicon glyphicon-search"></span> Buscar
+                        </p:commandLink>
+                    </div>
+                </div>
+            </fieldset>
+        </h:form>
+        <div class="row">
+            <h:form>
+                <p:dataTable id="designsTable" var="designL" value="#{supplyCalculatorView.designList}"
+                             reflow="true">
+                    <p:column headerText="Codigo">
+                        <h:outputText value="#{designL.design.idDesign}" />
+                    </p:column>
+                    <p:column headerText="Nombre">
+                        <h:outputText value="#{designL.design.designData.name}" />
+                    </p:column>
+                    <p:column headerText="Descripcion">
+                        <h:outputText value="#{designL.design.designData.description}" />
+                    </p:column>
+                    <p:column headerText="Unidades" styleClass="text-center">
+                        <p:spinner min="1" value="#{designL.units}" styleClass="form-control">
+                            <f:convertNumber integerOnly="true"/>
+                        </p:spinner>
+                    </p:column>
+                    <p:column headerText="Calcular Insumos" styleClass="text-center">
+                        <p data-placement="right" data-toggle="tooltip" title="Calcular">
+                            <p:commandLink styleClass="btn btn-primary btn-xs" oncomplete="PF('calculate').show();" 
+                                           update=":#{p:component('calculate')}" actionListener="#{supplyCalculatorView.calculateCost(designL)}" >
+                                <span class="glyphicon glyphicon-check"></span>
+                            </p:commandLink>
+                        </p>
+                    </p:column>
+                </p:dataTable>
+            </h:form>
+
+            <p:dialog header="#{supplyCalculatorView.selectedDesign.design.idDesign} - #{supplyCalculatorView.selectedDesign.design.designData.name}" id="calculate" widgetVar="calculate"
+                      fitViewport="true" modal="true" closeOnEscape="true">
+                <p:ajax event="close" listener="#{supplyCalculatorView.cleanSearch()}" update="@this" />
+                <h:form>
+                    <p:dataTable id="supplyQuantityTable" var="supplyQ" value="#{supplyCalculatorView.suplyQuantity}"
+                                 reflow="true">
+                        <p:column headerText="Codigo">
+                            <h:outputText value="#{supplyQ.supply.code}" />
+                        </p:column>
+                        <p:column headerText="Nombre">
+                            <h:outputText value="#{supplyQ.supply.name}" />
+                        </p:column>
+                        <p:column headerText="Disponible">
+                            <h:outputText value="#{supplyQ.supply.quantity}" />
+                        </p:column>
+                        <p:column headerText="Necesario">
+                            <h:outputText value="#{supplyQ.quantity}" />
+                        </p:column>
+                    </p:dataTable>
+                    <p:separator/>
+                    <div class="row">
+                        <div class="form-group col-sm-4">
+                            <p:outputLabel value="Costo Unitario: Q." /> 
+                            <h:outputText value="#{supplyCalculatorView.unitCost}"/>
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <p:outputLabel value="Costo Total: Q." /> 
+                            <h:outputText value="#{supplyCalculatorView.totalCost}"/>
+                        </div>
+                    </div>
+                </h:form>
+            </p:dialog>
+        </div>
+    </ui:define>
+
+</ui:composition>

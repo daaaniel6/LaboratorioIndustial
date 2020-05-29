@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RolUserService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Proyecto-ejb</a> &gt; <a href="index.source.html" class="el_package">User.service</a> &gt; <span class="el_source">RolUserService.java</span></div><h1>RolUserService.java</h1><pre class="source lang-java linenums">package User.service;
+
+import User.RolUser;
+import User.exception.UserException;
+import javax.ejb.LocalBean;
+import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import static config.Constants.PERSISTENCE_UNIT_NAME;
+import javax.ejb.EJB;
+
+@Stateless
+@LocalBean
+<span class="fc" id="L14">public class RolUserService {</span>
+
+    @PersistenceContext(name = PERSISTENCE_UNIT_NAME)
+    @EJB
+    private EntityManager entityManager;
+
+    public void setEntityManager(EntityManager entityManager) {
+<span class="fc" id="L21">        this.entityManager = entityManager;</span>
+<span class="fc" id="L22">    }</span>
+
+    public RolUser createRolUser(RolUser rolUser) throws UserException {
+<span class="fc bfc" id="L25" title="All 2 branches covered.">        if (rolUser == null) {</span>
+<span class="fc" id="L26">            throw new UserException(&quot;rolUser is null&quot;);</span>
+        }
+<span class="fc" id="L28">        entityManager.persist(rolUser);</span>
+<span class="fc" id="L29">        return rolUser;</span>
+    }
+
+    public RolUser updateRolUser(RolUser rolUser) throws UserException {
+<span class="fc bfc" id="L33" title="All 2 branches covered.">        if (rolUser == null) {</span>
+<span class="fc" id="L34">            throw new UserException(&quot;rolUser is null&quot;);</span>
+        }
+<span class="fc" id="L36">        RolUser updateRolUser = entityManager.find(RolUser.class, rolUser.getIdRolUser());</span>
+<span class="fc" id="L37">        updateRolUser.setName(rolUser.getName());</span>
+<span class="fc" id="L38">        return rolUser;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

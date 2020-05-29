@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="../templates/template-one.xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:jsf="http://xmlns.jcp.org/jsf"
+                xmlns:of="http://omnifaces.org/functions">
+
+    <ui:define name="head">
+        Perfil
+    </ui:define>
+
+    <ui:define name="content">
+        <h:form id="miInfo">
+            <fieldset>
+                <legend>Mi Información</legend>
+                <div class="row">
+                    <p:outputLabel for="name" value="nombre" styleClass="col-md-4 control-label"/>
+                    <div class="form-group col-sm-4">
+                        <p:inputText id="name" styleClass="form-control" pt:placeholder="Nombre"
+                                     pt:required="true" maxlength="45" required="true"
+                                     value="#{userProfileView.user.name}"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <p:outputLabel for="email" value="correo" styleClass="col-md-4 control-label"/>
+                    <div class="form-group col-sm-4">
+                        <p:inputText id="email" styleClass="form-control" pt:placeholder="Correo"
+                                     pt:required="true" maxlength="45" required="true"
+                                     value="#{userProfileView.user.email}"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <p:outputLabel for="phone" value="Telefono" styleClass="col-md-4 control-label"/>
+                    <div class="form-group col-sm-4">
+                        <p:inputText id="phone" styleClass="form-control" pt:placeholder="Nombre Usuario"
+                                     pt:required="true" maxlength="45" required="true"
+                                     value="#{userProfileView.user.phone}"/>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-sm-4" >
+                        <p:outputLabel for="career" value="Carrera: "/>
+                        <p:selectOneMenu id="career"  value="#{userProfileView.user.career}" converter="careerConverter" >
+                            <f:selectItems value="#{userProfileView.careers}" var="career" 
+                                           itemValue="#{career}"
+                                           itemLabel="#{career.name}"/>
+                        </p:selectOneMenu>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-sm-4">
+                        <p:outputLabel for="rolUser" rendered="#{p:ifGranted(constants.admin())}" value="Rol: "  />
+                        <p:selectOneMenu id="rolUser"  value="#{userProfileView.user.rolUser}" converter="rolUserConverter" rendered="#{p:ifGranted(constants.admin())}">
+                            <f:selectItems value="#{userProfileView.rolUsers}" var="rolUser"
+                                           itemValue="#{rolUser}"
+                                           itemLabel="#{rolUser.name}"/>
+                        </p:selectOneMenu>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-sm-4">
+                        <p:commandLink styleClass="btn btn-primary btn-lg" 
+                                       update="@form,:growl" 
+                                       actionListener="#{userProfileView.saveChanges()}">
+                            <span class="glyphicon glyphicon-ok-sign"></span> Guardar Cambios
+                        </p:commandLink>
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <p:commandLink styleClass="btn btn-danger btn-lg" 
+                                       update=":#{p:component('dlgReset')}" 
+                                       oncomplete="PF('dlgReset').show();">
+                            <span class="glyphicon glyphicon-alert"></span> Cambiar Contraseña
+                        </p:commandLink>
+                    </div>
+                </div>
+            </fieldset>
+        </h:form>
+
+        <p:dialog header="Cambiar Contraseña" id="dlgReset" widgetVar="dlgReset"
+                  fitViewport="true" modal="true" closeOnEscape="true">
+            <p:ajax event="close" listener="#{userProfileView.cleanPass()}" update="@this" />
+            <h:form>
+                <div class="modal-body">
+                    <fieldset>
+                        <div class="row">
+                            <div class="form-group col-sm-12">
+                                <p:outputLabel for="pass" value="Contraseña Actual:" />
+                                <p:password id="pass" styleClass="form-control" pt:placeholder="Contrasena" 
+                                            required="true" pt:required="true" 
+                                            value="#{userProfileView.password}" pt:type="password"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-sm-12">
+                                <p:outputLabel for="newPass" value="Nueva Contraseña:" />
+                                <p:password id="newPass" styleClass="form-control" pt:placeholder="Contrasena" 
+                                            required="true" pt:required="true" match="newPass2"
+                                            value="#{userProfileView.newPassword}" pt:type="password"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-sm-12">
+                                <p:outputLabel for="newPass2" value="Confirmar Nueva Contraseña:" />
+                                <p:password id="newPass2" styleClass="form-control" pt:placeholder="Contrasena" 
+                                            required="true" pt:required="true" 
+                                            value="#{userProfileView.newPassword}" pt:type="password"/>
+                            </div>
+                        </div>
+                        <p:commandLink styleClass="btn btn-danger" style="width: 100%;"
+                                       update="@form,:#{p:component('miInfo')},:#{p:component('growl')}"
+                                       actionListener="#{userProfileView.changePassword('dlgReset')}">
+                            <span class="glyphicon glyphicon-alert"></span> Cambiar
+                        </p:commandLink>
+                    </fieldset>
+                </div>
+            </h:form>
+        </p:dialog>
+    </ui:define>
+
+</ui:composition>
+
+

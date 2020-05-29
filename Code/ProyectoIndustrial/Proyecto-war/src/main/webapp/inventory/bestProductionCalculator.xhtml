@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="../templates/template-one.xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:jsf="http://xmlns.jcp.org/jsf"
+                xmlns:of="http://omnifaces.org/functions">
+
+    <ui:define name="head">
+        Mejores Producciones
+    </ui:define>
+
+    <ui:define name="title">
+        Mejores Producciones
+    </ui:define>
+
+    <ui:define name="content">
+        <h:form id="supplyCalculator">
+            <fieldset>
+                <legend>Mejores Producciones</legend>
+                <div class="row">
+                    <div class="btn-group pull-right">
+                        <p:commandLink styleClass="btn btn-primary" update=":#{p:component('productionsTable')}"
+                                       actionListener="#{bestProductionsCalculatorView.calculate()}">
+                            <span class="glyphicon glyphicon-search"></span> Buscar
+                        </p:commandLink>
+                    </div>
+                </div>
+            </fieldset>
+        </h:form>
+        <div class="row">
+            <p:dataTable id="productionsTable" var="productionL" value="#{bestProductionsCalculatorView.productionUnitsList}"
+                         reflow="true">
+                <p:column headerText="Codigo">
+                    <h:outputText value="#{productionL.production.idProduction}" />
+                </p:column>
+                <p:column headerText="Nombre">
+                    <h:outputText value="#{productionL.production.name}" />
+                </p:column>
+                <p:column headerText="Producto">
+                    <h:outputText value="#{productionL.production.designId.productIdProduct.name}" />
+                </p:column>
+                <p:column headerText="Grupo">
+                    <h:outputText value="#{productionL.production.groupId.name}" />
+                </p:column>
+                <p:column headerText="Unidades">
+                    <h:outputText value="#{productionL.units}" />
+                </p:column>
+                <p:column headerText="Información" styleClass="text-center">
+                    <p data-placement="top" data-toggle="tooltip" title="Información">
+                        <p:commandLink styleClass="btn btn-primary btn-xs" oncomplete="PF('infoAbout').show();"
+                                       update=":#{p:component('infoAbout')}">
+                            <f:setPropertyActionListener value="#{productionL}" target="#{bestProductionsCalculatorView.productionUnitSelected}"/>
+                            <span class="glyphicon glyphicon-file"></span>
+                        </p:commandLink>
+                    </p>
+                </p:column>
+                <p:column headerText="Insumos" rendered="#{p:ifAnyGranted(constants.adminDocente())}" styleClass="text-center">
+                    <p data-placement="right" data-toggle="tooltip" title="Calcular">
+                        <p:commandLink styleClass="btn btn-primary btn-xs" oncomplete="PF('calculate').show();" 
+                                       update=":#{p:component('calculate')}" 
+                                       actionListener="#{bestProductionsCalculatorView.calculateCost(productionL)}">
+                            <span class="glyphicon glyphicon-check"></span>
+                        </p:commandLink>
+                    </p>
+                </p:column>
+            </p:dataTable>
+
+            <!-- Informacion del Insumo -->
+            <p:dialog header="#{bestProductionsCalculatorView.productionUnitSelected.production.idProduction} - #{bestProductionsCalculatorView.productionUnitSelected.production.name}" 
+                      id="infoAbout" widgetVar="infoAbout" fitViewport="true" modal="true" closeOnEscape="true">
+                <p:ajax event="close" listener="#{bestProductionsCalculatorView.cleanInfo()}" update="@this" />
+                <h:form>
+                    <div class="modal-body">
+                        <fieldset>
+                            <div class="row form-group">
+                                <p:outputLabel value="Codigo:" styleClass="col-md-4 control-label"/>
+                                <div class="col-md-8">
+                                    <h:outputText value="#{bestProductionsCalculatorView.productionUnitSelected.production.idProduction}"/>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <p:outputLabel value="Nombre:" styleClass="col-md-4 control-label"/>
+                                <div class="col-md-8">
+                                    <h:outputText value="#{bestProductionsCalculatorView.productionUnitSelected.production.name}"/>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <p:outputLabel value="Fecha de Inicio:" styleClass="col-md-4 control-label"/>
+                                <div class="col-md-8">
+                                    <h:outputText value="#{bestProductionsCalculatorView.productionUnitSelected.production.startDate}"/>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <p:outputLabel value="Fecha de Finalización:" styleClass="col-md-4 control-label"/>
+                                <div class="col-md-8">
+                                    <h:outputText value="#{bestProductionsCalculatorView.productionUnitSelected.production.endDate}"/>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <p:outputLabel value="Calificación:" styleClass="col-md-4 control-label"/>
+                                <div class="col-md-8">
+                                    <h:outputText value="#{bestProductionsCalculatorView.productionUnitSelected.production.qualification}"/>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <p:outputLabel value="Cantidad:" styleClass="col-md-4 control-label"/>
+                                <div class="col-md-8">
+                                    <h:outputText value="#{bestProductionsCalculatorView.productionUnitSelected.production.quantity}"/>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <p:outputLabel value="Costo Inicial:" styleClass="col-md-4 control-label"/>
+                                <div class="col-md-8">
+                                    <h:outputText value="#{bestProductionsCalculatorView.productionUnitSelected.production.initCost}"/>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <p:outputLabel value="Costo final:" styleClass="col-md-4 control-label"/>
+                                <div class="col-md-8">
+                                    <h:outputText value="#{bestProductionsCalculatorView.productionUnitSelected.production.finalCost}"/>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <p:outputLabel value="Diseño base #{bestProductionsCalculatorView.productionUnitSelected.production.designId.idDesign}:" 
+                                               styleClass="col-md-4 control-label"/>
+                                <div class="col-md-8">
+                                    <h:outputText value="#{bestProductionsCalculatorView.productionUnitSelected.production.designId.designData.name}"/>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <p:outputLabel value="Diseño final #{bestProductionsCalculatorView.productionUnitSelected.production.postDesign.idDesign}:" 
+                                               styleClass="col-md-4 control-label"/>
+                                <div class="col-md-8">
+                                    <h:outputText value="#{bestProductionsCalculatorView.productionUnitSelected.production.postDesign.designData.name}"/>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <p:outputLabel value="Grupo #{bestProductionsCalculatorView.productionUnitSelected.production.groupId.idGroup}:" 
+                                               styleClass="col-md-4 control-label"/>
+                                <div class="col-md-8">
+                                    <h:outputText value="#{bestProductionsCalculatorView.productionUnitSelected.production.groupId.name}"/>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <p:outputLabel value="Producto #{bestProductionsCalculatorView.productionUnitSelected.production.productId.idProduct}:" styleClass="col-md-4 control-label"/>
+                                <div class="col-md-8">
+                                    <h:outputText value="#{bestProductionsCalculatorView.productionUnitSelected.production.productId.name}"/>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </h:form>
+            </p:dialog>
+
+            <p:dialog header="#{bestProductionsCalculatorView.productionUnitSelected.production.idProduction} - #{bestProductionsCalculatorView.productionUnitSelected.production.name}" 
+                      id="calculate" widgetVar="calculate" fitViewport="true" modal="true" closeOnEscape="true">
+                <p:ajax event="close" listener="#{bestProductionsCalculatorView.cleanSearch()}" update="@this" />
+                <h:form>
+                    <p:dataTable id="supplyQuantityTable" var="supplyQ" value="#{bestProductionsCalculatorView.supplyQuantity}"
+                                 reflow="true">
+                        <p:column headerText="Codigo">
+                            <h:outputText value="#{supplyQ.supply.code}" />
+                        </p:column>
+                        <p:column headerText="Nombre">
+                            <h:outputText value="#{supplyQ.supply.name}" />
+                        </p:column>
+                        <p:column headerText="Disponible">
+                            <h:outputText value="#{supplyQ.supply.quantity}" />
+                        </p:column>
+                        <p:column headerText="Necesario">
+                            <h:outputText value="#{supplyQ.quantity}" />
+                        </p:column>
+                    </p:dataTable>
+                    <p:separator/>
+                    <div class="row">
+                        <div class="form-group col-sm-10">
+                            <p:outputLabel value="Costo Unitario: Q." /> 
+                            <h:outputText value="#{bestProductionsCalculatorView.unitCost}"/>
+                        </div>
+                        <div class="form-group col-sm-10">
+                            <p:outputLabel value="Costo Total: Q." /> 
+                            <h:outputText value="#{bestProductionsCalculatorView.totalCost}"/>
+                        </div>
+                    </div>
+                </h:form>
+            </p:dialog>
+        </div>
+    </ui:define>
+
+</ui:composition>

@@ -1,0 +1,17 @@
+"code";"internal_code";"name";"expiration_date";"date_of_admission";"cost";"quantity";"availability";"description";"id_measure"
+1;"PI-01";"pintura roja";"2019-11-11";"2019-02-11";150.0;1000.0;1;"Pntura roja de primera";4
+2;"PI-02";"pintura verde";"2022-11-11";"2019-02-11";160.0;500.0;1;"Pintura verde de primera";4
+3;"PL-01";"playera negra";"2050-11-11";"2019-02-11";2500.0;50.0;1;"playeras de primera";5
+4;"PL-02";"playera azule";"2050-11-11";"2019-08-11";1200.0;60.0;1;"playeras de primera";5
+5;"LI-01";"liston amarillo";"2050-11-11";"2019-09-11";25.0;1000.0;1;"liston de primera";7
+6;"SE-01";"seda azul";"2050-11-11";"2019-09-12";200.0;750.0;1;"seda de primera";7
+7;"SP-01";"solvente en polvo";"2022-11-11";"2019-06-06";300.0;1000.0;1;"solvente para pintura";1
+8;"HO-01";"hoja transfer";"2030-11-11";"2019-05-12";75.0;500.0;1;"para realizar estampados";5
+9;"HO-02";"hojas papel adhesivo";"2050-01-01";"2020-01-01";100.0;100.0;1;"hojas de papel adhesivo para imprimir stickers";5
+10;"TI-01";"Tinta roja";"2030-01-01";"2020-01-01";100.0;1000.0;1;"Tinta roja para impresora";4
+11;"TI-02";"Tinta cyan";"2030-01-01";"2020-01-01";100.0;1000.0;1;"Tinta cyan para impresora";4
+12;"TI-03";"Tinta amarillo";"2030-01-01";"2020-01-01";100.0;1000.0;1;"Tinta amarilla para impresora";4
+13;"CU-01";"Cuchillas 1cm";"2050-01-01";"2020-01-01";150.0;100.0;1;"Cuchillas delgadas para recortar duroport, papel, etc";5
+14;"S-01";"Solvente";"2022-01-01";"2020-01-01";300.0;3785.0;1;"Solvente para pintura de estampado";4
+15;"CU-03";"Cuero Negro";"2025-01-01";"2020-01-01";1000.0;50000.0;1;"cada pieza tiene un tamanio de 1000 centimetros cuadrados y en base a esto se realiza el calculo";8
+16;"TI-01";"Tinner";"2021-08-01";"2020-03-09";0.18;1000.12;1;"Tinner para disolver cosas";4

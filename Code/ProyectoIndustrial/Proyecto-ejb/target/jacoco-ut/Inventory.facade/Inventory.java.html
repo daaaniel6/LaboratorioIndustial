@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Inventory.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Proyecto-ejb</a> &gt; <a href="index.source.html" class="el_package">Inventory.facade</a> &gt; <span class="el_source">Inventory.java</span></div><h1>Inventory.java</h1><pre class="source lang-java linenums">package Inventory.facade;
+
+import Inventory.objects.DesignUnits;
+import Inventory.objects.ProductionUnits;
+import Inventory.objects.SupplyQuantity;
+import Inventory.repository.InventoryRepository;
+import Production.Production;
+import javax.ejb.Stateless;
+import java.util.List;
+import java.util.Optional;
+import javax.ejb.EJB;
+
+/**
+ *
+ * @author angelrg
+ */
+@Stateless
+<span class="nc" id="L18">public class Inventory implements InventoryLocal {</span>
+    
+    private InventoryRepository inventoryRepository;
+    
+    @EJB
+    public void setInventoryRepository(InventoryRepository inventoryRepository) {
+<span class="nc" id="L24">        this.inventoryRepository = inventoryRepository;</span>
+<span class="nc" id="L25">    }</span>
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public List&lt;SupplyQuantity&gt; getNecessarySupplies(DesignUnits productionUnits) {
+<span class="nc" id="L32">        return inventoryRepository.getNecessarySupplies(productionUnits);</span>
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public double unitCost(DesignUnits designUnits) {
+<span class="nc" id="L40">        return inventoryRepository.unitCost(designUnits);</span>
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public double totalCost(DesignUnits designUnits) {
+<span class="nc" id="L48">        return inventoryRepository.totalCost(designUnits);</span>
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public List&lt;DesignUnits&gt; DesignWithUnitsPlaces(Integer id, String nameProduction) {
+<span class="nc" id="L56">        return inventoryRepository.DesignWithUnitsPlaces(id, nameProduction);</span>
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public List&lt;ProductionUnits&gt; getBestProductsBaseOnAvailableMaterial() {
+<span class="nc" id="L64">        return inventoryRepository.getBestProductsBaseOnAvailableMaterial();</span>
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public int maxUnitsByAvailableSupplies(Production production) {
+<span class="nc" id="L72">        return inventoryRepository.maxUnitsByAvailableSupplies(production);</span>
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public DesignUnits returnDesignUnit(ProductionUnits productionUnit) {
+<span class="nc bnc" id="L80" title="All 2 branches missed.">        if (productionUnit.getProduction().getPostDesign() != null) {</span>
+<span class="nc" id="L81">            return (new DesignUnits(productionUnit.getProduction().getPostDesign(), productionUnit.getUnits()));</span>
+        } else {
+<span class="nc" id="L83">            return (new DesignUnits(productionUnit.getProduction().getDesignId(), productionUnit.getUnits()));</span>
+        }
+    }
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

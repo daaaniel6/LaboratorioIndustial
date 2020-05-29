@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GroupService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Proyecto-ejb</a> &gt; <a href="index.source.html" class="el_package">Group.service</a> &gt; <span class="el_source">GroupService.java</span></div><h1>GroupService.java</h1><pre class="source lang-java linenums">package Group.service;
+
+import Group.GroupIndustrial;
+import static config.Constants.PERSISTENCE_UNIT_NAME;
+import javax.ejb.LocalBean;
+import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+/**
+ *
+ * @author angelrg
+ */
+@Stateless
+@LocalBean
+<span class="fc" id="L16">public class GroupService{</span>
+
+    @PersistenceContext(name = PERSISTENCE_UNIT_NAME)
+    private EntityManager entityManager;
+
+    public void setEntityManager(EntityManager entityManager) {
+<span class="fc" id="L22">        this.entityManager = entityManager;</span>
+<span class="fc" id="L23">    }</span>
+
+    public GroupIndustrial createGroup(GroupIndustrial group) {
+<span class="fc" id="L26">        entityManager.persist(group);</span>
+<span class="fc" id="L27">        return group;</span>
+    }
+
+    /**
+     * To update just information or section, send the same text, if the text is
+     * empty can't update the fill
+     *
+     * @param group
+     * @param information
+     * @param section
+     * @return
+     */
+    public GroupIndustrial updateGroup(GroupIndustrial group, String information, String section) {
+
+<span class="pc bpc" id="L41" title="1 of 4 branches missed.">        if ((information != null) &amp;&amp; (!information.isEmpty())) {</span>
+<span class="fc" id="L42">            group.setInformation(information);</span>
+        }
+<span class="pc bpc" id="L44" title="1 of 4 branches missed.">        if ((section != null) &amp;&amp; (!section.isEmpty())) {</span>
+<span class="fc" id="L45">            group.setSection(section);</span>
+        }
+
+<span class="fc" id="L48">        return entityManager.merge(group);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

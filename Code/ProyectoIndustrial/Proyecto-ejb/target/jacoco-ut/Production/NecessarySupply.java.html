@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>NecessarySupply.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Proyecto-ejb</a> &gt; <a href="index.source.html" class="el_package">Production</a> &gt; <span class="el_source">NecessarySupply.java</span></div><h1>NecessarySupply.java</h1><pre class="source lang-java linenums">package Production;
+
+import Supply.Supply;
+import Design.Design;
+import java.io.Serializable;
+import java.util.Objects;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+/**
+ *
+ * @author angelrg
+ */
+@Entity
+@Table(name = &quot;necessary_supply&quot;)
+public class NecessarySupply implements Serializable {
+
+    @Id
+    @Basic(optional = false)
+    @Column(name = &quot;id_necessary_supply&quot;)
+    private Integer idNecessarySupply;
+    @Basic(optional = false)
+    @Column(name = &quot;quantity&quot;)
+    private double quantity;
+    @JoinColumn(name = &quot;design_id&quot;, referencedColumnName = &quot;id_design&quot;)
+    @ManyToOne(optional = false)
+    private Design designId;
+    @JoinColumn(name = &quot;supply_code&quot;, referencedColumnName = &quot;code&quot;)
+    @ManyToOne(optional = false)
+    private Supply supplyCode;
+
+<span class="fc" id="L37">    public NecessarySupply() {</span>
+<span class="fc" id="L38">    }</span>
+
+<span class="nc" id="L40">    public NecessarySupply(Integer idNecessarySupply) {</span>
+<span class="nc" id="L41">        this.idNecessarySupply = idNecessarySupply;</span>
+<span class="nc" id="L42">    }</span>
+
+<span class="nc" id="L44">    public NecessarySupply(Integer idNecessarySupply, double quantity) {</span>
+<span class="nc" id="L45">        this.idNecessarySupply = idNecessarySupply;</span>
+<span class="nc" id="L46">        this.quantity = quantity;</span>
+<span class="nc" id="L47">    }</span>
+
+    @Override
+    public boolean equals(Object o) {
+<span class="pc bpc" id="L51" title="1 of 2 branches missed.">        if (this == o) {</span>
+<span class="fc" id="L52">            return true;</span>
+        }
+<span class="nc bnc" id="L54" title="All 2 branches missed.">        if (!(o instanceof NecessarySupply)) {</span>
+<span class="nc" id="L55">            return false;</span>
+        }
+<span class="nc" id="L57">        NecessarySupply necessarySupply = (NecessarySupply) o;</span>
+<span class="nc" id="L58">        return Objects.equals(getIdNecessarySupply(), necessarySupply.getIdNecessarySupply());</span>
+
+    }
+
+    @Override
+    public int hashCode() {
+<span class="nc" id="L64">        return Objects.hash(getIdNecessarySupply());</span>
+
+    }
+
+    public Integer getIdNecessarySupply() {
+<span class="fc" id="L69">        return idNecessarySupply;</span>
+    }
+
+    public void setIdNecessarySupply(Integer idNecessarySupply) {
+<span class="fc" id="L73">        this.idNecessarySupply = idNecessarySupply;</span>
+<span class="fc" id="L74">    }</span>
+
+    public double getQuantity() {
+<span class="nc" id="L77">        return quantity;</span>
+    }
+
+    public void setQuantity(double quantity) {
+<span class="nc" id="L81">        this.quantity = quantity;</span>
+<span class="nc" id="L82">    }</span>
+
+    public Design getDesignId() {
+<span class="fc" id="L85">        return designId;</span>
+    }
+
+    public void setDesignId(Design designId) {
+<span class="fc" id="L89">        this.designId = designId;</span>
+<span class="fc" id="L90">    }</span>
+
+    public Supply getSupplyCode() {
+<span class="nc" id="L93">        return supplyCode;</span>
+    }
+
+    public void setSupplyCode(Supply supplyCode) {
+<span class="nc" id="L97">        this.supplyCode = supplyCode;</span>
+<span class="nc" id="L98">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

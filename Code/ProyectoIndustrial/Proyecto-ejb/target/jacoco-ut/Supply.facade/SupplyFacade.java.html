@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SupplyFacade.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Proyecto-ejb</a> &gt; <a href="index.source.html" class="el_package">Supply.facade</a> &gt; <span class="el_source">SupplyFacade.java</span></div><h1>SupplyFacade.java</h1><pre class="source lang-java linenums">package Supply.facade;
+
+import Supply.Measure;
+import Supply.repository.ExpirationDateFilter;
+import Supply.repository.MeasureRepository;
+import Supply.repository.SupplyRepository;
+import java.util.List;
+import Supply.Supply;
+import Supply.exception.MandatoryAttributeSupplyException;
+import Supply.service.SupplyServices;
+import User.User;
+import User.exception.UserException;
+import javax.ejb.EJB;
+import javax.ejb.LocalBean;
+import javax.ejb.Stateless;
+import Supply.repository.AvailabilityFilter;
+import java.util.Optional;
+
+@Stateless
+@LocalBean
+<span class="nc" id="L21">public class SupplyFacade implements SupplyFacadeLocal {</span>
+
+    @EJB
+    private MeasureRepository measureRepository;
+
+    @EJB
+    private SupplyServices supplyService;
+
+    @EJB
+    private SupplyRepository supplyRepository;
+
+    @EJB
+    public void setMeasureRepository(MeasureRepository measureRepository) {
+<span class="nc" id="L34">        this.measureRepository = measureRepository;</span>
+<span class="nc" id="L35">    }</span>
+
+    @EJB
+    public void setSupplyService(SupplyServices supplyService) {
+<span class="nc" id="L39">        this.supplyService = supplyService;</span>
+<span class="nc" id="L40">    }</span>
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public List&lt;Measure&gt; getAllMeasures() {
+<span class="nc" id="L47">        return measureRepository.getAllMeasures();</span>
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Optional&lt;Measure&gt; getMeasureById(Integer id) {
+<span class="nc" id="L55">        return measureRepository.getMeasureById(id);</span>
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Supply createSupply(Supply newSupply) throws MandatoryAttributeSupplyException {
+<span class="nc" id="L63">        return supplyService.create(newSupply);</span>
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public List&lt;Supply&gt; searchSupplies(Integer codeSupply, String internalCode, String nameSupply, AvailabilityFilter availabilitySupply, ExpirationDateFilter expirationDateSupply) {
+<span class="nc" id="L71">        return supplyRepository.getSupply(codeSupply, nameSupply, internalCode, availabilitySupply, expirationDateSupply);</span>
+    }
+
+    @Override
+    public List&lt;Supply&gt; getSupplyAvailable() {
+<span class="nc" id="L76">        return supplyRepository.getSupply(null, null, null, AvailabilityFilter.AVAILABLE, null);</span>
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Supply modifyQuantity(Supply supplyToChange, Double newQuantity, User user, String noteModify) throws MandatoryAttributeSupplyException {
+<span class="nc" id="L84">        return supplyService.modifyQuantity(supplyToChange, newQuantity, user, noteModify);</span>
+    }
+
+    @Override
+    public Supply modifySupply(Supply supply) throws UserException {
+<span class="nc" id="L89">        return supplyService.modifySupply(supply);</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CommentaryRepository.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Proyecto-ejb</a> &gt; <a href="index.source.html" class="el_package">Production.repository</a> &gt; <span class="el_source">CommentaryRepository.java</span></div><h1>CommentaryRepository.java</h1><pre class="source lang-java linenums">package Production.repository;
+
+import Production.Commentary;
+import java.util.List;
+import java.util.Optional;
+import javax.ejb.LocalBean;
+import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import static config.Constants.PERSISTENCE_UNIT_NAME;
+import javax.persistence.NoResultException;
+import javax.persistence.TypedQuery;
+
+
+@Stateless
+@LocalBean
+<span class="fc" id="L17">public class CommentaryRepository {</span>
+    
+    public static final String FIND_BY_ID = &quot;SELECT g FROM COMMENTARY g WHERE g.id_commentary = :id&quot;;
+    public static final String FIND_BY_STAGE_ID = &quot;SELECT g FROM COMMENTARY g WHERE g.stage_id = :stageId&quot;;
+    public static final String GET_ALL = &quot;SELECT g FROM product g&quot;;
+    
+    
+    private EntityManager entityManager;
+    
+    @PersistenceContext(name = PERSISTENCE_UNIT_NAME)
+
+    public void setEntityManager(EntityManager entityManager) {
+<span class="fc" id="L29">        this.entityManager = entityManager;</span>
+<span class="fc" id="L30">    }</span>
+    
+    public Optional&lt;Commentary&gt; getCommentaryById(Integer id){
+<span class="fc" id="L33">        TypedQuery&lt;Commentary&gt; typedQuery = entityManager.createQuery(FIND_BY_ID,Commentary.class).setParameter(&quot;id&quot;, id);</span>
+        try {
+<span class="fc" id="L35">            return Optional.ofNullable(typedQuery.getSingleResult());</span>
+<span class="fc" id="L36">        } catch (NoResultException e) {</span>
+<span class="fc" id="L37">            return Optional.empty();</span>
+        }
+    }
+    
+    public Optional&lt;Commentary&gt; getCommentaryByStage(Integer stageId){
+<span class="fc" id="L42">        TypedQuery&lt;Commentary&gt; typedQuery = entityManager.createQuery(FIND_BY_STAGE_ID,Commentary.class).setParameter(&quot;stageId&quot;, stageId);</span>
+        try {
+<span class="fc" id="L44">            return Optional.ofNullable(typedQuery.getSingleResult());</span>
+<span class="fc" id="L45">        } catch (NoResultException e) {</span>
+<span class="fc" id="L46">            return Optional.empty();</span>
+        }
+    }
+    
+    public Optional&lt;List&lt;Commentary&gt;&gt; getAll(){
+<span class="fc" id="L51">        TypedQuery&lt;Commentary&gt; typedQuery = entityManager.createQuery(GET_ALL,Commentary.class);</span>
+        try {
+<span class="fc" id="L53">            return Optional.ofNullable(typedQuery.getResultList());</span>
+<span class="fc" id="L54">        } catch (NoResultException e) {</span>
+<span class="fc" id="L55">            return Optional.empty();</span>
+        }
+    }
+    
+    
+    
+    
+    
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

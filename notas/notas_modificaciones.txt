@@ -1,0 +1,27 @@
+Notas
+    conexion entre usuario y linea de produccion
+    crear grupos, agregar y eliminar usuarios (indicar usuarios y la fecha de creacion)
+    pantalla de historial de modificaciones
+    FIFO insumos, para su consumo
+    aviso de insumos en su cantidad minima (el administrador indica el minimo)
+    dar un orden en administracion de etapas
+    cambiar interfaza del pre-proceso
+    en la gestion de cantidades debe estar ordenado por fecha de caducidad
+    una interfaz para modificar los datos tentativos que se colocaron durante la produccion
+    cambiar de eliminar en desactivar productos
+    crear una llave foranea que haga referencia a anterior y siguiente en las etapas, pueden ser nulo
+    
+    
+    no son genericas las etapas (proceso o pre-proceso)
+
+    El atributo "Nota" de la modificación de un insumo no aparece en MOQUPS
+    Fecha de Creación del Producto
+    Insumos Necesarios Deberia estar ligado a un paso en lugar de a la producción
+    A que se refieren con el Tipo del Producto y en donde esta en la base de datos
+    Falta Fecha de Creación de una Producción en la BD
+    La relación entre produccion y etapas es de Muchos a Muchos y no de Uno a Muchos ?
+    Que es el "Tiempo" de una etapas
+    Costos Extra no estan considerados en el modelo de base de datos
+    Agregar tabla de gastos extras ?
+    Agregar pantalla eliminar por vencimiento
+    eliminar de usuarios de un Grupos

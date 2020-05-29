@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Design.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Proyecto-ejb</a> &gt; <a href="index.source.html" class="el_package">Design</a> &gt; <span class="el_source">Design.java</span></div><h1>Design.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Design;
+
+import Production.NecessarySupply;
+import Production.Product;
+import Production.Production;
+import java.io.Serializable;
+import java.util.List;
+import javax.persistence.Basic;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = &quot;design&quot;)
+public class Design implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = &quot;id_design&quot;)
+    private Integer idDesign;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = &quot;designId&quot;)
+    private List&lt;NecessarySupply&gt; necessarySupplyList;
+
+    @JoinColumn(name = &quot;design_data&quot;, referencedColumnName = &quot;iddesign_data&quot;)
+    @ManyToOne(cascade = CascadeType.ALL)
+    private DesignData designData;
+
+    @JoinColumn(name = &quot;product_id_product&quot;, referencedColumnName = &quot;id_product&quot;)
+    @ManyToOne
+    private Product productIdProduct;
+
+<span class="fc" id="L47">    public Design() {</span>
+<span class="fc" id="L48">    }</span>
+
+<span class="nc" id="L50">    public Design(Integer idDesign) {</span>
+<span class="nc" id="L51">        this.idDesign = idDesign;</span>
+<span class="nc" id="L52">    }</span>
+
+    public Integer getIdDesign() {
+<span class="nc" id="L55">        return idDesign;</span>
+    }
+
+    public void setIdDesign(Integer idDesign) {
+<span class="nc" id="L59">        this.idDesign = idDesign;</span>
+<span class="nc" id="L60">    }</span>
+
+    public List&lt;NecessarySupply&gt; getNecessarySupplyList() {
+<span class="nc" id="L63">        return necessarySupplyList;</span>
+    }
+
+    public void setNecessarySupplyList(List&lt;NecessarySupply&gt; necessarySupplyList) {
+<span class="nc" id="L67">        this.necessarySupplyList = necessarySupplyList;</span>
+<span class="nc" id="L68">    }</span>
+
+    public DesignData getDesignData() {
+<span class="nc" id="L71">        return designData;</span>
+    }
+
+    public void setDesignData(DesignData designData) {
+<span class="nc" id="L75">        this.designData = designData;</span>
+<span class="nc" id="L76">    }</span>
+
+    public Product getProductIdProduct() {
+<span class="nc" id="L79">        return productIdProduct;</span>
+    }
+
+    public void setProductIdProduct(Product productIdProduct) {
+<span class="nc" id="L83">        this.productIdProduct = productIdProduct;</span>
+<span class="nc" id="L84">    }</span>
+
+    @Override
+    public int hashCode() {
+<span class="nc" id="L88">        int hash = 0;</span>
+<span class="nc bnc" id="L89" title="All 2 branches missed.">        hash += (idDesign != null ? idDesign.hashCode() : 0);</span>
+<span class="nc" id="L90">        return hash;</span>
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+<span class="pc bpc" id="L96" title="1 of 2 branches missed.">        if (!(object instanceof Design)) {</span>
+<span class="nc" id="L97">            return false;</span>
+        }
+<span class="fc" id="L99">        Design other = (Design) object;</span>
+<span class="pc bpc" id="L100" title="5 of 8 branches missed.">        if ((this.idDesign == null &amp;&amp; other.idDesign != null) || (this.idDesign != null &amp;&amp; !this.idDesign.equals(other.idDesign))) {</span>
+<span class="nc" id="L101">            return false;</span>
+        }
+<span class="fc" id="L103">        return true;</span>
+    }
+
+    @Override
+    public String toString() {
+<span class="nc" id="L108">        return &quot;entidades.Design[ idDesign=&quot; + idDesign + &quot; ]&quot;;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

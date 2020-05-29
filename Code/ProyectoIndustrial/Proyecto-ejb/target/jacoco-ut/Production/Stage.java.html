@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Stage.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Proyecto-ejb</a> &gt; <a href="index.source.html" class="el_package">Production</a> &gt; <span class="el_source">Stage.java</span></div><h1>Stage.java</h1><pre class="source lang-java linenums">package Production;
+
+import java.io.Serializable;
+import java.util.List;
+import javax.persistence.Basic;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+/**
+ *
+ * @author damiel, angelrg
+ */
+@Entity
+@Table(name = &quot;stage&quot;)
+public class Stage implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = &quot;id_stage&quot;)
+    private Integer idStage;
+    @Basic(optional = false)
+    @Column(name = &quot;name&quot;)
+    private String name;
+    @Basic(optional = false)
+    @Column(name = &quot;description&quot;)
+    private String description;
+    @JoinColumn(name = &quot;production_id&quot;, referencedColumnName = &quot;id_production&quot;)
+    @ManyToOne(optional = false)
+    private Production productionId;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = &quot;stageId&quot;)
+    private List&lt;Step&gt; stepList;
+
+<span class="fc" id="L42">    public Stage() {</span>
+<span class="fc" id="L43">    }</span>
+
+<span class="nc" id="L45">    public Stage(Integer idStage) {</span>
+<span class="nc" id="L46">        this.idStage = idStage;</span>
+<span class="nc" id="L47">    }</span>
+
+<span class="fc" id="L49">    public Stage(Integer idStage, String name, String description) {</span>
+<span class="fc" id="L50">        this.idStage = idStage;</span>
+<span class="fc" id="L51">        this.name = name;</span>
+<span class="fc" id="L52">        this.description = description;</span>
+<span class="fc" id="L53">    }</span>
+
+    public Integer getIdStage() {
+<span class="fc" id="L56">        return idStage;</span>
+    }
+
+    public void setIdStage(Integer idStage) {
+<span class="fc" id="L60">        this.idStage = idStage;</span>
+<span class="fc" id="L61">    }</span>
+
+    public String getName() {
+<span class="fc" id="L64">        return name;</span>
+    }
+
+    public void setName(String name) {
+<span class="fc" id="L68">        this.name = name;</span>
+<span class="fc" id="L69">    }</span>
+
+    public String getDescription() {
+<span class="fc" id="L72">        return description;</span>
+    }
+
+    public void setDescription(String description) {
+<span class="fc" id="L76">        this.description = description;</span>
+<span class="fc" id="L77">    }</span>
+
+    public Production getProductionId() {
+<span class="fc" id="L80">        return productionId;</span>
+    }
+
+    public void setProductionId(Production productionId) {
+<span class="fc" id="L84">        this.productionId = productionId;</span>
+<span class="fc" id="L85">    }</span>
+
+    
+    public List&lt;Step&gt; getStepList() {
+<span class="nc" id="L89">        return stepList;</span>
+    }
+
+    public void setStepList(List&lt;Step&gt; stepList) {
+<span class="nc" id="L93">        this.stepList = stepList;</span>
+<span class="nc" id="L94">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

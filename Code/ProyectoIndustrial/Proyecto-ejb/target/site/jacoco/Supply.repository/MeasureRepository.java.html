@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MeasureRepository.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Proyecto-ejb</a> &gt; <a href="index.source.html" class="el_package">Supply.repository</a> &gt; <span class="el_source">MeasureRepository.java</span></div><h1>MeasureRepository.java</h1><pre class="source lang-java linenums">package Supply.repository;
+
+import Supply.Measure;
+import Supply.exception.MandatoryAttributeSupplyException;
+import java.util.List;
+import javax.ejb.LocalBean;
+import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+import static config.Constants.PERSISTENCE_UNIT_NAME;
+import java.util.ArrayList;
+import java.util.Optional;
+import javax.persistence.criteria.Predicate;
+
+@Stateless
+@LocalBean
+public class MeasureRepository {
+
+    private EntityManager entityManager;
+
+    @PersistenceContext(name = PERSISTENCE_UNIT_NAME)
+    public void setEntityManager(EntityManager entityManager) {
+<span class="fc" id="L27">        this.entityManager = entityManager;</span>
+<span class="fc" id="L28">    }</span>
+
+<span class="fc" id="L30">    public MeasureRepository() {</span>
+<span class="fc" id="L31">    }</span>
+
+    public List&lt;Measure&gt; getMeasure(Measure measure) throws MandatoryAttributeSupplyException {
+<span class="nc bnc" id="L34" title="All 2 branches missed.">        if (measure == null) {</span>
+<span class="nc" id="L35">            throw new MandatoryAttributeSupplyException(&quot;Measure is null&quot;);</span>
+        }
+<span class="nc" id="L37">        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();</span>
+<span class="nc" id="L38">        CriteriaQuery&lt;Measure&gt; criteriaQuery = criteriaBuilder.createQuery(Measure.class);</span>
+<span class="nc" id="L39">        Root&lt;Measure&gt; Measure = criteriaQuery.from(Measure.class);</span>
+<span class="nc" id="L40">        List&lt;Predicate&gt; predicates = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L41" title="All 2 branches missed.">        if (measure.getIdMeasure() != null) {</span>
+<span class="nc" id="L42">            predicates.add(criteriaBuilder.equal(Measure.get(&quot;idMeasure&quot;), measure.getIdMeasure()));</span>
+        }
+<span class="nc" id="L44">        criteriaQuery.where(predicates.stream().toArray(Predicate[]::new));</span>
+<span class="nc" id="L45">        TypedQuery&lt;Measure&gt; query = entityManager.createQuery(criteriaQuery);</span>
+<span class="nc" id="L46">        return query.getResultList();</span>
+    }
+
+    public Optional&lt;Measure&gt; getMeasureById(Integer id) {
+<span class="nc" id="L50">        return Optional.ofNullable(entityManager.find(Measure.class, id));</span>
+    }
+
+    public List&lt;Measure&gt; getAllMeasures() {
+<span class="fc" id="L54">        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();</span>
+<span class="fc" id="L55">        CriteriaQuery&lt;Measure&gt; criteriaQuery = criteriaBuilder.createQuery(Measure.class);</span>
+<span class="fc" id="L56">        Root&lt;Measure&gt; measure = criteriaQuery.from(Measure.class);</span>
+<span class="fc" id="L57">        criteriaQuery.select(measure);</span>
+<span class="fc" id="L58">        TypedQuery&lt;Measure&gt; query = entityManager.createQuery(criteriaQuery);</span>
+<span class="fc" id="L59">        return query.getResultList();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

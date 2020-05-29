@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ProductionFacade.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Proyecto-ejb</a> &gt; <a href="index.source.html" class="el_package">Production.facade</a> &gt; <span class="el_source">ProductionFacade.java</span></div><h1>ProductionFacade.java</h1><pre class="source lang-java linenums">package Production.facade;
+
+import Design.Design;
+import Design.DesignData;
+import Production.ExtraCost;
+import Production.NecessarySupply;
+import Production.Product;
+import Production.Production;
+import Production.Step;
+import Production.exceptions.MandatoryAttributeProductionException;
+import Production.repository.DesignRepository;
+import Production.repository.ProductRepository;
+import Production.repository.ProductionRepository;
+import Production.repository.StepRepository;
+import Production.service.DesignService;
+import Production.service.ProductionService;
+import Production.service.StepService;
+import User.exception.UserException;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import javax.ejb.EJB;
+import javax.ejb.Stateless;
+
+/**
+ *
+ * @author daniel
+ */
+@Stateless
+<span class="nc" id="L31">public class ProductionFacade implements ProductionFacadeLocal {</span>
+    
+    private ProductionService productionService;
+    private ProductionRepository productionRepository;
+    private ProductRepository productRepository;
+    private StepService stepService;
+    private StepRepository stepRepository;
+    private DesignRepository designRepository;
+    
+    private DesignService designService;
+    
+    @EJB
+    public void setStepService(StepService stepService) {
+<span class="nc" id="L44">        this.stepService = stepService;</span>
+<span class="nc" id="L45">    }</span>
+    
+    @EJB
+    public void setStepRepository(StepRepository stepRepository) {
+<span class="nc" id="L49">        this.stepRepository = stepRepository;</span>
+<span class="nc" id="L50">    }</span>
+    
+    @EJB
+    public void setProductRepository(ProductRepository productRepository) {
+<span class="nc" id="L54">        this.productRepository = productRepository;</span>
+<span class="nc" id="L55">    }</span>
+    
+    @EJB
+    public void setProductionService(ProductionService service) {
+<span class="nc" id="L59">        productionService = service;</span>
+<span class="nc" id="L60">    }</span>
+    
+    @EJB
+    public void setProductionRepository(ProductionRepository productionRepository) {
+<span class="nc" id="L64">        this.productionRepository = productionRepository;</span>
+<span class="nc" id="L65">    }</span>
+    
+    @EJB
+    public void setDesignService(DesignService designService) {
+<span class="nc" id="L69">        this.designService = designService;</span>
+<span class="nc" id="L70">    }</span>
+    
+    @EJB
+    public void setDesignRepository(DesignRepository designRepository) {
+<span class="nc" id="L74">        this.designRepository = designRepository;</span>
+<span class="nc" id="L75">    }</span>
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void createProduction(Production production) throws MandatoryAttributeProductionException {
+<span class="nc" id="L82">        productionService.create(production);</span>
+<span class="nc" id="L83">    }</span>
+
+    /**
+     *
+     * @param production
+     */
+    @Override
+    public void updateCommentayOfSteps(Production production) {
+<span class="nc" id="L91">        productionService.updateCommentayOfSteps(production);</span>
+<span class="nc" id="L92">    }</span>
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void editProduction(Production production) throws MandatoryAttributeProductionException {
+<span class="nc" id="L99">        productionService.edit(production);</span>
+<span class="nc" id="L100">    }</span>
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public List&lt;Production&gt; AllProductions() {
+<span class="nc" id="L107">        return productionRepository.AllProductions();</span>
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public List&lt;Product&gt; getProduct() {
+<span class="nc" id="L115">        Optional&lt;List&lt;Product&gt;&gt; lista = productRepository.getAll();</span>
+<span class="nc" id="L116">        return lista.get();</span>
+    }
+    
+    @Override
+    public void createDesign(Design design, DesignData designData, List&lt;NecessarySupply&gt; necessarySupplys) {
+<span class="nc" id="L121">        designService.createDesign(design, designData, necessarySupplys);</span>
+<span class="nc" id="L122">    }</span>
+    
+    @Override
+    public Design editDesign(Design design) throws MandatoryAttributeProductionException {
+<span class="nc" id="L126">        return designService.editDesign(design);</span>
+    }
+    
+    @Override
+    public List&lt;Design&gt; AllDesigns() {
+<span class="nc" id="L131">        List&lt;Design&gt; list = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L132">        list = designRepository.AllDesigns();</span>
+<span class="nc" id="L133">        return list;</span>
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Optional&lt;Design&gt; findDesignByID(Integer idDesign) {
+<span class="nc" id="L141">        return designRepository.findDesignByID(idDesign);</span>
+    }
+    
+    @Override
+    public Optional&lt;Production&gt; getProductionById(Integer id) {
+<span class="nc" id="L146">        return productionRepository.findByIdProduction(id);</span>
+    }
+    
+    @Override
+    public Optional&lt;Product&gt; getProductById(Integer id) {
+<span class="nc" id="L151">        return productRepository.getProductById(id);</span>
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public List&lt;Production&gt; findProduction(Integer idProduction, String name, LocalDate startDate, LocalDate endDate, boolean editable) {
+<span class="nc" id="L159">        return productionRepository.findProduction(idProduction, name, startDate, endDate, editable);</span>
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Production updateProduction(Production production) throws UserException {
+<span class="nc" id="L167">        return productionService.updateProduction(production);</span>
+    }
+    
+    @Override
+    public void updateExtraCost(List&lt;ExtraCost&gt; listExtraCost, Production production) throws MandatoryAttributeProductionException {
+<span class="nc" id="L172">        productionService.updateExtraCost(listExtraCost, production);</span>
+<span class="nc" id="L173">    }</span>
+    
+    @Override
+    public void addPostDedign(Design postDesign, Production production) throws MandatoryAttributeProductionException {
+<span class="nc" id="L177">        productionService.addPostDedign(postDesign, production);</span>
+<span class="nc" id="L178">    }</span>
+    
+    @Override
+    public double initCost(Production production) {
+        
+<span class="nc" id="L183">        return productionRepository.initCost(production);</span>
+    }
+    
+    @Override
+    public double finalCost(Production production) {
+        
+<span class="nc" id="L189">        return productionRepository.finalCost(production);</span>
+    }
+    
+    @Override
+    public double totalExtraCost(Production production) {
+        
+<span class="nc" id="L195">        return productionRepository.totalExtraCost(production);</span>
+    }
+    
+    @Override
+    public Step edit(Step oldStep) throws UserException {
+<span class="nc" id="L200">        return stepService.edit(oldStep);</span>
+    }
+    
+    @Override
+    public void remove(Step step) throws UserException {
+<span class="nc" id="L205">        stepService.remove(step);</span>
+<span class="nc" id="L206">    }</span>
+    
+    @Override
+    public Step createStep(Step step) throws UserException{
+<span class="nc" id="L210">        return stepService.createStep(step);</span>
+    }
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

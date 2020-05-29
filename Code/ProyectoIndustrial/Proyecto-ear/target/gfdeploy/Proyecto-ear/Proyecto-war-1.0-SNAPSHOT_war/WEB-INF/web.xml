@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="4.0" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
+
+    <context-param>
+        <param-name>javax.faces.PROJECT_STAGE</param-name>
+        <param-value>Production</param-value>
+    </context-param>
+    <context-param>
+        <param-name>primefaces.THEME</param-name>
+        <param-value>bootstrap</param-value>
+    </context-param>
+    <context-param>
+        <param-name>primefaces.FONT_AWESOME</param-name>
+        <param-value>true</param-value>
+    </context-param>
+    <servlet>
+        <servlet-name>Faces Servlet</servlet-name>
+        <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Faces Servlet</servlet-name>
+        <url-pattern>*.xhtml</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    <welcome-file-list>
+        <welcome-file>login.xhtml</welcome-file>
+    </welcome-file-list>
+    
+    <security-constraint>
+        <display-name>Principal</display-name>
+        <web-resource-collection>
+            <web-resource-name>template</web-resource-name>
+            <description/>
+            <url-pattern>/templates/*</url-pattern>
+        </web-resource-collection>
+        
+        <web-resource-collection>
+            <web-resource-name>user</web-resource-name>
+            <description/>
+            <url-pattern>/user/createUser.xhtml</url-pattern>
+        </web-resource-collection>
+        <web-resource-collection>
+            <web-resource-name>product</web-resource-name>
+            <description/>
+            <url-pattern>/product/createProduct.xhtml</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <description/>
+            <role-name>Docente</role-name>
+            <role-name>Administrador</role-name>
+        </auth-constraint>
+    </security-constraint>
+    
+    <security-constraint>
+        <display-name>CommonSecured</display-name>
+        
+        <web-resource-collection>
+            <web-resource-name>inventory</web-resource-name>
+            <description/>
+            <url-pattern>/inventory/*</url-pattern>
+        </web-resource-collection>
+        
+        <web-resource-collection>
+            <web-resource-name>production</web-resource-name>
+            <description/>
+            <url-pattern>/production/*</url-pattern>
+        </web-resource-collection>
+        
+        <web-resource-collection>
+            <web-resource-name>supply</web-resource-name>
+            <description/>
+            <url-pattern>/supplies/*</url-pattern>
+        </web-resource-collection>
+        
+        <web-resource-collection>
+            <web-resource-name>principal</web-resource-name>
+            <description/>
+            <url-pattern>/principal.xhtml</url-pattern>
+        </web-resource-collection>
+        
+        <web-resource-collection>
+            <web-resource-name>user</web-resource-name>
+            <description/>
+            <url-pattern>/user/users.xhtml</url-pattern>
+            <url-pattern>/user/userProfile.xhtml</url-pattern>
+        </web-resource-collection>
+        
+        <web-resource-collection>
+            <web-resource-name>products</web-resource-name>
+            <description/>
+            <url-pattern>/product/searchProduct.xhtml</url-pattern>
+        </web-resource-collection>
+        
+        <web-resource-collection>
+            <web-resource-name>design</web-resource-name>
+            <description/>
+            <url-pattern>/design/*</url-pattern>
+        </web-resource-collection>
+        
+        <web-resource-collection>
+            <web-resource-name>groups</web-resource-name>
+            <description/>
+            <url-pattern>/group/*</url-pattern>
+        </web-resource-collection>
+        
+        <auth-constraint>
+            <description/>
+            <role-name>Administrador</role-name>
+            <role-name>Estudiante</role-name>
+            <role-name>Docente</role-name>
+        </auth-constraint>
+    </security-constraint>
+    
+    <security-role>
+        <role-name>Administrador</role-name>
+    </security-role>
+    <security-role>
+        <role-name>Estudiante</role-name>
+    </security-role>
+    <security-role>
+        <role-name>Docente</role-name>
+    </security-role>
+</web-app>

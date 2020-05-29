@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Commentary.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Proyecto-ejb</a> &gt; <a href="index.source.html" class="el_package">Production</a> &gt; <span class="el_source">Commentary.java</span></div><h1>Commentary.java</h1><pre class="source lang-java linenums">package Production;
+
+import java.io.Serializable;
+import java.util.Objects;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = &quot;commentary&quot;)
+public class Commentary implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = &quot;id_commentary&quot;)
+    private Integer idCommentary;
+    @Basic(optional = false)
+    @Column(name = &quot;commentary&quot;)
+    private String commentary;
+    @JoinColumn(name = &quot;id_step&quot;, referencedColumnName = &quot;id_step&quot;)
+    @ManyToOne(optional = false)
+    private Step idStep;
+
+    @Override
+    public boolean equals(Object o) {
+<span class="pc bpc" id="L33" title="1 of 2 branches missed.">        if (this == o) {</span>
+<span class="fc" id="L34">            return true;</span>
+        }
+<span class="nc bnc" id="L36" title="All 2 branches missed.">        if (!(o instanceof Commentary)) {</span>
+<span class="nc" id="L37">            return false;</span>
+        }
+<span class="nc" id="L39">        Commentary commentary = (Commentary) o;</span>
+<span class="nc" id="L40">        return Objects.equals(getIdCommentary(), commentary.getIdCommentary());</span>
+
+    }
+
+    @Override
+    public int hashCode() {
+<span class="nc" id="L46">        return Objects.hash(getIdCommentary());</span>
+
+    }
+
+<span class="fc" id="L50">    public Commentary() {</span>
+<span class="fc" id="L51">    }</span>
+
+<span class="nc" id="L53">    public Commentary(Integer idCommentary) {</span>
+<span class="nc" id="L54">        this.idCommentary = idCommentary;</span>
+<span class="nc" id="L55">    }</span>
+
+<span class="nc" id="L57">    public Commentary(Integer idCommentary, String commentary) {</span>
+<span class="nc" id="L58">        this.idCommentary = idCommentary;</span>
+<span class="nc" id="L59">        this.commentary = commentary;</span>
+<span class="nc" id="L60">    }</span>
+
+    public Integer getIdCommentary() {
+<span class="fc" id="L63">        return idCommentary;</span>
+    }
+
+    public void setIdCommentary(Integer idCommentary) {
+<span class="fc" id="L67">        this.idCommentary = idCommentary;</span>
+<span class="fc" id="L68">    }</span>
+
+    public String getCommentary() {
+<span class="fc" id="L71">        return commentary;</span>
+    }
+
+    public void setCommentary(String commentary) {
+<span class="fc" id="L75">        this.commentary = commentary;</span>
+<span class="fc" id="L76">    }</span>
+
+    public Step getIdStep() {
+<span class="fc" id="L79">        return idStep;</span>
+    }
+
+    public void setIdStep(Step idStep) {
+<span class="fc" id="L83">        this.idStep = idStep;</span>
+<span class="fc" id="L84">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
