@@ -84,15 +84,15 @@
                 </div>
 
 
-                <!-- Nav Item - Pages Collapse Menu -->
-                <li class="nav-item active">
-                    <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePagesProduction" aria-expanded="true" aria-controls="collapsePagesProduction">
-                        <i class="fas fa-fw fa-folder"></i>
-                        <span>Produccion</span>
+                <!-- Nav Item - Productions Pages Collapse Menu -->
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePagesProduction" aria-expanded="true" aria-controls="collapsePagesProduction">
+                        <i class="fas fa-fw fa-chart-area"></i>
+                        <span>Producciones</span>
                     </a>
                     <div id="collapsePagesProduction" class="collapse show" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
-                            <h6 class="collapse-header">Producciones:</h6>
+                            <h6 class="collapse-header">Opciones:</h6>
 
                             <h:form >
                                 <p:link class="collapse-item" outcome="createProduction"> <div class="glyphicon glyphicon-plus"/> Crear </p:link>
@@ -100,48 +100,56 @@
                                 <p:link class="collapse-item" outcome="processProduction"> <div class="glyphicon glyphicon-play-circle"/> Trabajar</p:link>
                                 <p:link class="collapse-item" outcome="qualificationProduction"> <div class="glyphicon glyphicon-registration-mark"/> Calificar</p:link>
                             </h:form>
-                            
-                            
-                            <a class="collapse-item" href="createProduction">Register</a>
-                            <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
+
                             <div class="collapse-divider"></div>
-                            <h6 class="collapse-header">Other Pages:</h6>
-                            <a class="collapse-item" href="404.html">404 Page</a>
-                            <a class="collapse-item active" href="blank.html">Blank Page</a>
+                            <h6 class="collapse-header">Calcuar:</h6>
+                            <h:form >
+                                <p:link class="collapse-item" outcome="calcSupply"> <div class="glyphicon glyphicon-bitcoin"/> Por insumos </p:link>
+                                <p:link class="collapse-item" outcome="calcProduction"> <div class="glyphicon glyphicon-calendar"/> Mejor Produccion </p:link>
+                            </h:form>
+
+
                         </div>
                     </div>
                 </li>
 
 
 
-                <!-- Nav Item - Pages Collapse Menu -->
+                <!-- Nav Item - Designs Pages Collapse Menu -->
                 <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                        <i class="fas fa-fw fa-cog"></i>
-                        <span>Components</span>
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePagesDesigns" aria-expanded="true" aria-controls="collapsePagesDesigns">
+                        <i class="fas fa-fw fa-folder"></i>
+                        <span>Diseños</span>
                     </a>
-                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div id="collapsePagesDesigns" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
-                            <h6 class="collapse-header">Custom Components:</h6>
-                            <a class="collapse-item" href="buttons.html">Buttons</a>
-                            <a class="collapse-item" href="cards.html">Cards</a>
+                            <h6 class="collapse-header">Opciones:</h6>
+
+                            <h:form >
+                                <p:link class="collapse-item" outcome="createDesign"> <div class="glyphicon glyphicon-plus"/> Crear </p:link>
+                                <p:link class="collapse-item" outcome="designs"> <div class="glyphicon glyphicon-search"/> Buscar </p:link>
+                            </h:form>
+
+                            <div class="collapse-divider"></div>
                         </div>
                     </div>
                 </li>
 
-                <!-- Nav Item - Utilities Collapse Menu -->
+                <!-- Nav Item - products Pages Collapse Menu -->
                 <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePagesProduct" aria-expanded="true" aria-controls="collapsePagesProduct">
                         <i class="fas fa-fw fa-wrench"></i>
-                        <span>Utilities</span>
+                        <span>Productos</span>
                     </a>
-                    <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                    <div id="collapsePagesProduct" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
-                            <h6 class="collapse-header">Custom Utilities:</h6>
-                            <a class="collapse-item" href="utilities-color.html">Colors</a>
-                            <a class="collapse-item" href="utilities-border.html">Borders</a>
-                            <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                            <a class="collapse-item" href="utilities-other.html">Other</a>
+                            <h6 class="collapse-header">Opciones:</h6>
+
+                            <h:form >
+                                <p:link class="collapse-item" outcome="createProduct"> <div class="glyphicon glyphicon-plus"/> Crear </p:link>
+                                <p:link class="collapse-item" outcome="products"> <div class="glyphicon glyphicon-search"/> Buscar </p:link>
+                            </h:form>
+                            <div class="collapse-divider"></div>
                         </div>
                     </div>
                 </li>
@@ -151,42 +159,92 @@
 
                 <!-- Heading -->
                 <div class="sidebar-heading">
-                    Addons
+                    Inventario
                 </div>
 
-                <!-- Nav Item - Pages Collapse Menu -->
-                <li class="nav-item active">
-                    <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
-                        <i class="fas fa-fw fa-folder"></i>
-                        <span>Pages</span>
+
+                <!-- Nav Item - supply Pages Collapse Menu -->
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePagesSupply" aria-expanded="true" aria-controls="collapsePagesSupply">
+                        <i class="fas fa-fw fa-cog"></i>
+                        <span>Insumos</span>
                     </a>
-                    <div id="collapsePages" class="collapse show" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div id="collapsePagesSupply" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
-                            <h6 class="collapse-header">Login Screens:</h6>
-                            <a class="collapse-item" href="login.html">Login</a>
-                            <a class="collapse-item" href="register.html">Register</a>
-                            <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
+                            <h6 class="collapse-header">Opciones:</h6>
+
+                            <h:form >
+                                <p:link class="collapse-item" outcome="newSupply"> <div class="glyphicon glyphicon-plus"/> Crear </p:link>
+                                <p:link class="collapse-item" outcome="supplies"> <div class="glyphicon glyphicon-search"/> Buscar </p:link>
+                            </h:form>
+
+
                             <div class="collapse-divider"></div>
-                            <h6 class="collapse-header">Other Pages:</h6>
-                            <a class="collapse-item" href="404.html">404 Page</a>
-                            <a class="collapse-item active" href="blank.html">Blank Page</a>
+                            <h6 class="collapse-header">Historial:</h6>
+                            <h:form >
+                                <p:link class="collapse-item" outcome="modifySupply"> <div class="glyphicon glyphicon-plus"/> Modificaciones </p:link>
+                            </h:form>
+
                         </div>
                     </div>
                 </li>
 
-                <!-- Nav Item - Charts -->
+
+                <!-- Divider -->
+                <hr class="sidebar-divider"/>
+
+                <!-- Heading -->
+                <div class="sidebar-heading">
+                    Usuarios
+                </div>
+
+                <!-- Nav Item - Users Pages Collapse Menu -->
                 <li class="nav-item">
-                    <a class="nav-link" href="charts.html">
-                        <i class="fas fa-fw fa-chart-area"></i>
-                        <span>Charts</span></a>
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePagesUsers" aria-expanded="true" aria-controls="collapsePagesUsers">
+                        <i class="fas fa-fw fa-cog"></i>
+                        <span>Usuario</span>
+                    </a>
+                    <div id="collapsePagesUsers" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+
+
+                            <div class="collapse-divider"></div>
+                            <h6 class="collapse-header">Opciones:</h6>
+                            <h:form >
+                                <p:link class="collapse-item" outcome="create-users" rendered="#{p:ifAnyGranted(constants.adminDocente())}" > <div class="glyphicon glyphicon-plus"/> Crear </p:link>
+                                <p:link class="collapse-item" outcome="users"> <div class="glyphicon glyphicon-search"/> Buscar </p:link>
+                                <p:link class="collapse-item" outcome="userProfile"> <div class="glyphicon glyphicon-user"/> Perfil </p:link>
+                            </h:form>
+                        </div>
+                    </div>
                 </li>
 
-                <!-- Nav Item - Tables -->
+
+
+                <!-- Nav Item - Users Pages Collapse Menu -->
                 <li class="nav-item">
-                    <a class="nav-link" href="tables.html">
-                        <i class="fas fa-fw fa-table"></i>
-                        <span>Tables</span></a>
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePagesGroups" aria-expanded="true" aria-controls="collapsePagesGroups">
+                        <i class="fas fa-fw fa-cog"></i>
+                        <span>Grupos</span>
+                    </a>
+                    <div id="collapsePagesGroups" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+
+
+                            <div class="collapse-divider"></div>
+                            <h6 class="collapse-header">Opciones:</h6>
+                            <h:form >
+                                <p:link class="collapse-item" outcome="create-group"> <div class="glyphicon glyphicon-plus"/> Crear </p:link>
+                                <p:link class="collapse-item" outcome="groups"> <div class="glyphicon glyphicon-search"/> Buscar </p:link>
+                            </h:form>
+
+                        </div>
+                    </div>
                 </li>
+
+
+               
+
 
                 <!-- Divider -->
                 <hr class="sidebar-divider d-none d-md-block"/>
@@ -195,6 +253,10 @@
                 <div class="text-center d-none d-md-inline">
                     <button class="rounded-circle border-0" id="sidebarToggle"></button>
                 </div>
+
+
+
+
 
             </ul>
             <!-- End of Sidebar -->
@@ -404,6 +466,7 @@
                                     </a>
                                     <div class="dropdown-divider"></div>
 
+
                                     <h:form > 
                                         <h:commandLink  action="#{logoutView.logout()}" class="dropdown-item" >
                                             <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -492,7 +555,7 @@
 
 
         <!-- Bootstrap core JavaScript-->
-        <script src="resources/theme/vendor/jquery/jquery.min.js"></script>
+
         <script src="resources/theme/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
         <!-- Core plugin JavaScript-->
@@ -506,7 +569,7 @@
 
         <!-- Para xhtml que esten dentro de otra carpeta-->
         <!-- Bootstrap core JavaScript-->
-        <script src="../resources/theme/vendor/jquery/jquery.min.js"></script>
+
         <script src="../resources/theme/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
         <!-- Core plugin JavaScript-->
