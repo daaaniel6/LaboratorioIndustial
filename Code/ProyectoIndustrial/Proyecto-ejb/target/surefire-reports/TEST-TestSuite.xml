@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="161" failures="0" name="TestSuite" time="0.257" errors="0" skipped="0">
+<testsuite tests="161" failures="0" name="TestSuite" time="0.262" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="11.0.6+10"/>
@@ -59,72 +59,72 @@
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="Modify.repository.ModifySupplyRepositoryTest" name="findByIdTest" time="0.035"/>
-  <testcase classname="Modify.repository.ModifySupplyRepositoryTest" name="getAllTest" time="0.01"/>
+  <testcase classname="Modify.repository.ModifySupplyRepositoryTest" name="findByIdTest" time="0.032"/>
+  <testcase classname="Modify.repository.ModifySupplyRepositoryTest" name="getAllTest" time="0.009"/>
   <testcase classname="Modify.repository.ModifySupplyRepositoryTest" name="getMidificationBySupplyTest" time="0.001"/>
   <testcase classname="Modify.repository.ModifySupplyRepositoryTest" name="getMidificationByUserTest" time="0.001"/>
-  <testcase classname="Supply.SupplyTest" name="testSetAndGetAvailability" time="0.001"/>
+  <testcase classname="Supply.SupplyTest" name="testSetAndGetAvailability" time="0"/>
   <testcase classname="Supply.SupplyTest" name="testSetAndGetCode" time="0"/>
   <testcase classname="Supply.SupplyTest" name="testSetAndGetCost" time="0"/>
   <testcase classname="Supply.SupplyTest" name="testSetAndGetDateOfAdmission" time="0"/>
-  <testcase classname="Supply.SupplyTest" name="testSetAndGetDescription" time="0"/>
+  <testcase classname="Supply.SupplyTest" name="testSetAndGetDescription" time="0.001"/>
   <testcase classname="Supply.SupplyTest" name="testSetAndGetExpirationDate" time="0"/>
-  <testcase classname="Supply.SupplyTest" name="testSetAndGetInternalCode" time="0"/>
+  <testcase classname="Supply.SupplyTest" name="testSetAndGetInternalCode" time="0.001"/>
   <testcase classname="Supply.SupplyTest" name="testSetAndGetMeasure" time="0"/>
-  <testcase classname="Supply.SupplyTest" name="testSetAndGetName" time="0.001"/>
+  <testcase classname="Supply.SupplyTest" name="testSetAndGetName" time="0"/>
   <testcase classname="Supply.SupplyTest" name="testSetAndGetQuantity" time="0"/>
-  <testcase classname="Modify.service.ModifySupplyServiceTest" name="createModifySupplyTest" time="0.002"/>
+  <testcase classname="Modify.service.ModifySupplyServiceTest" name="createModifySupplyTest" time="0.003"/>
   <testcase classname="Production.ProductTest" name="testSetAndGetDescription" time="0"/>
   <testcase classname="Production.ProductTest" name="testSetAndGetIdProduct" time="0"/>
   <testcase classname="Production.ProductTest" name="testSetAndGetName" time="0"/>
   <testcase classname="Modify.ModifySupplyTest" name="testGetAndSetDate" time="0"/>
-  <testcase classname="Modify.ModifySupplyTest" name="testGetAndSetIdModifySupply" time="0"/>
+  <testcase classname="Modify.ModifySupplyTest" name="testGetAndSetIdModifySupply" time="0.001"/>
   <testcase classname="Modify.ModifySupplyTest" name="testGetAndSetNota" time="0"/>
-  <testcase classname="Modify.ModifySupplyTest" name="testGetAndSetQuantity" time="0.001"/>
+  <testcase classname="Modify.ModifySupplyTest" name="testGetAndSetQuantity" time="0"/>
   <testcase classname="Modify.ModifySupplyTest" name="testGetAndSetSupply" time="0"/>
   <testcase classname="Modify.ModifySupplyTest" name="testGetAndSetUser" time="0"/>
   <testcase classname="Production.StageTest" name="stageBuilderTest" time="0"/>
-  <testcase classname="Production.StageTest" name="testEquals" time="0"/>
+  <testcase classname="Production.StageTest" name="testEquals" time="0.001"/>
   <testcase classname="Production.StageTest" name="testSetAndGetDescription" time="0"/>
-  <testcase classname="Production.StageTest" name="testSetAndGetIdStage" time="0"/>
+  <testcase classname="Production.StageTest" name="testSetAndGetIdStage" time="0.001"/>
   <testcase classname="Production.StageTest" name="testSetAndGetName" time="0"/>
-  <testcase classname="Production.StageTest" name="testSetAndGetProductionId" time="0.001"/>
+  <testcase classname="Production.StageTest" name="testSetAndGetProductionId" time="0"/>
   <testcase classname="Supply.MeasureTest" name="testSetAndGetCollectionSupply" time="0"/>
   <testcase classname="Supply.MeasureTest" name="testSetAndGetIdMeasure" time="0.001"/>
   <testcase classname="Supply.MeasureTest" name="testSetAndGetName" time="0"/>
-  <testcase classname="Production.repository.StepRepositoryTest" name="AllProductionsTest" time="0.01"/>
+  <testcase classname="Production.repository.StepRepositoryTest" name="AllProductionsTest" time="0.012"/>
   <testcase classname="Production.repository.StepRepositoryTest" name="FindByIdProductionNoResultExceptionTest" time="0.004"/>
   <testcase classname="Production.repository.StepRepositoryTest" name="FindByIdProductionTest" time="0.001"/>
   <testcase classname="Production.repository.StepRepositoryTest" name="findProductionLikeNameTest" time="0.001"/>
   <testcase classname="Production.repository.CommentaryRepositoryTest" name="getAllWithNoResult" time="0.003"/>
   <testcase classname="Production.repository.CommentaryRepositoryTest" name="getAllWithResult" time="0.001"/>
   <testcase classname="Production.repository.CommentaryRepositoryTest" name="getCommentaryByIdResultWithNoResult" time="0.001"/>
-  <testcase classname="Production.repository.CommentaryRepositoryTest" name="getCommentaryByIdResultWithResult" time="0.001"/>
+  <testcase classname="Production.repository.CommentaryRepositoryTest" name="getCommentaryByIdResultWithResult" time="0.002"/>
   <testcase classname="Production.repository.CommentaryRepositoryTest" name="getCommentaryByStageWithNoResult" time="0.001"/>
   <testcase classname="Production.repository.CommentaryRepositoryTest" name="getCommentaryByStageWithResult" time="0.001"/>
-  <testcase classname="Supply.repository.MeasureRepositoryTest" name="getMeasuresTestEmpty" time="0.068"/>
+  <testcase classname="Supply.repository.MeasureRepositoryTest" name="getMeasuresTestEmpty" time="0.067"/>
   <testcase classname="Supply.repository.MeasureRepositoryTest" name="getMeasuresTestNoEmpty" time="0.002"/>
   <testcase classname="Production.repository.StageRepositoryTest" name="AllProductionsTest" time="0.001"/>
-  <testcase classname="Production.repository.StageRepositoryTest" name="FindByIdProductionNoResultExceptionTest" time="0.002"/>
+  <testcase classname="Production.repository.StageRepositoryTest" name="FindByIdProductionNoResultExceptionTest" time="0.001"/>
   <testcase classname="Production.repository.StageRepositoryTest" name="FindByIdProductionTest" time="0.001"/>
   <testcase classname="Production.repository.StageRepositoryTest" name="findProductionLikeNameTest" time="0.001"/>
   <testcase classname="Production.repository.ProductRepositoryTest" name="getAllWithNoResult" time="0.002"/>
   <testcase classname="Production.repository.ProductRepositoryTest" name="getAllWithResult" time="0.001"/>
-  <testcase classname="Production.repository.ProductRepositoryTest" name="getProductByIdtWithResult" time="0.001"/>
+  <testcase classname="Production.repository.ProductRepositoryTest" name="getProductByIdtWithResult" time="0"/>
   <testcase classname="Production.repository.ProductionRepositoryTest" name="AllProductionsTest" time="0"/>
-  <testcase classname="Production.repository.ProductionRepositoryTest" name="findProductionLikeNameTest" time="0"/>
+  <testcase classname="Production.repository.ProductionRepositoryTest" name="findProductionLikeNameTest" time="0.001"/>
   <testcase classname="Production.repository.NecessarySupplyRepositoryTest" name="getAllWithNoResult" time="0.002"/>
   <testcase classname="Production.repository.NecessarySupplyRepositoryTest" name="getAllWithResult" time="0.001"/>
   <testcase classname="Production.repository.NecessarySupplyRepositoryTest" name="getNecessarySupplyByIdWithNoResult" time="0.001"/>
   <testcase classname="Production.repository.NecessarySupplyRepositoryTest" name="getNecessarySupplyByIdWithResult" time="0"/>
-  <testcase classname="Production.repository.NecessarySupplyRepositoryTest" name="getNecessarySupplyByStepWithNoResult" time="0.001"/>
+  <testcase classname="Production.repository.NecessarySupplyRepositoryTest" name="getNecessarySupplyByStepWithNoResult" time="0"/>
   <testcase classname="Production.repository.NecessarySupplyRepositoryTest" name="getNecessarySupplyByStepWithResult" time="0.001"/>
   <testcase classname="Production.repository.NecessarySupplyRepositoryTest" name="getNecessarySupplyBySupplyWithNoResult" time="0.001"/>
-  <testcase classname="Production.repository.NecessarySupplyRepositoryTest" name="getNecessarySupplyBySupplyWithResult" time="0.002"/>
+  <testcase classname="Production.repository.NecessarySupplyRepositoryTest" name="getNecessarySupplyBySupplyWithResult" time="0.001"/>
   <testcase classname="Production.StepTest" name="stageBuilderTest" time="0"/>
-  <testcase classname="Production.StepTest" name="testEquals" time="0.001"/>
+  <testcase classname="Production.StepTest" name="testEquals" time="0"/>
   <testcase classname="Production.StepTest" name="testSetAndGetDescription" time="0"/>
-  <testcase classname="Production.StepTest" name="testSetAndGetIdStep" time="0.001"/>
+  <testcase classname="Production.StepTest" name="testSetAndGetIdStep" time="0"/>
   <testcase classname="Production.StepTest" name="testSetAndGetName" time="0"/>
   <testcase classname="Production.StepTest" name="testSetAndGetStageId" time="0"/>
   <testcase classname="Production.NecessarySupplyTest" name="testSetAndGetIdDesign" time="0.001"/>
@@ -134,30 +134,30 @@
   <testcase classname="Production.ProductionTest" name="testSetAndGetIdProduction" time="0"/>
   <testcase classname="Production.ProductionTest" name="testSetAndGetName" time="0"/>
   <testcase classname="Production.ProductionTest" name="testSetAndGetProduct" time="0"/>
-  <testcase classname="Production.ProductionTest" name="testSetAndGetState" time="0.001"/>
+  <testcase classname="Production.ProductionTest" name="testSetAndGetState" time="0"/>
   <testcase classname="Production.ProductionTest" name="testSetAndGetUnity" time="0"/>
   <testcase classname="Production.ProductionTest" name="testSetAndQuantit" time="0"/>
-  <testcase classname="Production.service.CommentaryServiceTest" name="createCommentaryTest" time="0.001"/>
-  <testcase classname="Production.service.CommentaryServiceTest" name="updateCommentaryStageIdTest" time="0.005"/>
-  <testcase classname="Production.service.CommentaryServiceTest" name="updateCommentaryTextTest" time="0.001"/>
-  <testcase classname="Production.service.ProductServiceTest" name="createProductTest" time="0.002"/>
-  <testcase classname="Production.service.ProductServiceTest" name="updateAllProductTest" time="0"/>
-  <testcase classname="Production.service.ProductServiceTest" name="updateNullProductTest" time="0"/>
+  <testcase classname="Production.service.CommentaryServiceTest" name="createCommentaryTest" time="0.002"/>
+  <testcase classname="Production.service.CommentaryServiceTest" name="updateCommentaryStageIdTest" time="0.004"/>
+  <testcase classname="Production.service.CommentaryServiceTest" name="updateCommentaryTextTest" time="0"/>
+  <testcase classname="Production.service.ProductServiceTest" name="createProductTest" time="0.001"/>
+  <testcase classname="Production.service.ProductServiceTest" name="updateAllProductTest" time="0.001"/>
+  <testcase classname="Production.service.ProductServiceTest" name="updateNullProductTest" time="0.001"/>
   <testcase classname="Production.service.ProductionServiceTest" name="MandatoryAttributeProductionExceptionDateEdit" time="0.001"/>
   <testcase classname="Production.service.ProductionServiceTest" name="MandatoryAttributeProductionExceptionNameCreate" time="0"/>
-  <testcase classname="Production.service.ProductionServiceTest" name="MandatoryAttributeProductionExceptionNameEdit" time="0"/>
+  <testcase classname="Production.service.ProductionServiceTest" name="MandatoryAttributeProductionExceptionNameEdit" time="0.001"/>
   <testcase classname="Production.service.ProductionServiceTest" name="MandatoryAttributeProductionExceptionUnityCreate" time="0"/>
-  <testcase classname="Production.service.ProductionServiceTest" name="editProductionTest" time="0.001"/>
+  <testcase classname="Production.service.ProductionServiceTest" name="editProductionTest" time="0"/>
   <testcase classname="Production.service.StageServiceTest" name="MandatoryAttributeProductionExceptionNameEdit" time="0"/>
   <testcase classname="Production.service.StageServiceTest" name="MandatoryAttributeProductionExceptionUnityEdit" time="0"/>
-  <testcase classname="Production.service.StageServiceTest" name="editProductionTest" time="0"/>
-  <testcase classname="Production.service.NecessarySupplyServiceTest" name="createNecessarySupply" time="0.001"/>
-  <testcase classname="Production.service.NecessarySupplyServiceTest" name="updateNecessarySupplyIdStepTest" time="0.007"/>
-  <testcase classname="Production.service.NecessarySupplyServiceTest" name="updateNecessarySupplyIdSupplyTest" time="0.001"/>
+  <testcase classname="Production.service.StageServiceTest" name="editProductionTest" time="0.001"/>
+  <testcase classname="Production.service.NecessarySupplyServiceTest" name="createNecessarySupply" time="0.002"/>
+  <testcase classname="Production.service.NecessarySupplyServiceTest" name="updateNecessarySupplyIdStepTest" time="0.004"/>
+  <testcase classname="Production.service.NecessarySupplyServiceTest" name="updateNecessarySupplyIdSupplyTest" time="0"/>
   <testcase classname="Production.service.StepServiceTest" name="editTest" time="0"/>
   <testcase classname="Production.CommentaryTest" name="testSetAndGetIdCommentary" time="0"/>
-  <testcase classname="Production.CommentaryTest" name="testSetAndGetPaso" time="0"/>
-  <testcase classname="Production.CommentaryTest" name="testSetAndGetText" time="0.001"/>
+  <testcase classname="Production.CommentaryTest" name="testSetAndGetPaso" time="0.002"/>
+  <testcase classname="Production.CommentaryTest" name="testSetAndGetText" time="0"/>
   <testcase classname="Group.repository.GroupUserRepositoryTest" name="findByIdTestWithResult" time="0.002"/>
   <testcase classname="Group.repository.GroupRepositoryTest" name="findByIdWithNoResult" time="0.002"/>
   <testcase classname="Group.repository.GroupRepositoryTest" name="findByIdWithResult" time="0.001"/>
@@ -171,53 +171,53 @@
   <testcase classname="Group.service.GroupServiceTest" name="updateGroupSectionAndInformationTest" time="0.001"/>
   <testcase classname="Group.service.GroupServiceTest" name="updateGroupSectionTest" time="0.001"/>
   <testcase classname="Group.service.GroupUserServiceTest" name="createGroupUserTest" time="0.002"/>
-  <testcase classname="Group.service.GroupUserServiceTest" name="removeUserFromGroupSuccessTest" time="0.001"/>
+  <testcase classname="Group.service.GroupUserServiceTest" name="removeUserFromGroupSuccessTest" time="0"/>
   <testcase classname="Group.service.GroupUserServiceTest" name="updateUserGroupTest" time="0"/>
-  <testcase classname="Group.GroupUserTest" name="testSetAndGetGroup" time="0"/>
+  <testcase classname="Group.GroupUserTest" name="testSetAndGetGroup" time="0.001"/>
   <testcase classname="Group.GroupUserTest" name="testSetAndGetIdGroupAdmissionDate" time="0"/>
   <testcase classname="Group.GroupUserTest" name="testSetAndGetIdGroupUser" time="0"/>
-  <testcase classname="Group.GroupUserTest" name="testSetAndGetUser" time="0"/>
+  <testcase classname="Group.GroupUserTest" name="testSetAndGetUser" time="0.001"/>
   <testcase classname="User.facade.UserFacadeTest" name="createCareerTest" time="0.001"/>
   <testcase classname="User.facade.UserFacadeTest" name="createUserTest" time="0.001"/>
   <testcase classname="User.facade.UserFacadeTest" name="getCareerTest" time="0.001"/>
   <testcase classname="User.facade.UserFacadeTest" name="getUserTest" time="0.001"/>
   <testcase classname="User.facade.UserFacadeTest" name="updateCareerTest" time="0"/>
   <testcase classname="User.facade.UserFacadeTest" name="updateUserTest" time="0.001"/>
-  <testcase classname="User.RolUserTest" name="testSetAndGetIdRolUser" time="0"/>
+  <testcase classname="User.RolUserTest" name="testSetAndGetIdRolUser" time="0.001"/>
   <testcase classname="User.RolUserTest" name="testSetAndGetName" time="0"/>
-  <testcase classname="User.repository.RolUserRepositoryTest" name="getRolUser" time="0.01"/>
-  <testcase classname="User.repository.RolUserRepositoryTest" name="getRolUserWithId" time="0.006"/>
+  <testcase classname="User.repository.RolUserRepositoryTest" name="getRolUser" time="0.012"/>
+  <testcase classname="User.repository.RolUserRepositoryTest" name="getRolUserWithId" time="0.008"/>
   <testcase classname="User.repository.RolUserRepositoryTest" name="getRolUserWithName" time="0.002"/>
   <testcase classname="User.repository.CareerRepositoryTest" name="getCareer" time="0.002"/>
   <testcase classname="User.repository.CareerRepositoryTest" name="getCareerWithId" time="0.001"/>
-  <testcase classname="User.repository.CareerRepositoryTest" name="getCareerWithName" time="0.001"/>
+  <testcase classname="User.repository.CareerRepositoryTest" name="getCareerWithName" time="0.002"/>
   <testcase classname="User.repository.UserRepositoryTest" name="getUseTest" time="0.002"/>
-  <testcase classname="User.repository.UserRepositoryTest" name="getUserByCarnetEmptyTest" time="0.003"/>
+  <testcase classname="User.repository.UserRepositoryTest" name="getUserByCarnetEmptyTest" time="0.005"/>
   <testcase classname="User.repository.UserRepositoryTest" name="getUserByCarnetTest" time="0.001"/>
-  <testcase classname="User.repository.UserRepositoryTest" name="getUserWithCarnetTest" time="0.002"/>
-  <testcase classname="User.repository.UserRepositoryTest" name="getUserWithIdCareer" time="0.001"/>
+  <testcase classname="User.repository.UserRepositoryTest" name="getUserWithCarnetTest" time="0.003"/>
+  <testcase classname="User.repository.UserRepositoryTest" name="getUserWithIdCareer" time="0.004"/>
   <testcase classname="User.repository.UserRepositoryTest" name="getUserWithNameTest" time="0.001"/>
   <testcase classname="User.repository.UserRepositoryTest" name="getUserWithStateTest" time="0.002"/>
   <testcase classname="User.CareerTest" name="testSetAndGetIdCareer" time="0"/>
   <testcase classname="User.CareerTest" name="testSetAndGetName" time="0.001"/>
   <testcase classname="User.service.UserServiceTest" name="createUserNullTest" time="0"/>
   <testcase classname="User.service.UserServiceTest" name="createUserTest" time="0.001"/>
-  <testcase classname="User.service.UserServiceTest" name="updateUserNullTest" time="0.001"/>
+  <testcase classname="User.service.UserServiceTest" name="updateUserNullTest" time="0"/>
   <testcase classname="User.service.UserServiceTest" name="updateUserTest" time="0.001"/>
-  <testcase classname="User.service.CareerServiceTest" name="createCareerNullTest" time="0.001"/>
+  <testcase classname="User.service.CareerServiceTest" name="createCareerNullTest" time="0"/>
   <testcase classname="User.service.CareerServiceTest" name="createCareerTest" time="0"/>
   <testcase classname="User.service.CareerServiceTest" name="updateCareerNullTest" time="0"/>
   <testcase classname="User.service.CareerServiceTest" name="updateCareerTest" time="0.001"/>
   <testcase classname="User.service.RolUserServiceTest" name="createCareerNullTest" time="0.001"/>
-  <testcase classname="User.service.RolUserServiceTest" name="createCareerTest" time="0"/>
+  <testcase classname="User.service.RolUserServiceTest" name="createCareerTest" time="0.001"/>
   <testcase classname="User.service.RolUserServiceTest" name="updateCareerNullTest" time="0"/>
-  <testcase classname="User.service.RolUserServiceTest" name="updateCareerTest" time="0"/>
-  <testcase classname="User.UserTest" name="setAndGetCareer" time="0.001"/>
+  <testcase classname="User.service.RolUserServiceTest" name="updateCareerTest" time="0.001"/>
+  <testcase classname="User.UserTest" name="setAndGetCareer" time="0"/>
   <testcase classname="User.UserTest" name="setAndGetCarnet" time="0"/>
   <testcase classname="User.UserTest" name="setAndGetEmail" time="0"/>
   <testcase classname="User.UserTest" name="setAndGetName" time="0"/>
-  <testcase classname="User.UserTest" name="setAndGetPassword" time="0"/>
+  <testcase classname="User.UserTest" name="setAndGetPassword" time="0.001"/>
   <testcase classname="User.UserTest" name="setAndGetPhone" time="0"/>
   <testcase classname="User.UserTest" name="setAndGetRoluser" time="0"/>
-  <testcase classname="User.UserTest" name="setAndGetState" time="0.001"/>
+  <testcase classname="User.UserTest" name="setAndGetState" time="0"/>
 </testsuite>
