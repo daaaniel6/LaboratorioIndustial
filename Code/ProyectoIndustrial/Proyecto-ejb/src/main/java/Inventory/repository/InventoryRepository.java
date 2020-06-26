@@ -118,7 +118,9 @@ public class InventoryRepository {
         List<Design> designs = designRepository.getDesign(id, nameProduction);
         List<DesignUnits> designUnits = new ArrayList<>();
         for (Design design : designs) {
+            if(design.getDesignData() != null){
             designUnits.add(new DesignUnits(design, 1));
+            }
         }
         return designUnits;
     }

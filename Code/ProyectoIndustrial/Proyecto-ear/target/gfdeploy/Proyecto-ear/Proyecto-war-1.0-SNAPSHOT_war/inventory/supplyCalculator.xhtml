@@ -19,8 +19,9 @@
                 <legend>Calcular Insumo Necesarios por Diseño</legend>
                 <div class="row">
                     <div class="form-group col-sm-4">
-                        <p:outputLabel for="idDesign" value="Codigo de la Produccion:" />
-                        <p:spinner id="idDesign" styleClass="form-control"
+                        <p:outputLabel for="idDesign" value="Codigo de la Produccion:  " />
+                        <br/>
+                        <p:spinner id="idDesign"
                                    min="0" value="#{supplyCalculatorView.id}"/>
                     </div>
                     <div class="form-group col-sm-4">
@@ -55,7 +56,7 @@
                         <h:outputText value="#{designL.design.designData.description}" />
                     </p:column>
                     <p:column headerText="Unidades" styleClass="text-center">
-                        <p:spinner min="1" value="#{designL.units}" styleClass="form-control">
+                        <p:spinner min="1" value="#{designL.units}" >
                             <f:convertNumber integerOnly="true"/>
                         </p:spinner>
                     </p:column>
