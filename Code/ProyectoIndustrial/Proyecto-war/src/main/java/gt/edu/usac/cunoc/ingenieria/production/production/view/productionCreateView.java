@@ -119,7 +119,16 @@ public class productionCreateView implements Serializable {
         groups = new ArrayList<>();
         designs = new ArrayList<>();
 
-        designs = productionFacadeLocal.AllDesigns();
+        
+        List<Design> designsNotNull = new ArrayList<Design>();
+        designsNotNull = productionFacadeLocal.AllDesigns();
+        for (int i = 0; i < designsNotNull.size(); i++) {
+            if(designsNotNull.get(i).getDesignData() != null){
+                designs.add(designsNotNull.get(i));
+            }
+                
+        }
+        
         groups = groupFacadelocal.getAll();
 
     }

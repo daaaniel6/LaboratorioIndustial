@@ -7,6 +7,9 @@
       xmlns:jsf="http://xmlns.jcp.org/jsf">
 
     <h:head>
+        
+        
+        
         <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
         <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700"></link>
         <link href="#{resource['icons/favicon.png']}" rel="shortcut icon" type="image/x-icon" />
@@ -16,72 +19,467 @@
         <h:outputScript name="jquery/jquery-plugins.js" library="primefaces" />
         <h:outputScript name="core.js" library="primefaces" />
 
+
+
+        <!-- Custom fonts for this template-->
+        <link href="resources/theme/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"/>
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet"/>
+
+        <!-- Custom styles for this template-->
+        <link href="resources/theme/css/sb-admin-2.min.css" rel="stylesheet"/>
+
+
+        <!-- Para los xhtml que estan dentro de otra carpeta aparte de la de web pages-->
+        <!-- Custom fonts for this template-->
+        <link href="../resources/theme/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"/>
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet"/>
+
+        <!-- Custom styles for this template-->
+        <link href="../resources/theme/css/sb-admin-2.min.css" rel="stylesheet"/>
+
+
+        
+      
+        
+        
         <ui:insert name="head-extras">
             <!--head extras-->
         </ui:insert>
         <title>
-            Industrial | 
+            Ingenieria | 
             <ui:insert name="head">
-                page head
+                CUNOC
             </ui:insert>
         </title>
     </h:head>
 
     <h:body>
         <p:growl id="growl" showDetail="false" />
-        <div class="container theme-showcase" role="main">
-            <!--<main-menu params="routerObj: routerObj, authModel: authModelObj"></main-menu>-->
-            <nav class="navbar navbar-default">
-                <div class="container-fluid">
-                    <!-- Brand and toggle get grouped for better mobile display -->
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                            <span class="sr-only-focusable">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <p:link class="navbar-brand" outcome="principal" value="Laboratorio Industrial"/>
-                    </div>
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav nav-tabs">
-                            <li>
-                                <p:link outcome="users" value="Usuarios"/>
-                            </li>
-                            <li>
-                                <p:link outcome="groups" value="Grupos"/>
-                            </li>
-                            <li>
-                                <p:link outcome="supplies" value="Insumos"/>
-                            </li>
-                            <li>
-                                <p:link value="Producción" outcome="searchProduction"/>
-                            </li>
-                            <h:form>
-                                <ul class="nav navbar-nav navbar-right">
-                                    <li jsf:rendered="#{not empty request.userPrincipal}">
-                                        <p class="navbar-text">logueado como 
-                                            <h:commandLink styleClass="navbar-link"
-                                                           action="userProfile"
-                                                           value="#{p:remoteUser()}"/>,
-                                            <h:commandLink styleClass="navbar-link"
-                                                           action="#{logoutView.logout()}"
-                                                           value="Salir"/>
-                                        </p>
-                                    </li>
-                                </ul>
-                            </h:form>
-                        </ul>
-                    </div><!-- /.navbar-collapse -->
-                </div><!-- /.container-fluid -->
-            </nav>
 
-            <div id="page" class="container">
-                <ui:insert name="content">
-                    content
-                </ui:insert>
+
+        <!-- Page Wrapper -->
+        <div id="wrapper">
+
+            <!-- Sidebar -->
+            <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+                <!-- Sidebar - Brand -->
+                <a class="sidebar-brand d-flex align-items-center justify-content-center"  href="principal.xhtml">
+                    <div class="sidebar-brand-icon rotate-n-15">
+                        <h:graphicImage library="img" name="usac-logo.png" styleClass="img-profile rounded-circle" width="30" height="30" />
+                    </div>
+                    <div class="sidebar-brand-text mx-3">Usac <sup>cunoc</sup></div>
+                </a>
+
+                <!-- Divider -->
+                <hr class="sidebar-divider my-0"/>
+
+                <!-- Nav Item - Dashboard -->
+                <li class="nav-item">
+                    <p:link class="nav-link" outcome="principal">
+                        <i class="fas fa-fw fa-tachometer-alt"></i>
+                        <span>Principal</span>
+                    </p:link>
+                </li>
+
+                <!-- Divider -->
+                <hr class="sidebar-divider"/>
+
+                <!-- Heading -->
+                <div class="sidebar-heading">
+                    Produccion
+                </div>
+
+
+                <!-- Nav Item - Productions Pages Collapse Menu -->
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePagesProduction" aria-expanded="true" aria-controls="collapsePagesProduction">
+                        <i class="fas fa-fw fa-chart-area"></i>
+                        <span>Producciones</span>
+                    </a>
+                    <div id="collapsePagesProduction" class="collapse show" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">Opciones:</h6>
+
+                            <h:form >
+                                <p:link class="collapse-item" outcome="createProduction"> <div class="glyphicon glyphicon-plus"/> Crear </p:link>
+                                <p:link class="collapse-item" outcome="searchProduction"> <div class="glyphicon glyphicon-search"/> Buscar </p:link>
+                                <p:link class="collapse-item" outcome="processProduction"> <div class="glyphicon glyphicon-play-circle"/> Trabajar</p:link>
+                                <p:link class="collapse-item" outcome="qualificationProduction"> <div class="glyphicon glyphicon-registration-mark"/> Calificar</p:link>
+                            </h:form>
+
+                            <div class="collapse-divider"></div>
+                            <h6 class="collapse-header">Calcuar:</h6>
+                            <h:form >
+                                <p:link class="collapse-item" outcome="calcSupply"> <div class="glyphicon glyphicon-bitcoin"/> Por insumos </p:link>
+                                <p:link class="collapse-item" outcome="calcProduction"> <div class="glyphicon glyphicon-calendar"/> Mejor Produccion </p:link>
+                            </h:form>
+
+
+                        </div>
+                    </div>
+                </li>
+
+
+
+                <!-- Nav Item - Designs Pages Collapse Menu -->
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePagesDesigns" aria-expanded="true" aria-controls="collapsePagesDesigns">
+                        <i class="fas fa-fw fa-folder"></i>
+                        <span>Diseños</span>
+                    </a>
+                    <div id="collapsePagesDesigns" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">Opciones:</h6>
+
+                            <h:form >
+                                <p:link class="collapse-item" outcome="createDesign"> <div class="glyphicon glyphicon-plus"/> Crear </p:link>
+                                <p:link class="collapse-item" outcome="designs"> <div class="glyphicon glyphicon-search"/> Buscar </p:link>
+                            </h:form>
+
+                            <div class="collapse-divider"></div>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- Nav Item - products Pages Collapse Menu -->
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePagesProduct" aria-expanded="true" aria-controls="collapsePagesProduct">
+                        <i class="fas fa-fw fa-wrench"></i>
+                        <span>Productos</span>
+                    </a>
+                    <div id="collapsePagesProduct" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">Opciones:</h6>
+
+                            <h:form >
+                                <p:link class="collapse-item" outcome="createProduct"> <div class="glyphicon glyphicon-plus"/> Crear </p:link>
+                                <p:link class="collapse-item" outcome="products"> <div class="glyphicon glyphicon-search"/> Buscar </p:link>
+                            </h:form>
+                            <div class="collapse-divider"></div>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- Divider -->
+                <hr class="sidebar-divider"/>
+
+                <!-- Heading -->
+                <div class="sidebar-heading">
+                    Inventario
+                </div>
+
+
+                <!-- Nav Item - supply Pages Collapse Menu -->
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePagesSupply" aria-expanded="true" aria-controls="collapsePagesSupply">
+                        <i class="fas fa-fw fa-cog"></i>
+                        <span>Insumos</span>
+                    </a>
+                    <div id="collapsePagesSupply" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">Opciones:</h6>
+
+                            <h:form >
+                                <p:link class="collapse-item" outcome="newSupply"> <div class="glyphicon glyphicon-plus"/> Crear </p:link>
+                                <p:link class="collapse-item" outcome="supplies"> <div class="glyphicon glyphicon-search"/> Buscar </p:link>
+                            </h:form>
+
+
+                            <div class="collapse-divider"></div>
+                            <h6 class="collapse-header">Historial:</h6>
+                            <h:form >
+                                <p:link class="collapse-item" outcome="modifySupply"> <div class="glyphicon glyphicon-plus"/> Modificaciones </p:link>
+                            </h:form>
+
+                        </div>
+                    </div>
+                </li>
+
+
+                <!-- Divider -->
+                <hr class="sidebar-divider"/>
+
+                <!-- Heading -->
+                <div class="sidebar-heading">
+                    Usuarios
+                </div>
+
+                <!-- Nav Item - Users Pages Collapse Menu -->
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePagesUsers" aria-expanded="true" aria-controls="collapsePagesUsers">
+                        <i class="fas fa-fw fa-cog"></i>
+                        <span>Usuario</span>
+                    </a>
+                    <div id="collapsePagesUsers" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+
+
+                            <div class="collapse-divider"></div>
+                            <h6 class="collapse-header">Opciones:</h6>
+                            <h:form >
+                                <p:link class="collapse-item" outcome="create-users" rendered="#{p:ifAnyGranted(constants.adminDocente())}" > <div class="glyphicon glyphicon-plus"/> Crear </p:link>
+                                <p:link class="collapse-item" outcome="users"> <div class="glyphicon glyphicon-search"/> Buscar </p:link>
+                                <p:link class="collapse-item" outcome="userProfile"> <div class="glyphicon glyphicon-user"/> Perfil </p:link>
+                            </h:form>
+                        </div>
+                    </div>
+                </li>
+
+
+
+                <!-- Nav Item - Users Pages Collapse Menu -->
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePagesGroups" aria-expanded="true" aria-controls="collapsePagesGroups">
+                        <i class="fas fa-fw fa-cog"></i>
+                        <span>Grupos</span>
+                    </a>
+                    <div id="collapsePagesGroups" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+
+
+                            <div class="collapse-divider"></div>
+                            <h6 class="collapse-header">Opciones:</h6>
+                            <h:form >
+                                <p:link class="collapse-item" outcome="create-group"> <div class="glyphicon glyphicon-plus"/> Crear </p:link>
+                                <p:link class="collapse-item" outcome="groups"> <div class="glyphicon glyphicon-search"/> Buscar </p:link>
+                            </h:form>
+
+                        </div>
+                    </div>
+                </li>
+
+
+
+
+
+                <!-- Divider -->
+                <hr class="sidebar-divider d-none d-md-block"/>
+
+                <!-- Sidebar Toggler (Sidebar) -->
+                <div class="text-center d-none d-md-inline">
+                    <button class="rounded-circle border-0" id="sidebarToggle"></button>
+                </div>
+
+
+
+
+
+            </ul>
+            <!-- End of Sidebar -->
+
+            <!-- Content Wrapper -->
+            <div id="content-wrapper" class="d-flex flex-column">
+
+                <!-- Main Content -->
+                <div id="content">
+
+                    <!-- Topbar -->
+                    <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                        <!-- Sidebar Toggle (Topbar) -->
+                        <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                            <i class="fa fa-bars"></i>
+                        </button>
+
+
+                        <!-- Topbar Navbar -->
+                        <ul class="navbar-nav ml-auto">
+
+                            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+
+                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                <ul class="nav nav-tabs">
+                                    <li>
+                                        <p:link outcome="users" value="Usuarios"/>
+                                    </li>
+                                    <li>
+                                        <p:link outcome="groups" value="Grupos"/>
+                                    </li>
+                                    <li>
+                                        <p:link outcome="supplies" value="Insumos"/>
+                                    </li>
+                                    <li>
+                                        <p:link value="Producción" outcome="searchProduction"/>
+                                    </li>
+
+                                </ul>
+                            </div><!-- /.navbar-collapse -->
+
+
+
+                            <li class="nav-item dropdown no-arrow d-sm-none">
+                                <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-search fa-fw"></i>
+                                </a>
+                                <!-- Dropdown - Messages -->
+                                <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
+                                    <form class="form-inline mr-auto w-100 navbar-search">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2"/>
+                                            <div class="input-group-append">
+                                                <button class="btn btn-primary" type="button">
+                                                    <i class="fas fa-search fa-sm"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </li>
+
+                            
+                          
+
+                            <div class="topbar-divider d-none d-sm-block"></div>
+
+                            <!-- Nav Item - User Information -->
+                            <li class="nav-item dropdown no-arrow">
+                                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small"  > <p:outputLabel value="#{p:remoteUser()}"/> </span>
+                                    <h:graphicImage library="img" name="usuario-02.jpg" styleClass="img-profile rounded-circle" width="20" height="20" />
+                                </a>
+                                <!-- Dropdown - User Information -->
+                                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+
+
+                                    <h:form >
+                                        <h:commandLink action="userProfile" class="dropdown-item">
+                                            <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                            Mi Perfil
+                                        </h:commandLink>
+                                    </h:form>
+
+
+                                    <div class="dropdown-divider"></div>
+
+
+                                    <h:form > 
+                                        <h:commandLink  action="#{logoutView.logout()}" class="dropdown-item" >
+                                            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                            Salir
+                                        </h:commandLink>
+                                    </h:form>
+
+
+                                    
+
+                                </div>
+                            </li>
+
+
+                        </ul>
+
+                    </nav>
+                    <!-- End of Topbar -->
+
+
+
+
+
+
+                    <!-- Begin Page Content -->
+                    <div id="page" class="container">
+                        <ui:insert name="content">
+                            content
+
+
+
+
+
+                        </ui:insert>
+                    </div>
+                    <!-- /.container-fluid -->
+
+                </div>
+                <!-- End of Main Content -->
+
+                <!-- Footer -->
+                <footer class="sticky-footer bg-white">
+                    <div class="container my-auto">
+                        <div class="copyright text-center my-auto">
+                            <span>Copyright &copy; Ingenieria en Ciencias y Sistemas 10mo. Semestre 2020</span>
+                        </div>
+                    </div>
+                </footer>
+                <!-- End of Footer -->
+
+            </div>
+            <!-- End of Content Wrapper -->
+
+        </div>
+        <!-- End of Page Wrapper -->
+
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- Logout Modal-->
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                        <a class="btn btn-primary" href="login.html">Logout</a>
+                    </div>
+                </div>
             </div>
         </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- Bootstrap core JavaScript-->
+
+        <script src="resources/theme/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Core plugin JavaScript-->
+        <script src="resources/theme/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+        <!-- Custom scripts for all pages-->
+        <script src="resources/theme/js/sb-admin-2.min.js"></script>
+
+
+
+
+        <!-- Para xhtml que esten dentro de otra carpeta-->
+        <!-- Bootstrap core JavaScript-->
+
+        <script src="../resources/theme/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Core plugin JavaScript-->
+        <script src="../resources/theme/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+        <!-- Custom scripts for all pages-->
+        <script src="../resources/theme/js/sb-admin-2.min.js"></script>
     </h:body>
 
 </html>

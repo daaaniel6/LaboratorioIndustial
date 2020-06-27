@@ -70,8 +70,15 @@ public class designEditView implements Serializable {
     public void init() {
         designSelectedEdit = new Design();
         listDesignEdit = new ArrayList<>();
+        List<Design> designs = new ArrayList<>();
 
-        listDesignEdit = productionFacadeLocal.AllDesigns();
+        designs = productionFacadeLocal.AllDesigns();
+
+        for (int i = 0; i < designs.size(); i++) {
+            if (designs.get(i).getDesignData() != null) {
+                listDesignEdit.add(designs.get(i));
+            }
+        }
 
     }
 

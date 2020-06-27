@@ -17,46 +17,129 @@
         Menu Principal
     </ui:define>
 
-    <ui:define name="content">
-        <h:form>
-            <legend>Menu Principal</legend>
-            <p:growl>
-                <p:autoUpdate />
-            </p:growl>
+    <ui:define name="head-extras">
+        <!--head extras-->
 
-            <p:panelMenu style="width:300px">
-                <p:submenu label="Usuarios">
-                    <p:menuitem value=" Buscar" class="glyphicon glyphicon-search" outcome="users"/>
-                    <p:menuitem value=" Perfil" class="glyphicon glyphicon-user" outcome="userProfile"/>
-                    <p:menuitem value=" Nuevo" class="glyphicon glyphicon-plus" outcome="create-users" rendered="#{p:ifAnyGranted(constants.adminDocente())}"/>
-                </p:submenu>
-                <p:submenu label="Grupos">
-                    <p:menuitem value=" Buscar" class="glyphicon glyphicon-search" outcome="groups"/>
-                    <p:menuitem value=" Crear" class="glyphicon glyphicon-plus" outcome="create-group"/>
-                </p:submenu>
-                <p:submenu label="Producto">
-                    <p:menuitem value=" Buscar" class="glyphicon glyphicon-search" outcome="products"/>
-                    <p:menuitem value=" Crear" class="glyphicon glyphicon-plus" outcome="createProduct"/>
-                </p:submenu>
-                <p:submenu label="Producción">
-                    <p:menuitem value=" Crear" class="glyphicon glyphicon-search" outcome="createProduction"/>
-                    <p:menuitem value=" Trabajar" class="glyphicon glyphicon-plus" outcome="processProduction"/>
-                    <p:menuitem value=" Calificar" class="glyphicon glyphicon-search" outcome="qualificationProduction"/>
-                    <p:menuitem value=" Buscar" class="glyphicon glyphicon-search" outcome="searchProduction"/>
-                </p:submenu>
-                <p:submenu label="Insumos">
-                    <p:menuitem value=" Buscar" class="glyphicon glyphicon-search" outcome="supplies"/>
-                    <p:menuitem value=" Nuevo" class="glyphicon glyphicon-plus" outcome="newSupply"/>
-                    <p:menuitem value=" Modificaciones" class="glyphicon glyphicon-plus" outcome="modifySupply"/>
-                    <p:menuitem value=" Calcular Insumos" class="glyphicon glyphicon-bitcoin" outcome="calcSupply"/>
-                    <p:menuitem value=" Calcular Mejor Produccion" class="glyphicon glyphicon-bitcoin" outcome="calcProduction"/>
-                </p:submenu>
-                <p:submenu label="Diseños">
-                    <p:menuitem value=" Buscar" class="glyphicon glyphicon-search" outcome="designs"/>
-                    <p:menuitem value=" Nuevo" class="glyphicon glyphicon-plus" outcome="createDesign"/>
-                </p:submenu>
-            </p:panelMenu>
-        </h:form>
+
+        <!-- Favicons -->
+        <link href="resources/principal/assets/img/favicon.png" rel="icon"/>
+        <link href="resources/principal/assets/img/apple-touch-icon.png" rel="apple-touch-icon"/>
+
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet"/>
+
+        <!-- Vendor CSS Files -->
+        <link href="resources/principal/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+        <link href="resources/principal/assets/vendor/icofont/icofont.min.css" rel="stylesheet"/>
+        <link href="resources/principal/assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet"/>
+        <link href="resources/principal/assets/vendor/ionicons/css/ionicons.min.css" rel="stylesheet"/>
+        <link href="resources/principal/assets/vendor/animate.css/animate.min.css" rel="stylesheet"/>
+        <link href="resources/principal/assets/vendor/venobox/venobox.css" rel="stylesheet"/>
+        <link href="resources/principal/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet"/>
+        <link href="resources/principal/assets/vendor/aos/aos.css" rel="stylesheet"/>
+
+        <!-- Template Main CSS File -->
+        <link href="assets/css/style.css" rel="stylesheet"/>
+
+
+
+
+        <!-- Favicons -->
+        <link href="assets/img/favicon.png" rel="icon"/>
+        <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon"/>
+
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet"/>
+
+        <!-- Vendor CSS Files -->
+        <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+        <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet"/>
+        <link href="assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet"/>
+        <link href="assets/vendor/ionicons/css/ionicons.min.css" rel="stylesheet"/>
+        <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet"/>
+        <link href="assets/vendor/venobox/venobox.css" rel="stylesheet"/>
+        <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet"/>
+        <link href="assets/vendor/aos/aos.css" rel="stylesheet"/>
+
+        <!-- Template Main CSS File -->
+        <link href="assets/css/style.css" rel="stylesheet"/>
+
+
+
+    </ui:define>
+
+
+    <ui:define name="content">
+        <!-- ======= Intro Section ======= -->
+        <section id="intro"  >
+            <div class="intro-container">
+                <div id="introCarousel" class="carousel  slide carousel-fade" data-ride="carousel">
+
+                    <ol class="carousel-indicators"></ol>
+
+                    <div class="carousel-inner" role="listbox">
+
+                        <div class="carousel-item active" style="background-image: url(resources/principal/assets/img/intro-carousel/1.jpg)">
+                            <div class="carousel-container">
+                                <div class="container">
+                                    <h2 class="animate__animated animate__fadeInDown">Producciones</h2>
+                                    <p class="animate__animated animate__fadeInUp">Puedes crear producciones y seguir todo el porcesos de  estas hasta que esten finalizadas ademas de llevar el control del costo de produccio y otros.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="carousel-item" style="background-image: url(resources/principal/assets/img/intro-carousel/2.jpg)">
+                            <div class="carousel-container">
+                                <div class="container">
+                                    <h2 class="animate__animated animate__fadeInDown">Diseños</h2>
+                                    <p class="animate__animated animate__fadeInUp">Crea tus disños en una imagen y guardalos para tener un mejor control de tus productos y diseños de la diferentes producciones que realizaras.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="carousel-item" style="background-image: url(resources/principal/assets/img/intro-carousel/3.jpg)">
+                            <div class="carousel-container">
+                                <div class="container">
+                                    <h2 class="animate__animated animate__fadeInDown">Productos</h2>
+                                    <p class="animate__animated animate__fadeInUp">Puesdes crear cualquier tipo de producto para luego realizar diseños sobre este y crear producciones.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="carousel-item" style="background-image: url(resources/principal/assets/img/intro-carousel/4.jpg)">
+                            <div class="carousel-container">
+                                <div class="container">
+                                    <h2 class="animate__animated animate__fadeInDown">Calculos</h2>
+                                    <p class="animate__animated animate__fadeInUp">Antes de crear tus producciones podras hacer calculos para estimar cuanto material te llevara o cuantas unidades puedes hacer con el material disponible en inventario.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="carousel-item" style="background-image: url(resources/principal/assets/img/intro-carousel/5.jpg)">
+                            <div class="carousel-container">
+                                <div class="container">
+                                    <h2 class="animate__animated animate__fadeInDown">Grupos</h2>
+                                    <p class="animate__animated animate__fadeInUp">Crea tus grupos de trabajo con tus compañeros para poder realizar buenas producciones.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <a class="carousel-control-prev" href="#introCarousel" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon ion-chevron-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+
+                    <a class="carousel-control-next" href="#introCarousel" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon ion-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+
+                </div>
+            </div>
+        </section><!-- End Intro Section -->
+
     </ui:define>
 
 </ui:composition>
