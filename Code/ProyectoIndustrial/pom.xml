@@ -10,6 +10,7 @@
         <module>Proyecto-ear</module>
         <module>Proyecto-ejb</module>
         <module>Proyecto-war</module>
+        <module>Proyecto-rest</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

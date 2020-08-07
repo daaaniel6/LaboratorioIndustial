@@ -24,3 +24,17 @@ https://app.moqups.com/RQJEmo5Zjb/view  (Inventario, Materiales <--> Lotes, Prec
 https://app.moqups.com/3fCSmbPutu/view  (Produccion)
 
 https://app.moqups.com/OXd6X7S2nv/view  (Usuarios) 
+
+
+Prueba 4
+mas lineas
+prueba 5
+
+Codigo
+prueba 6
+prueba 7.2
+prueba 8
+prueba 9
+prueba 10
+prueba 11
+prueba 12
