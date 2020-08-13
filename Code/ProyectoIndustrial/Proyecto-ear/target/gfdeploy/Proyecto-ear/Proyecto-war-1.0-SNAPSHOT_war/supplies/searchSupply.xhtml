@@ -1,0 +1,287 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="../templates/template-one.xhtml"
+                xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:jsf="http://xmlns.jcp.org/jsf"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"> 
+
+    <f:metadata>
+        <p:importEnum type="Supply.repository.AvailabilityFilter"/>
+        <p:importEnum type="Supply.repository.ExpirationDateFilter"/>
+    </f:metadata>
+
+    <ui:define name="head">
+        Buscar Insumo
+    </ui:define>
+
+    <ui:define name="content">
+
+
+        <h:form id="supplySearch">
+            <fieldset>
+                <legend>Buscar Insumo</legend>
+                <div class="row">
+                    <div class="form-group col-sm-4">
+                        <p:outputLabel for="code" value="Código:" />
+                        <p:inputText id="code" styleClass="form-control" pt:placeholder="Código a buscar" value="#{searchSupplyView.codeSearchCriteria}"/>
+                    </div>
+                    <div class="form-group  col-sm-4">
+                        <p:outputLabel for="name" value="Nombre:" />
+                        <p:inputText id="name" styleClass="form-control" pt:placeholder="Nombre a buscar" value="#{searchSupplyView.nameSearchCriteria}"/>
+                    </div>
+                    <div class="form-group col-sm-3">
+                        <p:outputLabel for="internCode" value="Codigo Interno:" />
+                        <p:inputText id="internCode" styleClass="form-control" pt:placeholder="Nombre a buscar" value="#{searchSupplyView.internCodeSearchCriteria}"/>
+                    </div>
+                    <div class="form-group col-sm-3">
+                        <p:outputLabel for="availabilitySupply" value="Estado:"/>
+                        <h:selectOneMenu id="availabilitySupply" value="#{searchSupplyView.availabilitySearchCriteria}" >
+                            <f:selectItems value="#{AvailabilityFilter}" />
+                        </h:selectOneMenu>
+                    </div>
+                    <div class="form-group col-sm-3">
+                        <p:outputLabel for="expirationDateSupply" value="Caducidad:" />
+                        <h:selectOneMenu id="expirationDateSupply" value="#{searchSupplyView.expirationDateSearchCriteria}" >
+                            <f:selectItems value="#{ExpirationDateFilter}" />
+                        </h:selectOneMenu>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="btn-group pull-right">
+                        <p:commandLink styleClass="btn btn-danger"
+                                       update=":#{p:component('supplySearch')}"
+                                       action="#{searchSupplyView.cleanCriteria()}"
+                                       title="limpiar">
+                            &nbsp;<span class="glyphicon glyphicon-repeat"></span>&nbsp;
+                        </p:commandLink>
+                        <p:commandLink styleClass="btn btn-primary" update="supplyTable"
+                                       action="#{searchSupplyView.searchSupplies()}">
+                            <span class="glyphicon glyphicon-search"></span> Buscar
+                        </p:commandLink>
+                    </div>
+                </div>
+            </fieldset>
+        </h:form>
+
+        <div class="row">
+            <p:dataTable id="supplyTable" var="supply" value="#{searchSupplyView.supplies}"
+                         reflow="true">
+                <p:column headerText="Código">
+                    <h:outputText value="#{supply.code}" />
+                </p:column>
+                <p:column headerText="Codigo Interno">
+                    <h:outputText value="#{supply.internalCode}" />
+                </p:column>
+                <p:column headerText="Nombre">
+                    <h:outputText value="#{supply.name}" />
+                </p:column>
+                <p:column headerText="Cantidad">                    
+                    <p><h:outputText value="#{supply.quantity}" /> - <h:outputText value="#{supply.measure.name}"/></p>
+                </p:column>
+                <p:column headerText="Disponibilidad" styleClass="text-center">
+                    <p:selectBooleanCheckbox value="#{supply.availability}"  disabled="true"/>
+                </p:column>
+                <p:column headerText="Información" styleClass="text-center">
+                    <p data-placement="top" data-toggle="tooltip" title="Información">
+                        <p:commandLink styleClass="btn btn-primary btn-xs" oncomplete="PF('infoAbout').show();"
+                                       update=":#{p:component('infoAbout')}">
+                            <f:setPropertyActionListener value="#{supply}" target="#{searchSupplyView.selectedSupply}"/>
+                            <span class="glyphicon glyphicon-file"></span>
+                        </p:commandLink>
+                    </p>
+                </p:column>
+                <p:column headerText="Actualizar" styleClass="text-center">
+                    <p data-placement="top" data-toggle="tooltip" title="Actualizar">
+                        <p:commandLink styleClass="btn btn-primary btn-xs" oncomplete="PF('updateS').show();"
+                                       update=":#{p:component('updateS')}">
+                            <f:setPropertyActionListener value="#{supply}" target="#{searchSupplyView.selectedSupply}"/>
+                            <span class="glyphicon glyphicon-pencil"></span>
+                        </p:commandLink>
+                    </p>
+                </p:column>
+                <p:column headerText="Cantidad" styleClass="text-center">
+                    <p data-placement="top" data-toggle="tooltip" title="Modificar cantidad disponible">
+                        <p:commandLink styleClass="btn btn-danger btn-xs" oncomplete="PF('modFaltante').show();"
+                                       update=":#{p:component('modFaltante')}">
+                            <f:setPropertyActionListener value="#{supply}" target="#{searchSupplyView.selectedSupply}"/>
+                            <span class="glyphicon glyphicon-pencil"></span>
+                        </p:commandLink>
+                    </p>
+
+                </p:column>
+            </p:dataTable>
+        </div>
+
+        <!-- Informacion del Insumo -->
+        <p:dialog header="#{searchSupplyView.selectedSupply.internalCode}" id="infoAbout" widgetVar="infoAbout"
+                  fitViewport="true" modal="true" closeOnEscape="true">
+            <p:ajax event="close" listener="#{searchSupplyView.cleanActualSupply()}" update="@this" />
+            <h:form>
+                <div class="modal-body">
+                    <fieldset>
+                        <div class="row form-group">
+                            <p:outputLabel value="Codigo:" styleClass="col-md-4 control-label"/>
+                            <div class="col-md-8">
+                                <h:outputText value="#{searchSupplyView.selectedSupply.code}"/>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <p:outputLabel value="Nombre:" styleClass="col-md-4 control-label"/>
+                            <div class="col-md-8">
+                                <h:outputText value="#{searchSupplyView.selectedSupply.name}"/>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <p:outputLabel value="Fecha Expiración:" styleClass="col-md-4 control-label"/>
+                            <div class="col-md-8">
+                                <h:outputText value="#{searchSupplyView.selectedSupply.expirationDate}"/>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <p:outputLabel value="Fecha de Ingreso:" styleClass="col-md-4 control-label"/>
+                            <div class="col-md-8">
+                                <h:outputText value="#{searchSupplyView.selectedSupply.dateOfAdmission}"/>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <p:outputLabel value="Costo por #{searchSupplyView.selectedSupply.measure.name}:" styleClass="col-md-4 control-label"/>
+                            <div class="col-md-8">
+                                <h:outputText value="#{searchSupplyView.selectedSupply.cost}"/>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <p:outputLabel value="Cantidad:" styleClass="col-md-4 control-label"/>
+                            <div class="col-md-8">
+                                <p><h:outputText value="#{searchSupplyView.selectedSupply.quantity}" /> - <h:outputText value="#{searchSupplyView.selectedSupply.measure.name}"/></p>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <p:outputLabel value="Disponible:" styleClass="col-md-4 control-label"/>
+                            <div class="col-md-8">
+                                <p:selectBooleanCheckbox value="#{searchSupplyView.selectedSupply.availability}"  disabled="true"/>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <p:outputLabel value="Disponible:" styleClass="col-md-4 control-label"/>
+                            <div class="col-md-8">
+                                <p:selectBooleanCheckbox value="#{searchSupplyView.selectedSupply.availability}"  disabled="true"/>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <p:outputLabel value="Descripción:" styleClass="col-md-4 control-label"/>
+                            <div class="col-md-8">
+                                <h:outputText value="#{searchSupplyView.selectedSupply.description}"/>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </h:form>
+        </p:dialog>
+
+        <!-- Modificacion por Faltante -->
+        <p:dialog header="Modificar Cantidad Disponible" id="modFaltante" widgetVar="modFaltante"
+                  fitViewport="true" modal="true" closeOnEscape="true">
+            <p:ajax event="close" listener="#{searchSupplyView.cleanActualSupply()}" update="@this" />
+            <h:form>
+                <div class="modal-body">
+                    <fieldset>
+                        <div class="row form-group">
+                            <p>Se modificara el Insumo <b><h:outputText value="#{searchSupplyView.selectedSupply.name}"/></b> con la cantidad de 
+                                <b><h:outputText value="#{searchSupplyView.selectedSupply.quantity}"/></b></p>
+                        </div>
+                        <div class="row form-group">
+                            <p:outputLabel for="quantity" value="Nueva cantidad:" styleClass="col-md-4 control-label"/>
+                            <div class="col-md-8">
+                                <p:spinner id="quantity" pt:required="true" styleClass="form-control" 
+                                           pt:placeholder="Cantidad Actual" min="0" required="true"
+                                           stepFactor="0.01"
+                                           value="#{searchSupplyView.selectedSupply.quantity}">
+                                    <f:convertNumber maxFractionDigits="4"/>
+                                </p:spinner>  
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <p:outputLabel value="Nota:" styleClass="col-md-4 control-label"/>
+                            <div class="col-md-8">
+                                <p:inputTextarea id="note" styleClass="form-control"
+                                                 rows="4" cols="50" maxlength="200" placeholder="Colocar un comentario descriptivo del motivo de la modificacion de la cantidad disponible"
+                                                 autoResize="false" value="#{inventoryView.note}"/>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="modal-footer ">
+                    <p:commandLink styleClass="btn btn-warning btn-lg" style="width: 100%;"
+                                   update="@form,:#{p:component('supplyTable')},:#{p:component('growl')}"
+                                   actionListener="#{searchSupplyView.saveChangesByMissing('modFaltante')}">
+                        <span class="glyphicon glyphicon-ok-sign"></span> Guardar
+                    </p:commandLink>
+                </div>
+            </h:form>
+        </p:dialog>
+
+        <!-- Actualizar Insumo -->
+        <p:dialog header="Actualizar Insumo" id="updateS" widgetVar="updateS"
+                  fitViewport="true" modal="true" closeOnEscape="true">
+            <p:ajax event="close" listener="#{searchSupplyView.cleanActualSupply()}" update="@this" />
+            <h:form>
+                <div class="modal-body">
+                    <fieldset>
+                        <div class="row form-group">
+                            <p>Insumo: <b><h:outputText value="#{searchSupplyView.selectedSupply.code}"/></b> - <b><h:outputText value="#{searchSupplyView.selectedSupply.name}"/></b></p>
+                        </div>
+                        <div class="row form-group">
+                            <p:outputLabel for="nombre" value="Nombre nuevo:" styleClass="col-md-4 control-label"/>
+                            <div class="col-md-8">
+                                <p:inputText id="nombre" pt:required="true" styleClass="form-control" required="true" 
+                                             value="#{searchSupplyView.selectedSupply.name}"/>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <p:outputLabel for="measure" value="Medida: " styleClass="col-md-4 control-label"/>
+                            <div class="col-md-8">
+                                <p:selectOneMenu id="measure"  value="#{searchSupplyView.selectedSupply.measure}" converter="measureConverter">
+                                    <f:selectItems value="#{searchSupplyView.measures}" var="measure"
+                                                   itemValue="#{measure}"
+                                                   itemLabel="#{measure.name}"/>
+                                </p:selectOneMenu>
+                            </div>
+                        </div>
+
+                        <div class="row form-group">
+                            <p:outputLabel for="costo" value="Costo:" styleClass="col-md-4 control-label"/>
+                            <div class="col-md-8">
+                                <p:spinner id="costo" pt:required="true" required="true" styleClass="form-control" 
+                                           stepFactor="0.01" value="#{searchSupplyView.selectedSupply.cost}">
+                                    <f:convertNumber maxFractionDigits="5"/>
+                                </p:spinner>  
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <p:outputLabel value="Descripcion:" styleClass="col-md-4 control-label"/>
+                            <div class="col-md-8">
+                                <p:inputTextarea id="note" styleClass="form-control"
+                                                 rows="4" cols="50" maxlength="200"  
+                                                 autoResize="false" value="#{searchSupplyView.selectedSupply.description}"/>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="modal-footer ">
+                    <p:commandLink styleClass="btn btn-warning btn-lg" style="width: 100%;"
+                                   update="@form,:#{p:component('supplyTable')},:#{p:component('growl')}"
+                                   actionListener="#{searchSupplyView.updateSupply('updateS')}">
+                        <span class="glyphicon glyphicon-ok-sign"></span> Guardar
+                    </p:commandLink>
+                </div>
+            </h:form>
+        </p:dialog>
+
+    </ui:define>
+
+</ui:composition>
