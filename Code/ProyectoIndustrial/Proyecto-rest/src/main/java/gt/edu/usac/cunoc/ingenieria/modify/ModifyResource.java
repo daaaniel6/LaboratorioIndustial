@@ -25,8 +25,8 @@ public class ModifyResource {
     @GET
     @Path("/{id}")
     @Produces("application/json")
-    public ModifySupply getModifySupplyById(@PathParam("id") Integer id) {
-        return modifyFacade.getById(id).get();
+    public ModifySupplyDTO getModifySupplyById(@PathParam("id") Integer id) {
+        return new ModifySupplyDTO(modifyFacade.getById(id).get());
     }
 
     @GET
