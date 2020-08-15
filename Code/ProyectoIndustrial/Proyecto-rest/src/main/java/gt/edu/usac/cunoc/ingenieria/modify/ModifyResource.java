@@ -2,6 +2,7 @@ package gt.edu.usac.cunoc.ingenieria.modify;
 
 import Modify.ModifySupply;
 import Modify.facade.ModifyFacadeLocal;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -32,14 +33,22 @@ public class ModifyResource {
     @GET
     @Path("/user/{carnet}")
     @Produces("application/json")
-    public List<ModifySupply> getModificationByUser(@PathParam("carnet") Integer carnet) {
-        return modifyFacade.getModificationByUser(carnet);
+    public List<ModifySupplyDTO> getModificationByUser(@PathParam("carnet") Integer carnet) {
+        return resultConverted(modifyFacade.getModificationByUser(carnet));
     }
 
     @GET
     @Path("/supply/{supply}")
     @Produces("application/json")
-    public List<ModifySupply> getModificationBySupply(@PathParam("supply") Integer supply) {
-        return modifyFacade.getModificationBySupply(supply);
+    public List<ModifySupplyDTO> getModificationBySupply(@PathParam("supply") Integer supply) {
+        return resultConverted(modifyFacade.getModificationBySupply(supply));
+    }
+    
+    private List<ModifySupplyDTO> resultConverted(List<ModifySupply> queryResult){
+        List<ModifySupplyDTO> result = new ArrayList<>();
+        queryResult.forEach((mod) -> {
+            result.add(new ModifySupplyDTO(mod));
+        });
+        return result;
     }
 }

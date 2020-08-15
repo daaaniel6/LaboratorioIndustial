@@ -1,5 +1,5 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-Proyecto-ejb,Modify.facade,ModifyFacade,26,0,0,0,7,0,6,0,6,0
+Proyecto-ejb,Modify.facade,ModifyFacade,28,0,0,0,7,0,6,0,6,0
 Proyecto-ejb,Group,GroupUser_,3,0,0,0,1,0,1,0,1,0
 Proyecto-ejb,Group,GroupIndustrial,71,32,3,1,26,14,12,8,10,8
 Proyecto-ejb,Group,GroupIndustrial_,3,0,0,0,1,0,1,0,1,0
@@ -68,7 +68,7 @@ Proyecto-ejb,User.repository,RolUserRepository,61,79,3,5,15,15,5,6,3,4
 Proyecto-ejb,Modify,ModifySupply_,3,0,0,0,1,0,1,0,1,0
 Proyecto-ejb,Modify,ModifySupply,128,50,7,1,31,22,9,14,5,14
 Proyecto-ejb,Modify,ModificationType,33,0,2,0,6,0,3,0,2,0
-Proyecto-ejb,Modify.repository,ModifySupplyRepository,0,48,0,0,0,12,0,6,0,6
+Proyecto-ejb,Modify.repository,ModifySupplyRepository,61,48,4,0,11,12,4,6,2,6
 Proyecto-ejb,Modify.service,ModifySupplyService,0,13,0,0,0,5,0,3,0,3
 Proyecto-ejb,Inventory.objects,ProductionUnits,23,0,0,0,10,0,5,0,5,0
 Proyecto-ejb,Inventory.objects,DesignUnits,26,0,0,0,12,0,6,0,6,0

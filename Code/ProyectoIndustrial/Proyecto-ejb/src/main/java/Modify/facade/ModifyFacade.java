@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Modify.facade;
 
 import Modify.ModifySupply;
@@ -31,7 +26,7 @@ public class ModifyFacade implements ModifyFacadeLocal {
      */
     @Override
     public Optional<ModifySupply> getById(Integer id) {
-       return modifySupplyRepository.getById(id);
+        return modifySupplyRepository.getById(id);
     }
 
     /**
@@ -39,7 +34,7 @@ public class ModifyFacade implements ModifyFacadeLocal {
      */
     @Override
     public List<ModifySupply> getModificationByUser(Integer idUser) {
-        return modifySupplyRepository.getModificationByUser(idUser);
+        return modifySupplyRepository.findModifySupply(idUser, null);
     }
 
     /**
@@ -47,7 +42,7 @@ public class ModifyFacade implements ModifyFacadeLocal {
      */
     @Override
     public List<ModifySupply> getModificationBySupply(Integer idSupply) {
-        return modifySupplyRepository.getModificationBySupply(idSupply);
+        return modifySupplyRepository.findModifySupply(null, idSupply);
     }
 
     /**
