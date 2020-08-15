@@ -191,4 +191,9 @@ public class UserFacade implements UserFacadeLocal {
     public boolean resetPassword(Integer userID, String userMail) throws UserException {
         return userService.resetPassword(userID, userMail);
     }
+
+    @Override
+    public Optional<User> getUserByID(Integer carnet) {
+        return userRepository.getUserByID(carnet);
+    }
 }
