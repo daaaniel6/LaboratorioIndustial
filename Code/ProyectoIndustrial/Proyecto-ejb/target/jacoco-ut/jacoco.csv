@@ -16,11 +16,11 @@ Proyecto-ejb,Supply,Supply_,3,0,0,0,1,0,1,0,1,0
 Proyecto-ejb,Supply,Measure,23,53,3,1,4,18,3,9,1,9
 Proyecto-ejb,Group.repository,GroupUserRepository,52,14,0,0,12,4,4,3,4,3
 Proyecto-ejb,Group.repository,GroupRepository,0,23,0,0,0,6,0,4,0,4
-Proyecto-ejb,Inventory.repository,InventoryRepository,227,0,16,0,46,0,20,0,12,0
+Proyecto-ejb,Inventory.repository,InventoryRepository,240,0,16,0,47,0,20,0,12,0
 Proyecto-ejb,Supply.exception,MandatoryAttributeSupplyException,7,0,0,0,4,0,2,0,2,0
 Proyecto-ejb,Supply.repository,MeasureRepository,62,31,4,0,12,10,5,3,3,3
 Proyecto-ejb,Supply.repository,ExpirationDateFilter,34,0,0,0,2,0,1,0,1,0
-Proyecto-ejb,Supply.repository,SupplyRepository,164,0,18,0,27,0,13,0,4,0
+Proyecto-ejb,Supply.repository,SupplyRepository,171,0,18,0,28,0,14,0,5,0
 Proyecto-ejb,Supply.repository,AvailabilityFilter,34,0,0,0,2,0,1,0,1,0
 Proyecto-ejb,Production.exceptions,MandatoryAttributeProductionException,3,4,0,0,2,2,1,1,1,1
 Proyecto-ejb,Design,DesignData_,3,0,0,0,1,0,1,0,1,0
@@ -74,7 +74,7 @@ Proyecto-ejb,Inventory.objects,ProductionUnits,23,0,0,0,10,0,5,0,5,0
 Proyecto-ejb,Inventory.objects,DesignUnits,26,0,0,0,12,0,6,0,6,0
 Proyecto-ejb,Inventory.objects,SupplyQuantity,26,0,0,0,12,0,6,0,6,0
 Proyecto-ejb,User.facade,UserFacade,77,49,0,0,18,15,13,11,13,11
-Proyecto-ejb,Supply.service,SupplyServices,184,0,24,0,44,0,20,0,8,0
+Proyecto-ejb,Supply.service,SupplyServices,233,0,32,0,54,0,26,0,10,0
 Proyecto-ejb,Production.facade,ProductionFacade,155,0,0,0,46,0,29,0,29,0
 Proyecto-ejb,Production.facade,ProductFacade,32,0,0,0,9,0,7,0,7,0
 Proyecto-ejb,config,Constants,3,0,0,0,1,0,1,0,1,0

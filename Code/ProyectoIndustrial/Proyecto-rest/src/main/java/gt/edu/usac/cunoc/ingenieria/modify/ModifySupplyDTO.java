@@ -18,10 +18,7 @@ public class ModifySupplyDTO implements Serializable {
     private LocalDate date;
     private String note;
     private Integer codeSupply;
-    private String internalCodeSupply;
-    private String nameSupply;
     private Integer carnetUser;
-    private String nameUser;
 
     public ModifySupplyDTO(ModifySupply modifySupply) {
         this.idModifySupply = modifySupply.getIdModifySupply();
@@ -30,10 +27,7 @@ public class ModifySupplyDTO implements Serializable {
         this.date = modifySupply.getDate();
         this.note = modifySupply.getNote();
         this.codeSupply = modifySupply.getSupplyCode().getCode();
-        this.internalCodeSupply = modifySupply.getSupplyCode().getInternalCode();
-        this.nameSupply = modifySupply.getSupplyCode().getName();
         this.carnetUser = modifySupply.getCarnetUser().getCarnet();
-        this.nameUser = modifySupply.getCarnetUser().getName();
     }
 
     public Integer getIdModifySupply() {
@@ -84,36 +78,12 @@ public class ModifySupplyDTO implements Serializable {
         this.codeSupply = codeSupply;
     }
 
-    public String getInternalCodeSupply() {
-        return internalCodeSupply;
-    }
-
-    public void setInternalCodeSupply(String internalCodeSupply) {
-        this.internalCodeSupply = internalCodeSupply;
-    }
-
-    public String getNameSupply() {
-        return nameSupply;
-    }
-
-    public void setNameSupply(String nameSupply) {
-        this.nameSupply = nameSupply;
-    }
-
     public Integer getCarnetUser() {
         return carnetUser;
     }
 
     public void setCarnetUser(Integer carnetUser) {
         this.carnetUser = carnetUser;
-    }
-
-    public String getNameUser() {
-        return nameUser;
-    }
-
-    public void setNameUser(String nameUser) {
-        this.nameUser = nameUser;
     }
 
     @Override
