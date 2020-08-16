@@ -149,6 +149,7 @@ public class ProductionFacade implements ProductionFacadeLocal {
     @Override
     public Optional<Product> getProductById(Integer id) {
         return productRepository.getProductById(id);
+        
     }
 
     /**
@@ -210,4 +211,9 @@ public class ProductionFacade implements ProductionFacadeLocal {
         return stepService.createStep(step);
     }
     
+    @Override
+    public Optional<Step> findByIdStep(Integer stepId) {
+        return stepRepository.findByIdStep(stepId);
+        
+    }
 }

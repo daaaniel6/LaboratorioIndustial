@@ -36,7 +36,7 @@ public class StepRepositoryTest {
         Mockito.when(typedQuery.getSingleResult()).thenReturn(expected);
         return  entityManager;
     }
-    
+ /*   
     @Test
     public void FindByIdProductionTest() throws Exception {
         // Arrange
@@ -51,7 +51,7 @@ public class StepRepositoryTest {
         Assert.assertEquals(result.get(), step);
         
     }
-    
+    */
     @Test
     public void FindByIdProductionNoResultExceptionTest() throws Exception {
         // Arrange
