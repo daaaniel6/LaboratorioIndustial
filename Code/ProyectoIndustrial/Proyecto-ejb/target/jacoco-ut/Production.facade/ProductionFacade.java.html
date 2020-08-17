@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ProductionFacade.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Proyecto-ejb</a> &gt; <a href="index.source.html" class="el_package">Production.facade</a> &gt; <span class="el_source">ProductionFacade.java</span></div><h1>ProductionFacade.java</h1><pre class="source lang-java linenums">package Production.facade;
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ProductionFacade.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Proyecto-ejb</a> &gt; <a href="index.source.html" class="el_package">Production.facade</a> &gt; <span class="el_source">ProductionFacade.java</span></div><h1>ProductionFacade.java</h1><pre class="source lang-java linenums">package Production.facade;
 
 import Design.Design;
 import Design.DesignData;
@@ -149,6 +149,7 @@ import javax.ejb.Stateless;
     @Override
     public Optional&lt;Product&gt; getProductById(Integer id) {
 <span class="nc" id="L151">        return productRepository.getProductById(id);</span>
+        
     }
 
     /**
@@ -156,7 +157,7 @@ import javax.ejb.Stateless;
      */
     @Override
     public List&lt;Production&gt; findProduction(Integer idProduction, String name, LocalDate startDate, LocalDate endDate, boolean editable) {
-<span class="nc" id="L159">        return productionRepository.findProduction(idProduction, name, startDate, endDate, editable);</span>
+<span class="nc" id="L160">        return productionRepository.findProduction(idProduction, name, startDate, endDate, editable);</span>
     }
 
     /**
@@ -164,51 +165,56 @@ import javax.ejb.Stateless;
      */
     @Override
     public Production updateProduction(Production production) throws UserException {
-<span class="nc" id="L167">        return productionService.updateProduction(production);</span>
+<span class="nc" id="L168">        return productionService.updateProduction(production);</span>
     }
     
     @Override
     public void updateExtraCost(List&lt;ExtraCost&gt; listExtraCost, Production production) throws MandatoryAttributeProductionException {
-<span class="nc" id="L172">        productionService.updateExtraCost(listExtraCost, production);</span>
-<span class="nc" id="L173">    }</span>
+<span class="nc" id="L173">        productionService.updateExtraCost(listExtraCost, production);</span>
+<span class="nc" id="L174">    }</span>
     
     @Override
     public void addPostDedign(Design postDesign, Production production) throws MandatoryAttributeProductionException {
-<span class="nc" id="L177">        productionService.addPostDedign(postDesign, production);</span>
-<span class="nc" id="L178">    }</span>
+<span class="nc" id="L178">        productionService.addPostDedign(postDesign, production);</span>
+<span class="nc" id="L179">    }</span>
     
     @Override
     public double initCost(Production production) {
         
-<span class="nc" id="L183">        return productionRepository.initCost(production);</span>
+<span class="nc" id="L184">        return productionRepository.initCost(production);</span>
     }
     
     @Override
     public double finalCost(Production production) {
         
-<span class="nc" id="L189">        return productionRepository.finalCost(production);</span>
+<span class="nc" id="L190">        return productionRepository.finalCost(production);</span>
     }
     
     @Override
     public double totalExtraCost(Production production) {
         
-<span class="nc" id="L195">        return productionRepository.totalExtraCost(production);</span>
+<span class="nc" id="L196">        return productionRepository.totalExtraCost(production);</span>
     }
     
     @Override
     public Step edit(Step oldStep) throws UserException {
-<span class="nc" id="L200">        return stepService.edit(oldStep);</span>
+<span class="nc" id="L201">        return stepService.edit(oldStep);</span>
     }
     
     @Override
     public void remove(Step step) throws UserException {
-<span class="nc" id="L205">        stepService.remove(step);</span>
-<span class="nc" id="L206">    }</span>
+<span class="nc" id="L206">        stepService.remove(step);</span>
+<span class="nc" id="L207">    }</span>
     
     @Override
     public Step createStep(Step step) throws UserException{
-<span class="nc" id="L210">        return stepService.createStep(step);</span>
+<span class="nc" id="L211">        return stepService.createStep(step);</span>
     }
     
+    @Override
+    public Optional&lt;Step&gt; findByIdStep(Integer stepId) {
+<span class="nc" id="L216">        return stepRepository.findByIdStep(stepId);</span>
+        
+    }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

@@ -39,7 +39,8 @@ public class StepRepository {
         TypedQuery<Step> typedQuery = entityManager.createQuery(QUERY_FIND_BY_ID, Step.class)
                 .setParameter(1, idStep);
         try {
-            return Optional.ofNullable(typedQuery.getSingleResult());
+            //return Optional.ofNullable(typedQuery.getSingleResult());
+             return Optional.ofNullable(entityManager.find(Step.class, idStep));
         } catch (Exception e) {
             return Optional.empty();
         }

@@ -101,4 +101,6 @@ public interface ProductionFacadeLocal {
 
     public double totalExtraCost(Production production);
 
+    public Optional<Step> findByIdStep(Integer stepId) ;
+
 }
