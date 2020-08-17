@@ -11,7 +11,7 @@ Proyecto-ejb,User,RolUser,49,28,3,1,10,13,5,7,3,7
 Proyecto-ejb,User,RolUser_,3,0,0,0,1,0,1,0,1,0
 Proyecto-ejb,User,User,39,91,7,1,11,38,7,19,3,19
 Proyecto-ejb,Supply,Measure_,3,0,0,0,1,0,1,0,1,0
-Proyecto-ejb,Supply,Supply,95,119,4,2,32,47,10,23,7,23
+Proyecto-ejb,Supply,Supply,113,119,4,2,39,47,11,23,8,23
 Proyecto-ejb,Supply,Supply_,3,0,0,0,1,0,1,0,1,0
 Proyecto-ejb,Supply,Measure,23,53,3,1,4,18,3,9,1,9
 Proyecto-ejb,Group.repository,GroupUserRepository,52,14,0,0,12,4,4,3,4,3

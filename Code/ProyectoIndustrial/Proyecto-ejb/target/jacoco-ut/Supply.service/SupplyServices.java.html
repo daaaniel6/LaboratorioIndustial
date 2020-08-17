@@ -74,7 +74,7 @@ public class SupplyServices {
 
     public Supply modifyQuantity(Supply supplyToChange, Double newQuantity, User user, String noteModify) throws MandatoryAttributeSupplyException {
 <span class="nc bnc" id="L76" title="All 4 branches missed.">        if (supplyToChange == null || user == null) {</span>
-<span class="nc" id="L77">            throw new MandatoryAttributeSupplyException(&quot;Insumo o usuario invalido&quot;);</span>
+<span class="nc" id="L77">            throw new MandatoryAttributeSupplyException(&quot;Debe indicar el insumo y/o usuario&quot;);</span>
         }
 
 <span class="nc" id="L80">        Optional&lt;Supply&gt; selectedSupply = supplyRepository.findSupplyByID(supplyToChange.getCode());</span>
