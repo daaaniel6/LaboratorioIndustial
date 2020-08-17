@@ -23,3 +23,6 @@
 hs_err_pid*
 /Code/ProyectoIndustrial/target/
 /Code/ProyectoIndustrial/Proyecto-rest/target/
+/Code/ProyectoIndustrial/Proyecto-ejb/target/jacoco-ut/
+/Code/ProyectoIndustrial/Proyecto-ejb/target//maven-status/
+
