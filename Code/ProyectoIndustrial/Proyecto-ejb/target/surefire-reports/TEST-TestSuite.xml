@@ -145,7 +145,7 @@
   <testcase classname="Production.service.ProductServiceTest" name="updateAllProductTest" time="0"/>
   <testcase classname="Production.service.ProductServiceTest" name="updateNullProductTest" time="0"/>
   <testcase classname="Production.service.ProductionServiceTest" name="MandatoryAttributeProductionExceptionDateEdit" time="0.001"/>
-  <testcase classname="Production.service.ProductionServiceTest" name="MandatoryAttributeProductionExceptionNameCreate" time="0.001"/>
+  <testcase classname="Production.service.ProductionServiceTest" name="MandatoryAttributeProductionExceptionNameCreate" time="0"/>
   <testcase classname="Production.service.ProductionServiceTest" name="MandatoryAttributeProductionExceptionNameEdit" time="0"/>
   <testcase classname="Production.service.ProductionServiceTest" name="MandatoryAttributeProductionExceptionUnityCreate" time="0"/>
   <testcase classname="Production.service.ProductionServiceTest" name="editProductionTest" time="0.001"/>

@@ -11,7 +11,7 @@ Proyecto-ejb,User,RolUser,49,28,3,1,10,13,5,7,3,7
 Proyecto-ejb,User,RolUser_,3,0,0,0,1,0,1,0,1,0
 Proyecto-ejb,User,User,39,91,7,1,11,38,7,19,3,19
 Proyecto-ejb,Supply,Measure_,3,0,0,0,1,0,1,0,1,0
-Proyecto-ejb,Supply,Supply,95,119,4,2,32,47,10,23,7,23
+Proyecto-ejb,Supply,Supply,113,119,4,2,39,47,11,23,8,23
 Proyecto-ejb,Supply,Supply_,3,0,0,0,1,0,1,0,1,0
 Proyecto-ejb,Supply,Measure,23,53,3,1,4,18,3,9,1,9
 Proyecto-ejb,Group.repository,GroupUserRepository,52,15,0,0,12,4,4,3,4,3
@@ -20,7 +20,7 @@ Proyecto-ejb,Inventory.repository,InventoryRepository,227,0,16,0,46,0,20,0,12,0
 Proyecto-ejb,Supply.exception,MandatoryAttributeSupplyException,7,0,0,0,4,0,2,0,2,0
 Proyecto-ejb,Supply.repository,MeasureRepository,63,31,4,0,12,10,5,3,3,3
 Proyecto-ejb,Supply.repository,ExpirationDateFilter,34,0,0,0,2,0,1,0,1,0
-Proyecto-ejb,Supply.repository,SupplyRepository,164,0,18,0,27,0,13,0,4,0
+Proyecto-ejb,Supply.repository,SupplyRepository,171,0,18,0,28,0,14,0,5,0
 Proyecto-ejb,Supply.repository,AvailabilityFilter,34,0,0,0,2,0,1,0,1,0
 Proyecto-ejb,Production.exceptions,MandatoryAttributeProductionException,3,4,0,0,2,2,1,1,1,1
 Proyecto-ejb,Design,DesignData_,3,0,0,0,1,0,1,0,1,0

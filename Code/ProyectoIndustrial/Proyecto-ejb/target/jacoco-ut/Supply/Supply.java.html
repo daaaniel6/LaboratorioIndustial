@@ -20,7 +20,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = &quot;supply&quot;)
 public class Supply implements Serializable {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = &quot;code&quot;)
@@ -48,114 +48,131 @@ public class Supply implements Serializable {
     private List&lt;NecessarySupply&gt; necessarySupplyList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = &quot;supplyCode&quot;)
     private List&lt;ModifySupply&gt; modifySupplyList;
-    
+
 <span class="fc" id="L52">    public Supply() {</span>
 <span class="fc" id="L53">    }</span>
-    
-<span class="nc" id="L55">    public Supply(Integer code, String internalCode, String name, LocalDate expirationDate, LocalDate dateOfAdmission, double cost, double quantity, boolean availability) {</span>
-<span class="nc" id="L56">        this.code = code;</span>
-<span class="nc" id="L57">        this.internalCode = internalCode;</span>
-<span class="nc" id="L58">        this.name = name;</span>
-<span class="nc" id="L59">        this.expirationDate = expirationDate;</span>
-<span class="nc" id="L60">        this.dateOfAdmission = dateOfAdmission;</span>
-<span class="nc" id="L61">        this.cost = cost;</span>
-<span class="nc" id="L62">        this.quantity = quantity;</span>
-<span class="nc" id="L63">        this.availability = availability;</span>
-<span class="nc" id="L64">    }</span>
-    
-<span class="fc" id="L66">    public Supply(Integer code, String internalCode, String name, LocalDate expirationDate, LocalDate dateOfAdmission, double cost, double quantity, boolean availability, String description, Measure measure) {</span>
-<span class="fc" id="L67">        this.code = code;</span>
-<span class="fc" id="L68">        this.internalCode = internalCode;</span>
-<span class="fc" id="L69">        this.name = name;</span>
 
-<span class="fc" id="L71">        this.expirationDate = expirationDate;</span>
-<span class="fc" id="L72">        this.dateOfAdmission = dateOfAdmission;</span>
-<span class="fc" id="L73">        this.cost = cost;</span>
-<span class="fc" id="L74">        this.quantity = quantity;</span>
-<span class="fc" id="L75">        this.availability = availability;</span>
-<span class="fc" id="L76">        this.description = description;</span>
-<span class="fc" id="L77">        this.measure = measure;</span>
-<span class="fc" id="L78">    }</span>
-    
-<span class="nc" id="L80">    public Supply(Integer code, String internalCode, String name, LocalDate dateOfAdmission, double cost, double quantity, boolean availability, String description, Measure measure) {</span>
-<span class="nc" id="L81">        this.code = code;</span>
-<span class="nc" id="L82">        this.internalCode = internalCode;</span>
-<span class="nc" id="L83">        this.name = name;</span>
-<span class="nc" id="L84">        this.dateOfAdmission = dateOfAdmission;</span>
-<span class="nc" id="L85">        this.cost = cost;</span>
-<span class="nc" id="L86">        this.quantity = quantity;</span>
-<span class="nc" id="L87">        this.availability = availability;</span>
-<span class="nc" id="L88">        this.description = description;</span>
-<span class="nc" id="L89">        this.measure = measure;</span>
-<span class="nc" id="L90">    }</span>
-    
+    /**
+     * REST's Update Constructor
+     *
+     * @param code
+     * @param name
+     * @param expirationDate
+     * @param cost
+     * @param description
+     */
+<span class="nc" id="L64">    public Supply(Integer code, String name, LocalDate expirationDate, double cost, String description) {</span>
+<span class="nc" id="L65">        this.code = code;</span>
+<span class="nc" id="L66">        this.name = name;</span>
+<span class="nc" id="L67">        this.expirationDate = expirationDate;</span>
+<span class="nc" id="L68">        this.cost = cost;</span>
+<span class="nc" id="L69">        this.description = description;</span>
+<span class="nc" id="L70">    }</span>
+
+<span class="nc" id="L72">    public Supply(Integer code, String internalCode, String name, LocalDate expirationDate, LocalDate dateOfAdmission, double cost, double quantity, boolean availability) {</span>
+<span class="nc" id="L73">        this.code = code;</span>
+<span class="nc" id="L74">        this.internalCode = internalCode;</span>
+<span class="nc" id="L75">        this.name = name;</span>
+<span class="nc" id="L76">        this.expirationDate = expirationDate;</span>
+<span class="nc" id="L77">        this.dateOfAdmission = dateOfAdmission;</span>
+<span class="nc" id="L78">        this.cost = cost;</span>
+<span class="nc" id="L79">        this.quantity = quantity;</span>
+<span class="nc" id="L80">        this.availability = availability;</span>
+<span class="nc" id="L81">    }</span>
+
+<span class="fc" id="L83">    public Supply(Integer code, String internalCode, String name, LocalDate expirationDate, LocalDate dateOfAdmission, double cost, double quantity, boolean availability, String description, Measure measure) {</span>
+<span class="fc" id="L84">        this.code = code;</span>
+<span class="fc" id="L85">        this.internalCode = internalCode;</span>
+<span class="fc" id="L86">        this.name = name;</span>
+
+<span class="fc" id="L88">        this.expirationDate = expirationDate;</span>
+<span class="fc" id="L89">        this.dateOfAdmission = dateOfAdmission;</span>
+<span class="fc" id="L90">        this.cost = cost;</span>
+<span class="fc" id="L91">        this.quantity = quantity;</span>
+<span class="fc" id="L92">        this.availability = availability;</span>
+<span class="fc" id="L93">        this.description = description;</span>
+<span class="fc" id="L94">        this.measure = measure;</span>
+<span class="fc" id="L95">    }</span>
+
+<span class="nc" id="L97">    public Supply(Integer code, String internalCode, String name, LocalDate dateOfAdmission, double cost, double quantity, boolean availability, String description, Measure measure) {</span>
+<span class="nc" id="L98">        this.code = code;</span>
+<span class="nc" id="L99">        this.internalCode = internalCode;</span>
+<span class="nc" id="L100">        this.name = name;</span>
+<span class="nc" id="L101">        this.dateOfAdmission = dateOfAdmission;</span>
+<span class="nc" id="L102">        this.cost = cost;</span>
+<span class="nc" id="L103">        this.quantity = quantity;</span>
+<span class="nc" id="L104">        this.availability = availability;</span>
+<span class="nc" id="L105">        this.description = description;</span>
+<span class="nc" id="L106">        this.measure = measure;</span>
+<span class="nc" id="L107">    }</span>
+
     @Override
     public boolean equals(Object o) {
-<span class="pc bpc" id="L94" title="1 of 2 branches missed.">        if (this == o) {</span>
-<span class="fc" id="L95">            return true;</span>
+<span class="pc bpc" id="L111" title="1 of 2 branches missed.">        if (this == o) {</span>
+<span class="fc" id="L112">            return true;</span>
         }
-<span class="nc bnc" id="L97" title="All 2 branches missed.">        if (!(o instanceof Supply)) {</span>
-<span class="nc" id="L98">            return false;</span>
+<span class="nc bnc" id="L114" title="All 2 branches missed.">        if (!(o instanceof Supply)) {</span>
+<span class="nc" id="L115">            return false;</span>
         }
-<span class="nc" id="L100">        Supply supply = (Supply) o;</span>
-<span class="nc" id="L101">        return Objects.equals(getCode(), supply.getCode());</span>
+<span class="nc" id="L117">        Supply supply = (Supply) o;</span>
+<span class="nc" id="L118">        return Objects.equals(getCode(), supply.getCode());</span>
     }
-    
+
     @Override
     public int hashCode() {
-<span class="nc" id="L106">        return Objects.hash(getCode());</span>
+<span class="nc" id="L123">        return Objects.hash(getCode());</span>
     }
-    
+
     public Integer getCode() {
-<span class="fc" id="L110">        return code;</span>
+<span class="fc" id="L127">        return code;</span>
     }
-    
+
     public void setCode(Integer code) {
-<span class="fc" id="L114">        this.code = code;</span>
-<span class="fc" id="L115">    }</span>
-    
+<span class="fc" id="L131">        this.code = code;</span>
+<span class="fc" id="L132">    }</span>
+
     public String getInternalCode() {
-<span class="fc" id="L118">        return internalCode;</span>
+<span class="fc" id="L135">        return internalCode;</span>
     }
-    
+
     public void setInternalCode(String internalCode) {
-<span class="fc" id="L122">        this.internalCode = internalCode;</span>
-<span class="fc" id="L123">    }</span>
-    
+<span class="fc" id="L139">        this.internalCode = internalCode;</span>
+<span class="fc" id="L140">    }</span>
+
     public String getName() {
-<span class="fc" id="L126">        return name;</span>
+<span class="fc" id="L143">        return name;</span>
     }
-    
+
     public void setName(String name) {
-<span class="fc" id="L130">        this.name = name;</span>
-<span class="fc" id="L131">    }</span>
-    
+<span class="fc" id="L147">        this.name = name;</span>
+<span class="fc" id="L148">    }</span>
+
     public LocalDate getExpirationDate() {
-<span class="fc" id="L134">        return expirationDate;</span>
+<span class="fc" id="L151">        return expirationDate;</span>
     }
-    
+
     public void setExpirationDate(LocalDate expirationDate) {
-<span class="fc" id="L138">        this.expirationDate = expirationDate;</span>
-<span class="fc" id="L139">    }</span>
-    
+<span class="fc" id="L155">        this.expirationDate = expirationDate;</span>
+<span class="fc" id="L156">    }</span>
+
     public LocalDate getDateOfAdmission() {
-<span class="fc" id="L142">        return dateOfAdmission;</span>
+<span class="fc" id="L159">        return dateOfAdmission;</span>
     }
-    
+
     public void setDateOfAdmission(LocalDate dateOfAdmission) {
-<span class="fc" id="L146">        this.dateOfAdmission = dateOfAdmission;</span>
-<span class="fc" id="L147">    }</span>
-    
+<span class="fc" id="L163">        this.dateOfAdmission = dateOfAdmission;</span>
+<span class="fc" id="L164">    }</span>
+
     public double getCost() {
-<span class="fc" id="L150">        return cost;</span>
+<span class="fc" id="L167">        return cost;</span>
     }
-    
+
     public void setCost(double cost) {
-<span class="fc" id="L154">        this.cost = cost;</span>
-<span class="fc" id="L155">    }</span>
-    
+<span class="fc" id="L171">        this.cost = cost;</span>
+<span class="fc" id="L172">    }</span>
+
     public double getQuantity() {
-<span class="fc" id="L158">        return quantity;</span>
+<span class="fc" id="L175">        return quantity;</span>
     }
 
     /**
@@ -165,48 +182,48 @@ public class Supply implements Serializable {
      * @param quantity
      */
     public void setQuantity(double quantity) {
-<span class="pc bpc" id="L168" title="1 of 2 branches missed.">        setAvailability(quantity != 0);</span>
-<span class="fc" id="L169">        this.quantity = quantity;</span>
-<span class="fc" id="L170">    }</span>
-    
+<span class="pc bpc" id="L185" title="1 of 2 branches missed.">        setAvailability(quantity != 0);</span>
+<span class="fc" id="L186">        this.quantity = quantity;</span>
+<span class="fc" id="L187">    }</span>
+
     public boolean isAvailability() {
-<span class="fc" id="L173">        return availability;</span>
+<span class="fc" id="L190">        return availability;</span>
     }
-    
+
     public void setAvailability(boolean availability) {
-<span class="fc" id="L177">        this.availability = availability;</span>
-<span class="fc" id="L178">    }</span>
-    
+<span class="fc" id="L194">        this.availability = availability;</span>
+<span class="fc" id="L195">    }</span>
+
     public String getDescription() {
-<span class="fc" id="L181">        return description;</span>
+<span class="fc" id="L198">        return description;</span>
     }
-    
+
     public void setDescription(String description) {
-<span class="fc" id="L185">        this.description = description;</span>
-<span class="fc" id="L186">    }</span>
-    
+<span class="fc" id="L202">        this.description = description;</span>
+<span class="fc" id="L203">    }</span>
+
     public Measure getMeasure() {
-<span class="fc" id="L189">        return measure;</span>
+<span class="fc" id="L206">        return measure;</span>
     }
-    
+
     public void setMeasure(Measure measure) {
-<span class="fc" id="L193">        this.measure = measure;</span>
-<span class="fc" id="L194">    }</span>
-    
+<span class="fc" id="L210">        this.measure = measure;</span>
+<span class="fc" id="L211">    }</span>
+
     public List&lt;NecessarySupply&gt; getNecessarySupplyList() {
-<span class="nc" id="L197">        return necessarySupplyList;</span>
+<span class="nc" id="L214">        return necessarySupplyList;</span>
     }
-    
+
     public void setNecessarySupplyList(List&lt;NecessarySupply&gt; necessarySupplyList) {
-<span class="nc" id="L201">        this.necessarySupplyList = necessarySupplyList;</span>
-<span class="nc" id="L202">    }</span>
-    
+<span class="nc" id="L218">        this.necessarySupplyList = necessarySupplyList;</span>
+<span class="nc" id="L219">    }</span>
+
     public List&lt;ModifySupply&gt; getModifySupplyList() {
-<span class="nc" id="L205">        return modifySupplyList;</span>
+<span class="nc" id="L222">        return modifySupplyList;</span>
     }
-    
+
     public void setModifySupplyList(List&lt;ModifySupply&gt; modifySupplyList) {
-<span class="nc" id="L209">        this.modifySupplyList = modifySupplyList;</span>
-<span class="nc" id="L210">    }</span>
+<span class="nc" id="L226">        this.modifySupplyList = modifySupplyList;</span>
+<span class="nc" id="L227">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
