@@ -1,11 +1,13 @@
 package gt.edu.usac.cunoc.ingenieria.supply;
 
+import gt.edu.usac.cunoc.ingenieria.modify.NewModifySupplyDTO;
 import Supply.Measure;
 import Supply.Supply;
 import Supply.exception.MandatoryAttributeSupplyException;
 import Supply.facade.SupplyFacadeLocal;
 import User.User;
 import User.exception.UserException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -76,26 +78,22 @@ public class SupplyResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public SupplyDTO createSupply(SupplyDTO supplyDTO) {
-        System.out.println("Code: " + supplyDTO + ", Internal: " + supplyDTO.getInternalCode() + ", name: "
-                + supplyDTO.getName() + ", DateE: " + supplyDTO.getExpirationDate().toString() + ", DateA: "
-                + supplyDTO.getDateOfAdmission().toString() + ", Cost: " + supplyDTO.getCost() + ", Quantity: "
-                + supplyDTO.getQuantity() + ", Available: " + supplyDTO.isAvailability() + ", Desc: "
-                + supplyDTO.getDescription() + ", Measure: " + supplyDTO.getMeasure().getName());
-        Optional<Measure> measure = supplyFacade.getMeasureById(supplyDTO.getMeasure().getIdMeasure());
+        Optional<Measure> measure = supplyFacade.getMeasureById(supplyDTO.getMeasureID());
 
         if (measure.isPresent()) {
             try {
-                supplyFacade.createSupply(new Supply(
-                        supplyDTO.getCode(),
-                        supplyDTO.getInternalCode(),
-                        supplyDTO.getName(),
-                        supplyDTO.getExpirationDate(),
-                        supplyDTO.getDateOfAdmission(),
-                        supplyDTO.getCost(),
-                        supplyDTO.getQuantity(),
-                        supplyDTO.isAvailability(),
-                        supplyDTO.getDescription(),
-                        measure.get()));
+                return new SupplyDTO(
+                        supplyFacade.createSupply(new Supply(
+                                supplyDTO.getCode(),
+                                supplyDTO.getInternalCode(),
+                                supplyDTO.getName(),
+                                supplyDTO.getExpirationDate(),
+                                supplyDTO.getDateOfAdmission(),
+                                supplyDTO.getCost(),
+                                supplyDTO.getQuantity(),
+                                supplyDTO.isAvailability(),
+                                supplyDTO.getDescription(),
+                                measure.get())));
             } catch (MandatoryAttributeSupplyException e) {
                 /*
                 TO-DO throw error
@@ -127,8 +125,7 @@ public class SupplyResource {
     }
 
     @PUT
-    @Path("/{id}")
-    public SupplyDTO updateSupply(@PathParam("id") Integer id, updateSupplyDTO supply) {
+    public SupplyDTO updateSupply(updateSupplyDTO supply) {
         try {
             return new SupplyDTO(
                     supplyFacade.modifySupply(

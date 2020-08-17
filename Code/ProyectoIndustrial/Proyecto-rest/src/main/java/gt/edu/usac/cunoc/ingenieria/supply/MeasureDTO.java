@@ -1,15 +1,20 @@
 package gt.edu.usac.cunoc.ingenieria.supply;
 
 import Supply.Measure;
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  *
  * @author angelrg
  */
-public class MeasureDTO {
+public class MeasureDTO implements Serializable {
+
     private Integer idMeasure;
     private String name;
+
+    public MeasureDTO() {
+    }
 
     public MeasureDTO(Measure measure) {
         this.idMeasure = measure.getIdMeasure();
@@ -56,6 +61,5 @@ public class MeasureDTO {
         }
         return true;
     }
-    
-    
+
 }

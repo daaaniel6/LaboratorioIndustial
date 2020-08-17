@@ -16,6 +16,9 @@ public class updateSupplyDTO implements Serializable{
     double cost;
     String description;
 
+    public updateSupplyDTO() {
+    }
+
     public updateSupplyDTO(Integer code, String name, LocalDate expirationDate, double cost, String description) {
         this.code = code;
         this.name = name;
