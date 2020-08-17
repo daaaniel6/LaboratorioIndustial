@@ -6,12 +6,13 @@ import Production.ExtraCost;
 import Production.NecessarySupply;
 import Production.Product;
 import Production.Production;
+import Production.Stage;
 import Production.Step;
 import Production.exceptions.MandatoryAttributeProductionException;
 import Production.repository.DesignRepository;
 import Production.repository.ProductRepository;
 import Production.repository.ProductionRepository;
-import Production.repository.StepRepository;
+import Production.repository.*;
 import Production.service.DesignService;
 import Production.service.ProductionService;
 import Production.service.StepService;
@@ -36,6 +37,7 @@ public class ProductionFacade implements ProductionFacadeLocal {
     private StepService stepService;
     private StepRepository stepRepository;
     private DesignRepository designRepository;
+    private StageRepository stageRepository;
     
     private DesignService designService;
     
@@ -47,6 +49,10 @@ public class ProductionFacade implements ProductionFacadeLocal {
     @EJB
     public void setStepRepository(StepRepository stepRepository) {
         this.stepRepository = stepRepository;
+    }
+    @EJB
+    public void setStageRepository(StageRepository stageRepository) {
+        this.stageRepository = stageRepository;
     }
     
     @EJB
@@ -214,6 +220,13 @@ public class ProductionFacade implements ProductionFacadeLocal {
     @Override
     public Optional<Step> findByIdStep(Integer stepId) {
         return stepRepository.findByIdStep(stepId);
+        
+    }
+    
+    
+    @Override
+    public Optional<Stage> findByIdStage(Integer stageId) {
+        return stageRepository.findByIdStage(stageId);
         
     }
 }

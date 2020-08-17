@@ -11,6 +11,7 @@ import Production.ExtraCost;
 import Production.Product;
 import Production.NecessarySupply;
 import Production.Production;
+import Production.Stage;
 import Production.Step;
 import Production.exceptions.MandatoryAttributeProductionException;
 import User.exception.UserException;
@@ -27,8 +28,10 @@ import javax.ejb.Local;
 public interface ProductionFacadeLocal {
 
     public Step edit(Step oldStep) throws UserException;
+    //ok
 
     public void remove(Step step) throws UserException;
+    //ok
 
     public Step createStep(Step step) throws UserException;
 
@@ -102,5 +105,7 @@ public interface ProductionFacadeLocal {
     public double totalExtraCost(Production production);
 
     public Optional<Step> findByIdStep(Integer stepId) ;
+
+    public Optional<Stage> findByIdStage(Integer stageId);
 
 }
