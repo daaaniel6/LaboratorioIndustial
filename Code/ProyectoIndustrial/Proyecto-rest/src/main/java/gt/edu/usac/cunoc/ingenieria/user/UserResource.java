@@ -16,6 +16,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
@@ -29,38 +30,29 @@ import javax.ws.rs.core.Response;
 @Stateless
 @Produces(MediaType.APPLICATION_JSON)
 public class UserResource {
-    
+
     @EJB
     private UserFacadeLocal userFacade;
-    
+
     @GET
     @Path("/search")
     public Response findUsers(
             @QueryParam("carnet") Integer carnet,
-            @QueryParam("nombre") String name,
-            @QueryParam("stado") Boolean state,
-            @DefaultValue("-1") @QueryParam("rolID") Integer rolUser,
-            @DefaultValue("-1") @QueryParam("carreraID") Integer careerId) {
-        
+            @QueryParam("name") String name,
+            @QueryParam("state") Boolean state,
+            @QueryParam("rolID") Integer rolID,
+            @QueryParam("careerID") Integer careerID) {
+        System.out.println("1: " + carnet + ", 2: " + name + ", 3: " + state + ", 4: " + rolID + ", 5: " + careerID);
         try {
-            Optional<RolUser> rolUserSelected = userFacade.findRolUserById(rolUser);
-            Optional<Career> careerSelected = userFacade.findCareerById(careerId);
-            
+
+            User user = new User(carnet, name, null, null, null, state, new RolUser(rolID, null), new Career(careerID, null));
+
             return Response
                     .status(Response.Status.FOUND)
                     .entity(resultConverted(
-                            userFacade.getUser(
-                                    new User(
-                                            carnet,
-                                            name,
-                                            null,
-                                            null,
-                                            null,
-                                            state,
-                                            rolUserSelected.get(),
-                                            careerSelected.get()))))
+                            userFacade.getUser(user)))
                     .build();
-            
+
         } catch (UserException e) {
             return Response
                     .status(Response.Status.BAD_REQUEST)
@@ -68,16 +60,16 @@ public class UserResource {
                     .build();
         }
     }
-    
+
     @GET
     @Path("/search/students")
     public Response getAllStudents() {
-        
+
         try {
             return Response
                     .status(Response.Status.FOUND)
                     .entity(resultConverted(userFacade.getUserEstudent())).build();
-            
+
         } catch (UserException e) {
             return Response
                     .status(Response.Status.BAD_REQUEST)
@@ -85,7 +77,7 @@ public class UserResource {
                     .build();
         }
     }
-    
+
     @GET
     @Path("/careers")
     public Response getAllCareers() {
@@ -93,7 +85,7 @@ public class UserResource {
                 .status(Response.Status.FOUND)
                 .entity(userFacade.getAllCareer()).build();
     }
-    
+
     @GET
     @Path("/rols")
     public Response getAllRolUser() {
@@ -101,20 +93,20 @@ public class UserResource {
                 .status(Response.Status.FOUND)
                 .entity(userFacade.getAllRolUser()).build();
     }
-    
+
     @GET
     @Path("/career/search")
     public Response findCareer(
             @QueryParam("id") Integer idCareer,
             @QueryParam("name") String nameCareer) {
-        
+
         try {
             return Response
                     .status(Response.Status.FOUND)
                     .entity(userFacade.getCareer(
                             new Career(idCareer, nameCareer)
                     )).build();
-            
+
         } catch (UserException e) {
             return Response
                     .status(Response.Status.BAD_REQUEST)
@@ -122,20 +114,20 @@ public class UserResource {
                     .build();
         }
     }
-    
+
     @GET
     @Path("/rol/search")
     public Response findRolUser(
             @QueryParam("id") Integer idRol,
             @QueryParam("name") String nameRol) {
-        
+
         try {
             return Response
                     .status(Response.Status.FOUND)
                     .entity(userFacade.getRolUser(
                             new RolUser(idRol, nameRol)
                     )).build();
-            
+
         } catch (UserException e) {
             return Response
                     .status(Response.Status.BAD_REQUEST)
@@ -143,12 +135,12 @@ public class UserResource {
                     .build();
         }
     }
-    
+
     @GET
     @Path("/{id}")
-    public Response getUser(@QueryParam("id") Integer id) {
+    public Response getUser(@PathParam("id") Integer id) {
         Optional<User> result = userFacade.getUserByID(id);
-        
+
         if (result.isPresent()) {
             return Response
                     .status(Response.Status.FOUND)
@@ -160,13 +152,13 @@ public class UserResource {
                 .entity(Response.Status.NOT_FOUND + ": User not found")
                 .build();
     }
-    
+
     @GET
     @Path("/career/{id}")
-    public Response getCareer(@QueryParam("id") Integer id) {
+    public Response getCareer(@PathParam("id") Integer id) {
         try {
             Optional<Career> result = userFacade.findCareerById(id);
-            
+
             if (result.isPresent()) {
                 return Response
                         .status(Response.Status.FOUND)
@@ -184,13 +176,13 @@ public class UserResource {
                     .build();
         }
     }
-    
+
     @GET
     @Path("/rol/{id}")
-    public Response getRolUSer(@QueryParam("id") Integer id) {
+    public Response getRolUSer(@PathParam("id") Integer id) {
         try {
             Optional<RolUser> result = userFacade.findRolUserById(id);
-            
+
             if (result.isPresent()) {
                 return Response
                         .status(Response.Status.FOUND)
@@ -208,7 +200,7 @@ public class UserResource {
                     .build();
         }
     }
-    
+
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public Response createUser(NewUserDTO user) {
@@ -244,7 +236,7 @@ public class UserResource {
                     .build();
         }
     }
-    
+
     @POST
     @Path("/career")
     @Consumes(MediaType.APPLICATION_JSON)
@@ -261,50 +253,34 @@ public class UserResource {
                     .build();
         }
     }
-    
-    @POST
-    @Path("/rol")
-    @Consumes(MediaType.APPLICATION_JSON)
-    public Response createRolUser(RolUser rol) {
-        try {
-            return Response
-                    .status(Response.Status.CREATED)
-                    .entity(userFacade.createRolUser(rol))
-                    .build();
-        } catch (UserException e) {
-            return Response
-                    .status(Response.Status.BAD_REQUEST)
-                    .entity(Response.Status.BAD_REQUEST + ": " + e.getMessage())
-                    .build();
-        }
-    }
-    
+
     @PUT
     public Response updateUser(UserDTO user) {
         try {
-            Optional<RolUser> rolUserSelected = userFacade.findRolUserById(user.getRolUser().getIdRolUser());
-            Optional<Career> carrearSelected = userFacade.findCareerById(user.getCareer().getIdCareer());
-            if (rolUserSelected.isPresent() && carrearSelected.isPresent()) {
-                return Response
-                        .status(Response.Status.OK)
-                        .entity(new UserDTO(
-                                userFacade.updateUser(
-                                        new User(
-                                                user.getCarnet(),
-                                                user.getName(),
-                                                user.getEmail(),
-                                                user.getPhone(),
-                                                null,
-                                                user.getState(),
-                                                rolUserSelected.get(),
-                                                carrearSelected.get()))
-                        )).build();
-            } else {
-                return Response
-                        .status(Response.Status.BAD_REQUEST)
-                        .entity(Response.Status.BAD_REQUEST + ": Missing Params")
-                        .build();
+
+            if (user.getRolUser() != null && user.getRolUser().getIdRolUser() != null) {
+                Optional<RolUser> rolUserSelected = userFacade.findRolUserById(user.getRolUser().getIdRolUser());
+                user.setRolUser(rolUserSelected.get());
             }
+
+            if (user.getCareer() != null && user.getCareer().getIdCareer() != null) {
+                Optional<Career> carrearSelected = userFacade.findCareerById(user.getCareer().getIdCareer());
+                user.setCareer(carrearSelected.get());
+            }
+            return Response
+                    .status(Response.Status.OK)
+                    .entity(new UserDTO(
+                            userFacade.updateUser(
+                                    new User(
+                                            user.getCarnet(),
+                                            user.getName(),
+                                            user.getEmail(),
+                                            user.getPhone(),
+                                            null,
+                                            user.getState(),
+                                            user.getRolUser(),
+                                            user.getCareer()))
+                    )).build();
         } catch (UserException e) {
             return Response
                     .status(Response.Status.BAD_REQUEST)
@@ -312,7 +288,7 @@ public class UserResource {
                     .build();
         }
     }
-    
+
     @PUT
     @Path("/career")
     public Response updateCareer(Career career) {
@@ -328,26 +304,10 @@ public class UserResource {
                     .build();
         }
     }
-    
-    @PUT
-    @Path("/rol")
-    public Response updateRolUser(RolUser career) {
-        try {
-            return Response
-                    .status(Response.Status.OK)
-                    .entity(userFacade.updateRolUser(career))
-                    .build();
-        } catch (UserException e) {
-            return Response
-                    .status(Response.Status.BAD_REQUEST)
-                    .entity(Response.Status.BAD_REQUEST + ": " + e.getMessage())
-                    .build();
-        }
-    }
-    
+
     @PUT
     @Path("/resetPass/{carnet}")
-    public Response resetPassword(@QueryParam("carnet") Integer carnet) {
+    public Response resetPassword(@PathParam("carnet") Integer carnet) {
         try {
             User user = new User();
             user.setCarnet(carnet);
@@ -362,7 +322,7 @@ public class UserResource {
                     .build();
         }
     }
-    
+
     @PUT
     @Path("/LogInResetPass")
     public Response logInResetPassword(UserDTO user) {
@@ -378,7 +338,7 @@ public class UserResource {
                     .build();
         }
     }
-    
+
     private List<UserDTO> resultConverted(List<User> queryResult) {
         List<UserDTO> result = new ArrayList<>();
         queryResult.forEach((mod) -> {
