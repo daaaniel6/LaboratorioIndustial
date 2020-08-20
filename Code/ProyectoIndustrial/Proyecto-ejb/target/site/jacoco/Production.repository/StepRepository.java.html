@@ -36,8 +36,8 @@ import javax.persistence.TypedQuery;
      */
     public Optional&lt;Step&gt; findByIdStep(int idStep) {
 
-<span class="fc" id="L39">        TypedQuery&lt;Step&gt; typedQuery = entityManager.createQuery(QUERY_FIND_BY_ID, Step.class)</span>
-<span class="fc" id="L40">                .setParameter(1, idStep);</span>
+//        TypedQuery&lt;Step&gt; typedQuery = entityManager.createQuery(QUERY_FIND_BY_ID, Step.class)
+//                .setParameter(1, idStep);
         try {
             //return Optional.ofNullable(typedQuery.getSingleResult());
 <span class="fc" id="L43">             return Optional.ofNullable(entityManager.find(Step.class, idStep));</span>

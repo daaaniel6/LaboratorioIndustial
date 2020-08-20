@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>StageRepository.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Proyecto-ejb</a> &gt; <a href="index.source.html" class="el_package">Production.repository</a> &gt; <span class="el_source">StageRepository.java</span></div><h1>StageRepository.java</h1><pre class="source lang-java linenums">package Production.repository;
 
 import Production.Stage;
+import Production.Step;
 import static config.Constants.PERSISTENCE_UNIT_NAME;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -16,7 +17,7 @@ import javax.persistence.TypedQuery;
  */
 @Stateless
 @LocalBean
-<span class="fc" id="L19">public class StageRepository {</span>
+<span class="fc" id="L20">public class StageRepository {</span>
 
     private EntityManager entityManager;
     public static final String QUERY_FIND_BY_ID = &quot;SELECT s FROM Stage s WHERE s.idStage = ?&quot;;
@@ -25,8 +26,8 @@ import javax.persistence.TypedQuery;
 
     @PersistenceContext(name = PERSISTENCE_UNIT_NAME)
     public void setEntityManager(EntityManager entityManager) {
-<span class="fc" id="L28">        this.entityManager = entityManager;</span>
-<span class="fc" id="L29">    }</span>
+<span class="fc" id="L29">        this.entityManager = entityManager;</span>
+<span class="fc" id="L30">    }</span>
 
     /**
      * Busca una Stage por el id si no encuentra nada devulve un Optional vacio
@@ -36,28 +37,30 @@ import javax.persistence.TypedQuery;
      */
     public Optional&lt;Stage&gt; findByIdStage(int idStage) {
 
-<span class="fc" id="L39">        TypedQuery&lt;Stage&gt; typedQuery = entityManager.createQuery(QUERY_FIND_BY_ID, Stage.class)</span>
-<span class="fc" id="L40">                .setParameter(1, idStage);</span>
+       // TypedQuery&lt;Stage&gt; typedQuery = entityManager.createQuery(QUERY_FIND_BY_ID, Stage.class)
+               // .setParameter(1, idStage);
         try {
-<span class="fc" id="L42">            return Optional.ofNullable(typedQuery.getSingleResult());</span>
-<span class="fc" id="L43">        } catch (Exception e) {</span>
-<span class="fc" id="L44">            return Optional.empty();</span>
+<span class="fc" id="L43">            return Optional.ofNullable(entityManager.find(Stage.class, idStage));</span>
+            
+            //return Optional.ofNullable(typedQuery.getSingleResult());
+<span class="nc" id="L46">        } catch (Exception e) {</span>
+<span class="nc" id="L47">            return Optional.empty();</span>
         }
 
     }
 
     public List&lt;Stage&gt; AllStages() {
-<span class="fc" id="L50">        TypedQuery&lt;Stage&gt; typedQuery = entityManager.createQuery(QUERY_ALL_STAGES, Stage.class);</span>
-<span class="fc" id="L51">        return typedQuery.getResultList();</span>
+<span class="fc" id="L53">        TypedQuery&lt;Stage&gt; typedQuery = entityManager.createQuery(QUERY_ALL_STAGES, Stage.class);</span>
+<span class="fc" id="L54">        return typedQuery.getResultList();</span>
 
     }
 
     public List&lt;Stage&gt; findStageLikeName(String nameStage) {
 
-<span class="fc" id="L57">        TypedQuery&lt;Stage&gt; typedQuery = entityManager.createQuery(QUERY_LIKE_STAGES, Stage.class)</span>
-<span class="fc" id="L58">                .setParameter(1, nameStage);</span>
+<span class="fc" id="L60">        TypedQuery&lt;Stage&gt; typedQuery = entityManager.createQuery(QUERY_LIKE_STAGES, Stage.class)</span>
+<span class="fc" id="L61">                .setParameter(1, nameStage);</span>
 
-<span class="fc" id="L60">        return typedQuery.getResultList();</span>
+<span class="fc" id="L63">        return typedQuery.getResultList();</span>
 
     }
 
@@ -70,7 +73,7 @@ import javax.persistence.TypedQuery;
      * @return
      */
     public List&lt;Stage&gt; getStageByProductionId(Integer id) {
-<span class="nc" id="L73">        throw new UnsupportedOperationException(&quot;Not supported yet.&quot;); //To change body of generated methods, choose Tools | Templates.</span>
+<span class="nc" id="L76">        throw new UnsupportedOperationException(&quot;Not supported yet.&quot;); //To change body of generated methods, choose Tools | Templates.</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

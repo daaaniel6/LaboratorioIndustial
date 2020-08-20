@@ -84,8 +84,8 @@ public class ProductionFacade implements ProductionFacadeLocal {
      * {@inheritDoc}
      */
     @Override
-    public void createProduction(Production production) throws MandatoryAttributeProductionException {
-        productionService.create(production);
+    public Production createProduction(Production production) throws MandatoryAttributeProductionException {
+        return productionService.create(production);
     }
 
     /**
@@ -101,8 +101,8 @@ public class ProductionFacade implements ProductionFacadeLocal {
      * {@inheritDoc}
      */
     @Override
-    public void editProduction(Production production) throws MandatoryAttributeProductionException {
-        productionService.edit(production);
+    public Production editProduction(Production production) throws MandatoryAttributeProductionException {
+        return productionService.edit(production);
     }
 
     /**

@@ -36,8 +36,8 @@ public class StepRepository {
      */
     public Optional<Step> findByIdStep(int idStep) {
 
-        TypedQuery<Step> typedQuery = entityManager.createQuery(QUERY_FIND_BY_ID, Step.class)
-                .setParameter(1, idStep);
+//        TypedQuery<Step> typedQuery = entityManager.createQuery(QUERY_FIND_BY_ID, Step.class)
+//                .setParameter(1, idStep);
         try {
             //return Optional.ofNullable(typedQuery.getSingleResult());
              return Optional.ofNullable(entityManager.find(Step.class, idStep));
