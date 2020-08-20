@@ -6,13 +6,14 @@
 package gt.edu.usac.cunoc.ingenieria.group;
 
 import Group.GroupIndustrial;
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  *
  * @author daniel
  */
-public class GroupIndustrialDTO {
+public class GroupIndustrialDTO implements Serializable{
     
     
     private Integer idGroup;

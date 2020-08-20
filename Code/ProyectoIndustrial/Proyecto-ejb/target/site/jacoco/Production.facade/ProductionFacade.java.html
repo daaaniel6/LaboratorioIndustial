@@ -84,9 +84,9 @@ import javax.ejb.Stateless;
      * {@inheritDoc}
      */
     @Override
-    public void createProduction(Production production) throws MandatoryAttributeProductionException {
-<span class="nc" id="L88">        productionService.create(production);</span>
-<span class="nc" id="L89">    }</span>
+    public Production createProduction(Production production) throws MandatoryAttributeProductionException {
+<span class="nc" id="L88">        return productionService.create(production);</span>
+    }
 
     /**
      *
@@ -101,9 +101,9 @@ import javax.ejb.Stateless;
      * {@inheritDoc}
      */
     @Override
-    public void editProduction(Production production) throws MandatoryAttributeProductionException {
-<span class="nc" id="L105">        productionService.edit(production);</span>
-<span class="nc" id="L106">    }</span>
+    public Production editProduction(Production production) throws MandatoryAttributeProductionException {
+<span class="nc" id="L105">        return productionService.edit(production);</span>
+    }
 
     /**
      * {@inheritDoc}

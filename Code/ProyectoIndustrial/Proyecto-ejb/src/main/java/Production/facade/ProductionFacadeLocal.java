@@ -46,9 +46,9 @@ public interface ProductionFacadeLocal {
     //ok
     
     public List<Production> AllProductions();
-    //ok
+    //ok.
     public Optional<Production> getProductionById(Integer id);
-    //ok
+    //ok.
     public void createDesign(Design design, DesignData designData, List<NecessarySupply> necessarySupplys);
 
     /**
@@ -58,13 +58,16 @@ public interface ProductionFacadeLocal {
      * @return
      */
     public Optional<Design> findDesignByID(Integer idDesign);
+    //Not FOund
 
     public List<Design> AllDesigns();
+    //ok
 
     public Optional<Product> getProductById(Integer id);
     //ok
     public Design editDesign(Design design) throws MandatoryAttributeProductionException;
-
+    //ok.
+    
     /**
      * To get all results just set all with null
      *
@@ -80,7 +83,8 @@ public interface ProductionFacadeLocal {
      * @return
      */
     public List<Production> findProduction(Integer idProduction, String name, LocalDate startDate, LocalDate endDate, boolean editable);
-    //ok
+    
+    
     /**
      * Can update Name, Quantity, the Design and Group
      *

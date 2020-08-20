@@ -7,7 +7,7 @@ package gt.edu.usac.cunoc.ingenieria.production;
 
 import Production.Production;
 import Production.Stage;
-import Production.Stage_;
+
 import Production.Step;
 import Production.exceptions.MandatoryAttributeProductionException;
 import Production.facade.ProductionFacadeLocal;
@@ -81,7 +81,7 @@ public class ProductionResource {
     @PUT //modificar Produccion
     public Response updateProduction(ProductionDTO productionDTO) {
         try {
-            ProductionDTO stepDTO = new ProductionDTO(
+            ProductionDTO update = new ProductionDTO(
                     productionFacadeLocal.editProduction(
                             new Production(
                                     productionDTO.getIdProduction(), productionDTO.getName(),
@@ -91,7 +91,7 @@ public class ProductionResource {
             );
             return Response
                     .ok()
-                    .entity(stepDTO)
+                    .entity(update)
                     .build();
 
         } catch (Exception ex) {

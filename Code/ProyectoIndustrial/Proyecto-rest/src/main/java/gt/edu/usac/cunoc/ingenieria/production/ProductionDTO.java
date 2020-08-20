@@ -41,15 +41,15 @@ public class ProductionDTO implements Serializable{
         this.idProduction = production.getIdProduction();
         this.name = production.getName();
         this.startDate = production.getStartDate();
-        //this.endDate = production.getEndDate();
+        this.endDate = production.getEndDate();  //
         this.state = production.getState();
-        //this.qualification = production.getQualification();
-       // this.quantity = production.getQuantity();
-       // this.initCost = production.getInitCost();
-        //this.finalCost = production.getFinalCost();
-        //this.designId = production.getDesignId().getIdDesign();
-       // this.postDesign = production.getPostDesign().getIdDesign();
-        //this.groupId = production.getGroupId().getIdGroup();
+        this.qualification = production.getQualification();
+        this.quantity = production.getQuantity();
+        this.initCost = production.getInitCost();
+        this.finalCost = production.getFinalCost();
+        this.designId = production.getDesignId().getIdDesign();
+        this.postDesign = production.getPostDesign().getIdDesign();
+        this.groupId = production.getGroupId().getIdGroup();
         
     }
     

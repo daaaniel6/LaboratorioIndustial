@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gt.edu.usac.cunoc.ingenieria.production;
+package gt.edu.usac.cunoc.ingenieria.design;
 
 import Design.Design;
 import java.io.Serializable;
