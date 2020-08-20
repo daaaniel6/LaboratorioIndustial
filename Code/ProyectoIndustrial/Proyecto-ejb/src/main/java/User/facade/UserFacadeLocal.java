@@ -64,4 +64,8 @@ public interface UserFacadeLocal {
      * @throws UserException
      */
     public boolean resetPassword(Integer userID, String userMail) throws UserException;
+    
+    public Optional<RolUser> findRolUserById(int idRolUser) throws UserException;
+    
+    public Optional<Career> findCareerById(Integer idCareer) throws UserException;
 }
