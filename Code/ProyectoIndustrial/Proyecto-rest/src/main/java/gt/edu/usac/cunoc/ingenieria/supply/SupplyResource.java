@@ -21,12 +21,13 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 /**
  *
  * @author angelrg
  */
-@Path("/supply")
+@Path("/supplies")
 @Stateless
 @Produces(MediaType.APPLICATION_JSON)
 public class SupplyResource {
@@ -35,111 +36,130 @@ public class SupplyResource {
     SupplyFacadeLocal supplyFacade;
 
     @GET
-    @Path("/measures")
-    public List<MeasureDTO> getMeasures() {
-        List<MeasureDTO> result = new ArrayList<>();
-        supplyFacade.getAllMeasures().forEach((mod) -> {
-            result.add(new MeasureDTO(mod));
-        });
-        return result;
-    }
-
-    @GET
-    @Path("/measure/{id}")
-    public MeasureDTO getMeasureByID(@PathParam("id") Integer id) {
-        Optional<Measure> result = supplyFacade.getMeasureById(id);
-        if (result.isPresent()) {
-            return new MeasureDTO(supplyFacade.getMeasureById(id).get());
-        }
-        /*
-        TO-DO add throw error
-         */
-        return null;
-    }
-
-    @GET
     @Path("/available")
-    public List<SupplyDTO> getSupplies() {
-        return resultConverted(supplyFacade.getSupplyAvailable());
+    public Response getSupplies() {
+        return Response
+                .status(Response.Status.FOUND)
+                .entity(resultConverted(
+                        supplyFacade.getSupplyAvailable())
+                ).build();
     }
 
     @GET
-    public List<SupplyDTO> findSupplies(
+    @Path("/search")
+    public Response findSupplies(
             @QueryParam("supplyid") Integer supplyId,
             @QueryParam("internalCode") String internalCode,
             @QueryParam("supplyname") String supplyname) {
         /*
         TO-DO add enum for search
          */
-        return resultConverted(supplyFacade.searchSupplies(supplyId, internalCode, supplyname, null, null));
+        return Response
+                .status(Response.Status.FOUND)
+                .entity(resultConverted(
+                        supplyFacade.searchSupplies(
+                                supplyId,
+                                internalCode,
+                                supplyname,
+                                null, null))
+                ).build();
+    }
+
+    @GET
+    @Path("/{id}")
+    public Response getSupplyByID(@PathParam("id") Integer id) {
+        Optional<Supply> result = supplyFacade.findSupplyByID(id);
+
+        if (result.isPresent()) {
+            return Response
+                    .status(Response.Status.FOUND)
+                    .entity(new SupplyDTO(result.get()))
+                    .build();
+        }
+        return Response
+                .status(Response.Status.NOT_FOUND)
+                .entity(Response.Status.NOT_FOUND + ": Supply not found")
+                .build();
     }
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    public SupplyDTO createSupply(SupplyDTO supplyDTO) {
+    public Response createSupply(SupplyDTO supplyDTO) {
         Optional<Measure> measure = supplyFacade.getMeasureById(supplyDTO.getMeasureID());
 
         if (measure.isPresent()) {
             try {
-                return new SupplyDTO(
-                        supplyFacade.createSupply(new Supply(
-                                supplyDTO.getCode(),
-                                supplyDTO.getInternalCode(),
-                                supplyDTO.getName(),
-                                supplyDTO.getExpirationDate(),
-                                supplyDTO.getDateOfAdmission(),
-                                supplyDTO.getCost(),
-                                supplyDTO.getQuantity(),
-                                supplyDTO.isAvailability(),
-                                supplyDTO.getDescription(),
-                                measure.get())));
+                return Response
+                        .status(Response.Status.CREATED)
+                        .entity(new SupplyDTO(
+                                supplyFacade.createSupply(new Supply(
+                                        supplyDTO.getCode(),
+                                        supplyDTO.getInternalCode(),
+                                        supplyDTO.getName(),
+                                        supplyDTO.getExpirationDate(),
+                                        supplyDTO.getDateOfAdmission(),
+                                        supplyDTO.getCost(),
+                                        supplyDTO.getQuantity(),
+                                        supplyDTO.isAvailability(),
+                                        supplyDTO.getDescription(),
+                                        measure.get())))
+                        ).build();
             } catch (MandatoryAttributeSupplyException e) {
-                /*
-                TO-DO throw error
-                 */
-                return null;
+                return Response
+                        .status(Response.Status.BAD_REQUEST)
+                        .entity(Response.Status.BAD_REQUEST + ": " + e.getMessage())
+                        .build();
             }
         }
-        /*
-        TO-DO throw error
-         */
-        return null;
+        return Response
+                .status(Response.Status.NOT_FOUND)
+                .entity(Response.Status.NOT_FOUND + ": Supply not found")
+                .build();
     }
 
     @POST
     @Path("/modify")
-    public SupplyDTO modifySupplyQuantity(NewModifySupplyDTO newModify) {
+    public Response modifySupplyQuantity(NewModifySupplyDTO newModify) {
         Supply supply = new Supply();
         supply.setCode(newModify.getCodeSupply());
         User user = new User();
         user.setCarnet(newModify.getCarnetUser());
         try {
-            return new SupplyDTO(supplyFacade.modifyQuantity(supply, newModify.getQuantity(), user, newModify.getNote()));
+            return Response
+                    .status(Response.Status.OK)
+                    .entity(new SupplyDTO(
+                            supplyFacade.modifyQuantity(
+                                    supply,
+                                    newModify.getQuantity(),
+                                    user,
+                                    newModify.getNote()))
+                    ).build();
         } catch (MandatoryAttributeSupplyException e) {
-            /*
-            TO-DO throw error
-             */
-            return null;
+            return Response
+                    .status(Response.Status.BAD_REQUEST)
+                    .entity(Response.Status.BAD_REQUEST + ": " + e.getMessage())
+                    .build();
         }
     }
 
     @PUT
-    public SupplyDTO updateSupply(updateSupplyDTO supply) {
+    public Response updateSupply(updateSupplyDTO supply) {
         try {
-            return new SupplyDTO(
-                    supplyFacade.modifySupply(
+            return Response
+                    .status(Response.Status.OK)
+                    .entity(new SupplyDTO(supplyFacade.modifySupply(
                             new Supply(
                                     supply.getCode(),
                                     supply.getName(),
                                     supply.getExpirationDate(),
                                     supply.getCost(),
-                                    supply.getDescription())
-                    ));
+                                    supply.getDescription())))
+                    ).build();
         } catch (UserException e) {
-            /*
-            TO-DO throw error
-             */
-            return null;
+            return Response
+                    .status(Response.Status.BAD_REQUEST)
+                    .entity(Response.Status.BAD_REQUEST + ": " + e.getMessage())
+                    .build();
         }
     }
 
