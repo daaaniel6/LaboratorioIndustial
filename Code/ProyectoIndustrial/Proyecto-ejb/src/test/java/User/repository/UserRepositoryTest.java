@@ -180,30 +180,30 @@ public class UserRepositoryTest {
 //        }
 //    }
 
-    @Test
-    public void getUserWithIdCareer() {
-        try {
-            User user = new User();
-            Career career = new Career(1, "sistemas");
-            user.setCareer(career);
-            List<User> users = new ArrayList<>();
-            users.add(new User());
-            Predicate predicate = Mockito.mock(Predicate.class);
-            CriteriaQuery<User> criteriaQuery = Mockito.mock(CriteriaQuery.class);
-            List<User> result = mockittoWhen(users, predicate, criteriaQuery, "id_Career", user).getUser(user);
-
-            //asserte
-            Assert.assertEquals(result, users);
-
-            Predicate[] predicates = new Predicate[1];
-            predicates[0] = predicate;
-
-            //verefy query
-            Mockito.verify(criteriaQuery).where(predicates);
-        } catch (UserException ex) {
-            Logger.getLogger(UserRepositoryTest.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+//    @Test
+//    public void getUserWithIdCareer() {
+//        try {
+//            User user = new User();
+//            Career career = new Career(1, "sistemas");
+//            user.setCareer(career);
+//            List<User> users = new ArrayList<>();
+//            users.add(new User());
+//            Predicate predicate = Mockito.mock(Predicate.class);
+//            CriteriaQuery<User> criteriaQuery = Mockito.mock(CriteriaQuery.class);
+//            List<User> result = mockittoWhen(users, predicate, criteriaQuery, "id_Career", user).getUser(user);
+//
+//            //asserte
+//            Assert.assertEquals(result, users);
+//
+//            Predicate[] predicates = new Predicate[1];
+//            predicates[0] = predicate;
+//
+//            //verefy query
+//            Mockito.verify(criteriaQuery).where(predicates);
+//        } catch (UserException ex) {
+//            Logger.getLogger(UserRepositoryTest.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//    }
 
     private UserRepository mockittoWhen(List<User> users, Predicate predicate, CriteriaQuery<User> criteriaQuery, String atribute, User user) {
 
