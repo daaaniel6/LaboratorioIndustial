@@ -27,12 +27,29 @@ import javax.ejb.Local;
 @Local
 public interface ProductionFacadeLocal {
 
+    
+    /**
+     * Para editar una paso
+     * 
+     * @param oldStep
+     * @return
+     * @throws UserException 
+     */
     public Step edit(Step oldStep) throws UserException;
     //ok
 
+    
+    /**
+     * Para remover un paso
+     * 
+     * @param step
+     * @throws UserException 
+     */
     public void remove(Step step) throws UserException;
     //ok
 
+    
+    
     public Step createStep(Step step) throws UserException;
     //ok
     
@@ -61,7 +78,7 @@ public interface ProductionFacadeLocal {
     //Not FOund
 
     public List<Design> AllDesigns();
-    //ok
+    //ok.
 
     public Optional<Product> getProductById(Integer id);
     //ok
@@ -83,7 +100,7 @@ public interface ProductionFacadeLocal {
      * @return
      */
     public List<Production> findProduction(Integer idProduction, String name, LocalDate startDate, LocalDate endDate, boolean editable);
-    
+    //ok.
     
     /**
      * Can update Name, Quantity, the Design and Group

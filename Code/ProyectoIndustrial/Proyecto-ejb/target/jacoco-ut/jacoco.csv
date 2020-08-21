@@ -25,7 +25,7 @@ Proyecto-ejb,Supply.repository,AvailabilityFilter,34,0,0,0,2,0,1,0,1,0
 Proyecto-ejb,Production.exceptions,MandatoryAttributeProductionException,3,4,0,0,2,2,1,1,1,1
 Proyecto-ejb,Design,DesignData_,3,0,0,0,1,0,1,0,1,0
 Proyecto-ejb,Design,Design_,3,0,0,0,1,0,1,0,1,0
-Proyecto-ejb,Design,Design,71,20,8,4,21,6,17,2,11,2
+Proyecto-ejb,Design,Design,83,20,8,4,26,6,18,2,12,2
 Proyecto-ejb,Design,DesignData,107,0,12,0,34,0,22,0,16,0
 Proyecto-ejb,Production.repository,StepRepository,8,37,0,0,3,9,1,5,1,5
 Proyecto-ejb,Production.repository,ProductionRepository,305,28,26,0,56,8,22,4,9,4

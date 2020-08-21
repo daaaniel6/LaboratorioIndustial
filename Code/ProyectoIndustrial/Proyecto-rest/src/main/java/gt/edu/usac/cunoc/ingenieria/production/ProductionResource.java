@@ -12,6 +12,7 @@ import Production.Step;
 import Production.exceptions.MandatoryAttributeProductionException;
 import Production.facade.ProductionFacadeLocal;
 import User.exception.UserException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -25,6 +26,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -54,6 +56,27 @@ public class ProductionResource {
             result.add(new ProductionDTO(mod));
         });
         return result;
+    }
+
+    @GET
+    @Path("/search")
+    public List<ProductionDTO> findProductions(
+            @QueryParam("idProduction") Integer id,
+            @QueryParam("name") String name,
+            @QueryParam("startDate") LocalDate starDate,
+            @QueryParam("enDate") LocalDate endDate,
+            @QueryParam("editable") Boolean editable) {
+
+     
+
+            List<ProductionDTO> result = new ArrayList<>();
+            productionFacadeLocal.findProduction(id, name, starDate, endDate, editable).forEach((mod) -> {
+                result.add(new ProductionDTO(mod));
+            });
+            return result;
+            
+
+        
     }
 
     @POST //crear produccion
@@ -100,10 +123,10 @@ public class ProductionResource {
 
     }
 
-    /**---------------------Producto
-     * 
+    /**
+     * ---------------------Producto----------------------------------------
+     *
      */
-    
     @GET
     @Path("/product/{id}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -120,11 +143,9 @@ public class ProductionResource {
         });
         return result;
     }
-    
-    
-    
+
     /**
-     * ------------------------------------STEP
+     * ------------------------------------STEP---------------------------------
      *
      * @param id
      * @return

@@ -20,6 +20,11 @@ public class ProductODT implements Serializable{
     private String name;
     private String description;
 
+    public ProductODT() {
+    }
+
+    
+    
     public ProductODT(Product product) {
         this.idProduct = product.getIdProduct();
         this.name = product.getName();
