@@ -5,6 +5,9 @@
  */
 package gt.edu.usac.cunoc.ingenieria.production;
 
+import Design.Design;
+import Group.facade.GroupFacadelocal;
+import Production.ExtraCost;
 import Production.Production;
 import Production.Stage;
 
@@ -12,6 +15,7 @@ import Production.Step;
 import Production.exceptions.MandatoryAttributeProductionException;
 import Production.facade.ProductionFacadeLocal;
 import User.exception.UserException;
+import gt.edu.usac.cunoc.ingenieria.design.DesignDTO;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -41,6 +45,8 @@ public class ProductionResource {
 
     @EJB
     private ProductionFacadeLocal productionFacadeLocal;
+    @EJB
+    private GroupFacadelocal groupFacadelocal;
 
     @GET
     @Path("/{id}")
@@ -67,16 +73,12 @@ public class ProductionResource {
             @QueryParam("enDate") LocalDate endDate,
             @QueryParam("editable") Boolean editable) {
 
-     
+        List<ProductionDTO> result = new ArrayList<>();
+        productionFacadeLocal.findProduction(id, name, starDate, endDate, editable).forEach((mod) -> {
+            result.add(new ProductionDTO(mod));
+        });
+        return result;
 
-            List<ProductionDTO> result = new ArrayList<>();
-            productionFacadeLocal.findProduction(id, name, starDate, endDate, editable).forEach((mod) -> {
-                result.add(new ProductionDTO(mod));
-            });
-            return result;
-            
-
-        
     }
 
     @POST //crear produccion
@@ -176,9 +178,41 @@ public class ProductionResource {
                     .build();
 
         } catch (UserException e) {
-            /*
-            TO-DO throw error
-             */
+
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+    }
+
+    @PUT //modificar un comentario de un paso
+    @Path("/step")
+    public Response updateCommentaryOfStep(ProductionDTO productionDTO) {
+        try {
+            ProductionDTO update = new ProductionDTO(
+                    productionFacadeLocal.updateCommentayOfSteps(
+                            new Production(
+                                    productionDTO.getIdProduction(),
+                                    productionDTO.getName(),
+                                    productionDTO.getStartDate(),
+                                    productionDTO.getEndDate(),
+                                    productionDTO.getState(),
+                                    productionDTO.getQualification(),
+                                    productionDTO.getQuantity(),
+                                    productionDTO.getInitCost(),
+                                    productionDTO.getFinalCost(),
+                                    productionFacadeLocal.findDesignByID(productionDTO.getDesignId()).get(),
+                                    productionFacadeLocal.findDesignByID(productionDTO.getPostDesign()).get(),
+                                    productionFacadeLocal.getProductionById(productionDTO.getIdProduction()).get().getGroupId()
+                            )
+                    )
+            );
+
+            return Response
+                    .ok()
+                    .entity(update)
+                    .build();
+
+        } catch (Exception e) {
+
             return Response.status(Response.Status.NOT_FOUND).build();
         }
     }
@@ -205,8 +239,10 @@ public class ProductionResource {
             Optional<Stage> stage = productionFacadeLocal.findByIdStage(stepDTO.getStageId());
             StepDTO stepCreado = new StepDTO(
                     productionFacadeLocal.createStep(
-                            new Step(stepDTO.getIdStep(), stepDTO.getName(),
-                                    stepDTO.getDescription(), stage.get())
+                            new Step(
+                                    stepDTO.getIdStep(), stepDTO.getName(),
+                                    stepDTO.getDescription(), stage.get()
+                            )
                     )
             );
 
@@ -248,5 +284,76 @@ public class ProductionResource {
     public StageDTO getStageById(@PathParam("id") Integer id) {
         return new StageDTO(productionFacadeLocal.findByIdStage(id).get());
     }
+
+    //------------------------------- Calculos--------------------------------
+    @POST //actualizar los costos de una produccion 
+    @Path("/updateExtraCost")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response updateExtraCost(List<ExtraCostDTO> listExtraCost, ProductionDTO production) {
+        try {
+
+            List<ExtraCost> result = new ArrayList<>();
+            listExtraCost.forEach((mod) -> {
+                result.add(new ExtraCost(mod.getIdExtraCost(), mod.getDescription(), mod.getCost()));
+            });
+
+            Production productionParam = productionFacadeLocal.getProductionById(production.getIdProduction()).get();
+
+            productionFacadeLocal.updateExtraCost(result, productionParam);
+
+            return Response
+                    .ok()
+                    .build();
+        } catch (Exception e) {
+            return Response.status(Response.Status.BAD_REQUEST).build();
+        }
+
+    }
+    
+    
+    @POST //actualizar el post design de una produccion 
+    @Path("/addPostDesign")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response addPostDesign(DesignDTO postDesign, ProductionDTO production) {
+        try {
+
+            Design postDesignParam =  productionFacadeLocal.findDesignByID(postDesign.getIdDesign()).get();
+            Production productionParam = productionFacadeLocal.getProductionById(production.getIdProduction()).get();
+
+            productionFacadeLocal.addPostDedign(postDesignParam, productionParam);
+
+            return Response
+                    .ok()
+                    .build();
+        } catch (Exception e) {
+            return Response.status(Response.Status.BAD_REQUEST).build();
+        }
+
+    }
+    
+    @GET
+    @Path("/{idProduction}/initCost")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Double getInitCost(@PathParam("idProduction") Integer id) {
+        return productionFacadeLocal.initCost(productionFacadeLocal.getProductionById(id).get());
+    }
+    
+    @GET
+    @Path("/{idProduction}/initCost")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Double getFinalCost(@PathParam("idProduction") Integer id) {
+        return productionFacadeLocal.finalCost(productionFacadeLocal.getProductionById(id).get());
+    }
+    
+    
+    @GET
+    @Path("/{idProduction}/initCost")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Double getTotalExtraCost(@PathParam("idProduction") Integer id) {
+        return productionFacadeLocal.totalExtraCost(productionFacadeLocal.getProductionById(id).get());
+    }
+    
+    
+    
 
 }

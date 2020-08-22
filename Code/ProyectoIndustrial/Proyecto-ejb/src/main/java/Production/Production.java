@@ -84,6 +84,23 @@ public class Production implements Serializable {
         this.state = state;
     }
 
+    public Production(Integer idProduction, String name, LocalDate startDate, LocalDate endDate, boolean state, Double qualification, Integer quantity, Double initCost, Double finalCost, Design designId, Design postDesign, GroupIndustrial groupId) {
+        this.idProduction = idProduction;
+        this.name = name;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.state = state;
+        this.qualification = qualification;
+        this.quantity = quantity;
+        this.initCost = initCost;
+        this.finalCost = finalCost;
+        this.designId = designId;
+        this.postDesign = postDesign;
+        this.groupId = groupId;
+    }
+    
+    
+
     /**
      * returns true if EndDate is Null and state is false
      *

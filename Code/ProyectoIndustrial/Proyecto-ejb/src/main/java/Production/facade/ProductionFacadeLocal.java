@@ -47,9 +47,7 @@ public interface ProductionFacadeLocal {
      */
     public void remove(Step step) throws UserException;
     //ok
-
-    
-    
+   
     public Step createStep(Step step) throws UserException;
     //ok
     
@@ -64,8 +62,10 @@ public interface ProductionFacadeLocal {
     
     public List<Production> AllProductions();
     //ok.
+    
     public Optional<Production> getProductionById(Integer id);
     //ok.
+    
     public void createDesign(Design design, DesignData designData, List<NecessarySupply> necessarySupplys);
 
     /**
@@ -82,6 +82,7 @@ public interface ProductionFacadeLocal {
 
     public Optional<Product> getProductById(Integer id);
     //ok
+    
     public Design editDesign(Design design) throws MandatoryAttributeProductionException;
     //ok.
     
@@ -111,8 +112,10 @@ public interface ProductionFacadeLocal {
      */
     public Production updateProduction(Production production) throws UserException;
     //ok
-    public void updateCommentayOfSteps(Production production);
-
+    
+    public Production updateCommentayOfSteps(Production production);
+    //ok
+    
     /**
      * Update and add al steps added to the production
      *
@@ -120,15 +123,19 @@ public interface ProductionFacadeLocal {
      */
 //    public void updateSteps(Production production);
     public void updateExtraCost(List<ExtraCost> listExtraCost, Production production) throws MandatoryAttributeProductionException;
-
+    //ok
+    
     public void addPostDedign(Design postDesign, Production production) throws MandatoryAttributeProductionException;
-
+    //ok
+    
     public double initCost(Production production);
-
+    //ok
+    
     public double finalCost(Production production);
-
+    //ok
+    
     public double totalExtraCost(Production production);
-
+    //ok
     
     public Optional<Step> findByIdStep(Integer stepId) ;
     //ok

@@ -93,8 +93,8 @@ public class ProductionFacade implements ProductionFacadeLocal {
      * @param production
      */
     @Override
-    public void updateCommentayOfSteps(Production production) {
-        productionService.updateCommentayOfSteps(production);
+    public Production updateCommentayOfSteps(Production production) {
+        return productionService.updateCommentayOfSteps(production);
     }
 
     /**
