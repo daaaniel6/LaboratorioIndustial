@@ -1,0 +1,45 @@
+##------> Payara Server 5.193 <------##
+
+## JDBC Connection Pool Config ##
+		General
+Name:				poolLaboratorioIndustrial
+
+Resource type:			javax.sql.DataSource
+Datasource Classname:		com.mysql.cj.jdbc.MysqlDataSource
+
+		Additional Properties
+PortNumber		3306
+DatabaseName		produccion_industrial
+password		industrial2019
+User			prod_user
+useSSL			false
+
+## JDBC Resourse ##
+
+Name:		jdbc_poolLaboratorioIndustrial
+Pool Name:	poolLaboratorioIndustrial
+
+## JavaMail Session ##
+
+JNDI name:			mail/__LabIndustrial
+Mail Host:			smtp.gmail.com
+Default User:			labprocesoscunoc
+Pass:				12Ing3-*/ProcesosCUN0C/41asistemasd
+Default Sender Address:		labprocesoscunoc@gmail.com
+Description:			Servicio de correo Lab Procesos Industrial
+
+		Advance
+Store Protocol:			imap
+Store Protocol Class:		com.sun.mail.imap.IMAPStore
+Transport Protocol:		smtp
+Transport Protocol Class:	com.sun.mail.smtp.SMTPTransport
+	
+
+		Additional Properties
+mail.smtp.user:			labprocesoscunoc@gmail.com
+mail.smtp.host:			smtp.gmail.com
+mail.smtp.password:		12Ing3-*/ProcesosCUN0C/41asistemas
+mail.smtp.auth:			true
+mail.smtp.starttls.enable:	true
+mail.smtp.socketFactory.port:	465
+mail.smtp.socketFactory.class:	javax.net.ssl.SSLSocketFactory
