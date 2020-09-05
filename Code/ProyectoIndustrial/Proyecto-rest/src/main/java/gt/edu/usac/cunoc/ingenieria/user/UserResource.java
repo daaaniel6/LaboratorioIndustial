@@ -62,71 +62,13 @@ public class UserResource {
     }
 
     @GET
-    @Path("/search/students")
+    @Path("/students")
     public Response getAllStudents() {
 
         try {
             return Response
                     .status(Response.Status.FOUND)
                     .entity(resultConverted(userFacade.getUserEstudent())).build();
-
-        } catch (UserException e) {
-            return Response
-                    .status(Response.Status.BAD_REQUEST)
-                    .entity(Response.Status.BAD_REQUEST + ": " + e.getMessage())
-                    .build();
-        }
-    }
-
-    @GET
-    @Path("/careers")
-    public Response getAllCareers() {
-        return Response
-                .status(Response.Status.FOUND)
-                .entity(userFacade.getAllCareer()).build();
-    }
-
-    @GET
-    @Path("/rols")
-    public Response getAllRolUser() {
-        return Response
-                .status(Response.Status.FOUND)
-                .entity(userFacade.getAllRolUser()).build();
-    }
-
-    @GET
-    @Path("/career/search")
-    public Response findCareer(
-            @QueryParam("id") Integer idCareer,
-            @QueryParam("name") String nameCareer) {
-
-        try {
-            return Response
-                    .status(Response.Status.FOUND)
-                    .entity(userFacade.getCareer(
-                            new Career(idCareer, nameCareer)
-                    )).build();
-
-        } catch (UserException e) {
-            return Response
-                    .status(Response.Status.BAD_REQUEST)
-                    .entity(Response.Status.BAD_REQUEST + ": " + e.getMessage())
-                    .build();
-        }
-    }
-
-    @GET
-    @Path("/rol/search")
-    public Response findRolUser(
-            @QueryParam("id") Integer idRol,
-            @QueryParam("name") String nameRol) {
-
-        try {
-            return Response
-                    .status(Response.Status.FOUND)
-                    .entity(userFacade.getRolUser(
-                            new RolUser(idRol, nameRol)
-                    )).build();
 
         } catch (UserException e) {
             return Response
@@ -151,54 +93,6 @@ public class UserResource {
                 .status(Response.Status.NOT_FOUND)
                 .entity(Response.Status.NOT_FOUND + ": User not found")
                 .build();
-    }
-
-    @GET
-    @Path("/career/{id}")
-    public Response getCareer(@PathParam("id") Integer id) {
-        try {
-            Optional<Career> result = userFacade.findCareerById(id);
-
-            if (result.isPresent()) {
-                return Response
-                        .status(Response.Status.FOUND)
-                        .entity(result.get())
-                        .build();
-            }
-            return Response
-                    .status(Response.Status.NOT_FOUND)
-                    .entity(Response.Status.NOT_FOUND + ": Career not found")
-                    .build();
-        } catch (UserException e) {
-            return Response
-                    .status(Response.Status.BAD_REQUEST)
-                    .entity(Response.Status.BAD_REQUEST + ": " + e.getMessage())
-                    .build();
-        }
-    }
-
-    @GET
-    @Path("/rol/{id}")
-    public Response getRolUSer(@PathParam("id") Integer id) {
-        try {
-            Optional<RolUser> result = userFacade.findRolUserById(id);
-
-            if (result.isPresent()) {
-                return Response
-                        .status(Response.Status.FOUND)
-                        .entity(result.get())
-                        .build();
-            }
-            return Response
-                    .status(Response.Status.NOT_FOUND)
-                    .entity(Response.Status.NOT_FOUND + ": Rol user not found")
-                    .build();
-        } catch (UserException e) {
-            return Response
-                    .status(Response.Status.BAD_REQUEST)
-                    .entity(Response.Status.BAD_REQUEST + ": " + e.getMessage())
-                    .build();
-        }
     }
 
     @POST
@@ -237,23 +131,6 @@ public class UserResource {
         }
     }
 
-    @POST
-    @Path("/career")
-    @Consumes(MediaType.APPLICATION_JSON)
-    public Response createCareer(Career career) {
-        try {
-            return Response
-                    .status(Response.Status.CREATED)
-                    .entity(userFacade.createCareer(career))
-                    .build();
-        } catch (UserException e) {
-            return Response
-                    .status(Response.Status.BAD_REQUEST)
-                    .entity(Response.Status.BAD_REQUEST + ": " + e.getMessage())
-                    .build();
-        }
-    }
-
     @PUT
     public Response updateUser(UserDTO user) {
         try {
@@ -281,22 +158,6 @@ public class UserResource {
                                             user.getRolUser(),
                                             user.getCareer()))
                     )).build();
-        } catch (UserException e) {
-            return Response
-                    .status(Response.Status.BAD_REQUEST)
-                    .entity(Response.Status.BAD_REQUEST + ": " + e.getMessage())
-                    .build();
-        }
-    }
-
-    @PUT
-    @Path("/career")
-    public Response updateCareer(Career career) {
-        try {
-            return Response
-                    .status(Response.Status.OK)
-                    .entity(userFacade.updateCareer(career))
-                    .build();
         } catch (UserException e) {
             return Response
                     .status(Response.Status.BAD_REQUEST)

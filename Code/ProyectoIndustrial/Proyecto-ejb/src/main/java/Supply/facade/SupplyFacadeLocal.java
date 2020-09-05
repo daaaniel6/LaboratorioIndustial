@@ -77,4 +77,6 @@ public interface SupplyFacadeLocal {
      * @throws User.exception.UserException
      */
     public Supply modifySupply(Supply supply) throws UserException;
+    
+    public Optional<Supply> findSupplyByID(Integer id);
 }

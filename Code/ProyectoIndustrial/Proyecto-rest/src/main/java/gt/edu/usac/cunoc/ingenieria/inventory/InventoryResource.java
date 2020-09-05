@@ -6,7 +6,6 @@ import Inventory.objects.DesignUnits;
 import Inventory.objects.ProductionUnits;
 import Inventory.objects.SupplyQuantity;
 import Production.Production;
-import Supply.Supply;
 import gt.edu.usac.cunoc.ingenieria.design.DesignDTO;
 import gt.edu.usac.cunoc.ingenieria.production.ProductionDTO;
 import gt.edu.usac.cunoc.ingenieria.supply.SupplyDTO;
@@ -34,7 +33,7 @@ public class InventoryResource {
     private InventoryLocal inventory;
 
     @GET
-    @Path("/maxUnit/{id}")
+    @Path("/production/{id}/maxUnit")
     public Response maxUnitsByAvailableSupplies(@PathParam("id") Integer id) {
         return Response
                 .status(Response.Status.OK)
@@ -54,7 +53,7 @@ public class InventoryResource {
     }
 
     @GET
-    @Path("/necessarySupplies/{idDesign}+{units}")
+    @Path("/design/{idDesign}/necessarySupplies/{units}")
     public Response getNecessarySupplies(@PathParam("idDesign") Integer idDesign,
             @PathParam("units") Integer quantity) {
         DesignUnits designU = new DesignUnits(new Design(idDesign), quantity);
@@ -67,10 +66,9 @@ public class InventoryResource {
     }
 
     @GET
-    @Path("/unitCost/{idDesign}+{units}")
-    public Response unitCost(@PathParam("idDesign") Integer idDesign,
-            @PathParam("units") Integer quantity) {
-        DesignUnits designU = new DesignUnits(new Design(idDesign), quantity);
+    @Path("/design/{idDesign}/unitCost")
+    public Response unitCost(@PathParam("idDesign") Integer idDesign) {
+        DesignUnits designU = new DesignUnits(new Design(idDesign), 0);
 
         return Response
                 .status(Response.Status.OK)
@@ -79,7 +77,7 @@ public class InventoryResource {
     }
 
     @GET
-    @Path("/unitCost/{idDesign}+{units}")
+    @Path("/design/{idDesign}/totalCost/{units}")
     public Response totalCost(@PathParam("idDesign") Integer idDesign,
             @PathParam("units") Integer quantity) {
         DesignUnits designU = new DesignUnits(new Design(idDesign), quantity);
@@ -90,17 +88,17 @@ public class InventoryResource {
                 .build();
     }
 
-    @GET
-    @Path("/designCalc/{id}+{name}")
-    public Response designCalc(@PathParam("id") Integer idDesign,
-            @PathParam("name") String name) {
-
-        return Response
-                .status(Response.Status.OK)
-                .entity(resultToDesignUnits(
-                        inventory.DesignWithUnitsPlaces(idDesign, name)
-                )).build();
-    }
+//    @GET
+//    @Path("/designCalc/{id}+{name}")
+//    public Response designCalc(@PathParam("id") Integer idDesign,
+//            @PathParam("name") String name) {
+//
+//        return Response
+//                .status(Response.Status.OK)
+//                .entity(resultToDesignUnits(
+//                        inventory.DesignWithUnitsPlaces(idDesign, name)
+//                )).build();
+//    }
     
     
 
@@ -126,13 +124,13 @@ public class InventoryResource {
         return result;
     }
 
-    private List<LabProdUnitsDTO<DesignDTO>> resultToDesignUnits(List<DesignUnits> queryResult) {
-        List<LabProdUnitsDTO<DesignDTO>> result = new ArrayList<>();
-        queryResult.forEach((mod) -> {
-            result.add(new LabProdUnitsDTO<>(
-                    new DesignDTO(mod.getDesign()), Double.valueOf(mod.getUnits())
-            ));
-        });
-        return result;
-    }
+//    private List<LabProdUnitsDTO<DesignDTO>> resultToDesignUnits(List<DesignUnits> queryResult) {
+//        List<LabProdUnitsDTO<DesignDTO>> result = new ArrayList<>();
+//        queryResult.forEach((mod) -> {
+//            result.add(new LabProdUnitsDTO<>(
+//                    new DesignDTO(mod.getDesign()), Double.valueOf(mod.getUnits())
+//            ));
+//        });
+//        return result;
+//    }
 }
