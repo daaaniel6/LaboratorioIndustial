@@ -89,4 +89,9 @@ public class SupplyFacade implements SupplyFacadeLocal {
         return supplyService.modifySupply(supply);
     }
 
+    @Override
+    public Optional<Supply> findSupplyByID(Integer id) {
+        return supplyRepository.findSupplyByID(id);
+    }
+
 }

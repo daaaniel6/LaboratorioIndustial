@@ -196,4 +196,15 @@ public class UserFacade implements UserFacadeLocal {
     public Optional<User> getUserByID(Integer carnet) {
         return userRepository.getUserByID(carnet);
     }
+
+    @Override
+    public Optional<RolUser> findRolUserById(int idRolUser) throws UserException {
+        return rolUserRepository.findRolUserById(idRolUser);
+    }
+
+    @Override
+    public Optional<Career> findCareerById(Integer idCareer) throws UserException {
+        return careerRepository.findCareerById(idCareer);
+    }
+
 }

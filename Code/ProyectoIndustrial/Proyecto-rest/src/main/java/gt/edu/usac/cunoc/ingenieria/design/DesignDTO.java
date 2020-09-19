@@ -19,10 +19,13 @@ public class DesignDTO implements Serializable {
     private Integer designData;
     private Integer productIdProduct;
 
+<<<<<<< HEAD
     public DesignDTO() {
     }
     
 
+=======
+>>>>>>> dev
     public DesignDTO(Design design) {
         this.idDesign = design.getIdDesign();
         this.designData = design.getDesignData().getIddesignData();
@@ -95,4 +98,8 @@ public class DesignDTO implements Serializable {
     
     
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> dev

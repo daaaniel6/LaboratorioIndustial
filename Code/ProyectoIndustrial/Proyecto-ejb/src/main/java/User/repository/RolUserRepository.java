@@ -40,7 +40,7 @@ public class RolUserRepository {
         Root<RolUser> RolUser = criteriaQuery.from(RolUser.class);
         List<Predicate> predicates = new ArrayList<>();
         if (rolUser.getIdRolUser() != null) {
-            predicates.add(criteriaBuilder.equal(RolUser.get("id_rol"), rolUser.getIdRolUser()));
+            predicates.add(criteriaBuilder.equal(RolUser.get("idRol"), rolUser.getIdRolUser()));
         }
         if (rolUser.getName() != null) {
             predicates.add(criteriaBuilder.like(RolUser.get("name"), "%" + rolUser.getName() + "%"));
@@ -59,8 +59,8 @@ public class RolUserRepository {
         return allQuery.getResultList();
     }
 
-    public Optional<RolUser> findRolUserById(int idRolUser) throws UserException {
-        if (idRolUser < 0) {
+    public Optional<RolUser> findRolUserById(Integer idRolUser) throws UserException {
+        if (idRolUser == null) {
             throw new UserException("rolUser is null");
         }
         return Optional.ofNullable(entityManager.find(RolUser.class, idRolUser));

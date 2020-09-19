@@ -87,7 +87,7 @@ public class UserService {
         if (user.getPhone() != null) {
             updateUser.setPhone(user.getPhone());
         }
-        if (user.getPassword() != null) {
+        if (user.getPassword() != null && !user.getPassword().equals(updateUser.getPassword())) {
             updateUser.setPassword(encryptPass(user.getPassword()));
         }
         if (user.getState() != null) {
