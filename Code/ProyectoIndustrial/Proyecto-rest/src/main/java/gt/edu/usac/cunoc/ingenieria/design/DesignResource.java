@@ -46,52 +46,52 @@ public class DesignResource {
         return result;
     }
 
-    @POST //crear produccion
-    @Consumes(MediaType.APPLICATION_JSON)
-    public Response createDesign(DesignDTO design, DesignDataDTO designData, List<NecessarySupplyDTO> necessarySupplys) {
-
-        try {
-            Design designParam = productionFacadeLocal.findDesignByID(design.getIdDesign()).get();
-            DesignData designDataParam = new DesignData(designData.getIddesignData(),
-                    designData.getName(), designData.getDescription());
-
-            List<NecessarySupply> result = new ArrayList<>();
-            necessarySupplys.forEach((mod) -> {
-                result.add(new NecessarySupply(mod.getIdNecessarySupply(), mod.getQuantity()));
-            });
-
-            productionFacadeLocal.createDesign(designParam, designDataParam, result);
-            
-            return Response
-                    .ok()
-                    .build();
-        } catch (Exception e) {
-            return Response.status(Response.Status.BAD_REQUEST).build();
-        }
-
-    }
-
-    @PUT //modificar diseño
-    public Response updateDesign(DesignDTO designDTO) {
-        try {
-            DesignDTO update = new DesignDTO(
-                    productionFacadeLocal.editDesign(
-                            new Design(
-                                    designDTO.getIdDesign(),
-                                    productionFacadeLocal.findDesignByID(designDTO.getIdDesign()).get().getDesignData(),
-                                    productionFacadeLocal.findDesignByID(designDTO.getIdDesign()).get().getProductIdProduct()
-                            )
-                    )
-            );
-            return Response
-                    .ok()
-                    .entity(update)
-                    .build();
-
-        } catch (Exception ex) {
-            return Response.status(Response.Status.NOT_FOUND).build();
-        }
-
-    }
+//    @POST //crear produccion
+//    @Consumes(MediaType.APPLICATION_JSON)
+//    public Response createDesign(DesignDTO design, DesignDataDTO designData, List<NecessarySupplyDTO> necessarySupplys) {
+//
+//        try {
+//            Design designParam = productionFacadeLocal.findDesignByID(design.getIdDesign()).get();
+//            DesignData designDataParam = new DesignData(designData.getIddesignData(),
+//                    designData.getName(), designData.getDescription());
+//
+//            List<NecessarySupply> result = new ArrayList<>();
+//            necessarySupplys.forEach((mod) -> {
+//                result.add(new NecessarySupply(mod.getIdNecessarySupply(), mod.getQuantity()));
+//            });
+//
+//            productionFacadeLocal.createDesign(designParam, designDataParam, result);
+//            
+//            return Response
+//                    .ok()
+//                    .build();
+//        } catch (Exception e) {
+//            return Response.status(Response.Status.BAD_REQUEST).build();
+//        }
+//
+//    }
+//
+//    @PUT //modificar diseño
+//    public Response updateDesign(DesignDTO designDTO) {
+//        try {
+//            DesignDTO update = new DesignDTO(
+//                    productionFacadeLocal.editDesign(
+//                            new Design(
+//                                    designDTO.getIdDesign(),
+//                                    productionFacadeLocal.findDesignByID(designDTO.getIdDesign()).get().getDesignData(),
+//                                    productionFacadeLocal.findDesignByID(designDTO.getIdDesign()).get().getProductIdProduct()
+//                            )
+//                    )
+//            );
+//            return Response
+//                    .ok()
+//                    .entity(update)
+//                    .build();
+//
+//        } catch (Exception ex) {
+//            return Response.status(Response.Status.NOT_FOUND).build();
+//        }
+//
+//    }
 
 }

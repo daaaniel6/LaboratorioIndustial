@@ -26,7 +26,7 @@ import javax.ws.rs.core.Response;
  *
  * @author daniel
  */
-@Path("/group")
+@Path("/groups")
 @Stateless
 @Produces(MediaType.APPLICATION_JSON)
 public class GroupResource {
@@ -50,7 +50,7 @@ public class GroupResource {
         return result;
     }
     
-//    @POST //crear produccion
+//    @POST //crear Grupo
 //    @Consumes(MediaType.APPLICATION_JSON)
 //    public Response createProduction(GroupIndustrialDTO groupIndustrialDTO) {
 //
@@ -71,42 +71,42 @@ public class GroupResource {
 //        }
 //
 //    }
-    @PUT //modificar Produccion
-    public Response updateProduction(GroupIndustrialDTO groupIndustrialDTO, String information, String section) {
-        try {
-            GroupIndustrialDTO update = new GroupIndustrialDTO(
-                    groupFacadelocal.updateGroup(
-                            new GroupIndustrial(
-                                    groupIndustrialDTO.getIdGroup(), groupIndustrialDTO.getInformation(),
-                                    groupIndustrialDTO.getName(), groupIndustrialDTO.getSection()
-                            ),
-                            information,
-                            section
-                    )
-            );
-            return Response
-                    .ok()
-                    .entity(update)
-                    .build();
-
-        } catch (Exception ex) {
-            return Response.status(Response.Status.NOT_FOUND).build();
-        }
-
-    }
-    
+//    @PUT //modificar Produccion
+//    public Response updateProduction(GroupIndustrialDTO groupIndustrialDTO, String information, String section) {
+//        try {
+//            GroupIndustrialDTO update = new GroupIndustrialDTO(
+//                    groupFacadelocal.updateGroup(
+//                            new GroupIndustrial(
+//                                    groupIndustrialDTO.getIdGroup(), groupIndustrialDTO.getInformation(),
+//                                    groupIndustrialDTO.getName(), groupIndustrialDTO.getSection()
+//                            ),
+//                            information,
+//                            section
+//                    )
+//            );
+//            return Response
+//                    .ok()
+//                    .entity(update)
+//                    .build();
+//
+//        } catch (Exception ex) {
+//            return Response.status(Response.Status.NOT_FOUND).build();
+//        }
+//
+//    }
+//    
     //----------------------------------------------------------------------------
     
-    @DELETE
-    @Path("/user/{idGroupUser}")
-    public Response removeStep(@PathParam("idGroupUser") Integer id) {
-        try {
-            groupFacadelocal.removeUserFromGroup(groupFacadelocal.findGroupUserById(id).get());
-            return Response.ok().build();
-        } catch (Exception ex) {
-            return Response.status(Response.Status.NOT_FOUND).build();
-        }
-    }
+//    @DELETE
+//    @Path("/user/{idGroupUser}")
+//    public Response removeStep(@PathParam("idGroupUser") Integer id) {
+//        try {
+//            groupFacadelocal.removeUserFromGroup(groupFacadelocal.findGroupUserById(id).get());
+//            return Response.ok().build();
+//        } catch (Exception ex) {
+//            return Response.status(Response.Status.NOT_FOUND).build();
+//        }
+//    }
 
     
     
