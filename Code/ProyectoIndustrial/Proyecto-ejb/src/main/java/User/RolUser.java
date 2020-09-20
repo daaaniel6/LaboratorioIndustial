@@ -68,14 +68,6 @@ public class RolUser implements Serializable {
         this.idRol = idRol;
     }
 
-    public Integer getIdRol() {
-        return idRol;
-    }
-
-    public void setIdRol(Integer idRol) {
-        this.idRol = idRol;
-    }
-
     public String getName() {
         return name;
     }

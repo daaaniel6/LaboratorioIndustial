@@ -39,21 +39,21 @@ public class StageRepositoryTest {
         return  entityManager;
     }
     
-//    @Test
-//    public void FindByIdProductionTest() throws Exception {
-//        // Arrange
-//        
-//        Stage stage = new Stage();
-//        EntityManager entityManager= getmanager( stageId, stage, false);
-//        
-//        stageRepository.setEntityManager(entityManager);
-//
-//        // Act
-//        Optional<Stage> result = stageRepository.findByIdStage(stageId);
-//        // Assert
-//        Assert.assertEquals(result.get(), stage);
-//        
-//    }
+    @Test
+    public void FindByIdProductionTest() throws Exception {
+        // Arrange
+        
+        Stage stage = new Stage();
+        EntityManager entityManager= getmanager( stageId, stage, false);
+        
+        stageRepository.setEntityManager(entityManager);
+
+        // Act
+        Optional<Stage> result = stageRepository.findByIdStage(stageId);
+        // Assert
+        Assert.assertEquals(result.get(), stage);
+        
+    }
     
     @Test
     public void FindByIdProductionNoResultExceptionTest() throws Exception {

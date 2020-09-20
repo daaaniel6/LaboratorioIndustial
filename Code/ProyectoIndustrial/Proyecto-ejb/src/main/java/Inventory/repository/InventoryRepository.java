@@ -13,7 +13,6 @@ import Production.repository.ProductionRepository;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Optional;
 import javax.ejb.EJB;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
@@ -137,11 +136,10 @@ public class InventoryRepository {
      * @return
      */
     public int maxUnitsByAvailableSupplies(Production production) {
-        Optional<Production> result = productionRepository.findByIdProduction(production.getIdProduction());
-        if (result.get().getPostDesign() == null) {
-            return maxUnitsByDesign(result.get().getDesignId());
+        if (production.getPostDesign() == null) {
+            return maxUnitsByDesign(production.getDesignId());
         } else {
-            return maxUnitsByDesign(result.get().getPostDesign());
+            return maxUnitsByDesign(production.getPostDesign());
         }
     }
 

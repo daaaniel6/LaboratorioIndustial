@@ -8,6 +8,7 @@ import Supply.repository.ExpirationDateFilter;
 import java.util.List;
 import User.User;
 import User.exception.UserException;
+import java.time.LocalDate;
 import java.util.Optional;
 import javax.ejb.Local;
 
@@ -74,9 +75,6 @@ public interface SupplyFacadeLocal {
      *
      * @param supply
      * @return
-     * @throws User.exception.UserException
      */
     public Supply modifySupply(Supply supply) throws UserException;
-    
-    public Optional<Supply> findSupplyByID(Integer id);
 }

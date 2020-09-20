@@ -50,15 +50,6 @@ public class GroupIndustrial implements Serializable {
         this.section = section;
     }
 
-    public GroupIndustrial(Integer idGroup, String information, String name, String section) {
-        this.idGroup = idGroup;
-        this.information = information;
-        this.name = name;
-        this.section = section;
-    }
-    
-    
-
     public String getName() {
         return name;
     }

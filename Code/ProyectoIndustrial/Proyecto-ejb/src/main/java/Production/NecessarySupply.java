@@ -46,10 +46,6 @@ public class NecessarySupply implements Serializable {
         this.quantity = quantity;
     }
 
-    
-
-    
-    
     @Override
     public boolean equals(Object o) {
         if (this == o) {

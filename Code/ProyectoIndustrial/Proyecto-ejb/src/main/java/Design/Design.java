@@ -47,13 +47,6 @@ public class Design implements Serializable {
     public Design() {
     }
 
-    public Design(Integer idDesign, DesignData designData, Product productIdProduct) {
-        this.idDesign = idDesign;
-        this.designData = designData;
-        this.productIdProduct = productIdProduct;
-    }
-    
-
     public Design(Integer idDesign) {
         this.idDesign = idDesign;
     }
