@@ -40,7 +40,7 @@ import static config.Constants.PERSISTENCE_UNIT_NAME;
 <span class="fc" id="L40">        Root&lt;RolUser&gt; RolUser = criteriaQuery.from(RolUser.class);</span>
 <span class="fc" id="L41">        List&lt;Predicate&gt; predicates = new ArrayList&lt;&gt;();</span>
 <span class="fc bfc" id="L42" title="All 2 branches covered.">        if (rolUser.getIdRolUser() != null) {</span>
-<span class="fc" id="L43">            predicates.add(criteriaBuilder.equal(RolUser.get(&quot;id_rol&quot;), rolUser.getIdRolUser()));</span>
+<span class="fc" id="L43">            predicates.add(criteriaBuilder.equal(RolUser.get(&quot;idRol&quot;), rolUser.getIdRolUser()));</span>
         }
 <span class="fc bfc" id="L45" title="All 2 branches covered.">        if (rolUser.getName() != null) {</span>
 <span class="fc" id="L46">            predicates.add(criteriaBuilder.like(RolUser.get(&quot;name&quot;), &quot;%&quot; + rolUser.getName() + &quot;%&quot;));</span>
@@ -59,8 +59,8 @@ import static config.Constants.PERSISTENCE_UNIT_NAME;
 <span class="nc" id="L59">        return allQuery.getResultList();</span>
     }
 
-    public Optional&lt;RolUser&gt; findRolUserById(int idRolUser) throws UserException {
-<span class="nc bnc" id="L63" title="All 2 branches missed.">        if (idRolUser &lt; 0) {</span>
+    public Optional&lt;RolUser&gt; findRolUserById(Integer idRolUser) throws UserException {
+<span class="nc bnc" id="L63" title="All 2 branches missed.">        if (idRolUser == null) {</span>
 <span class="nc" id="L64">            throw new UserException(&quot;rolUser is null&quot;);</span>
         }
 <span class="nc" id="L66">        return Optional.ofNullable(entityManager.find(RolUser.class, idRolUser));</span>

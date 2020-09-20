@@ -11,6 +11,7 @@ import Production.ExtraCost;
 import Production.Product;
 import Production.NecessarySupply;
 import Production.Production;
+import Production.Stage;
 import Production.Step;
 import Production.exceptions.MandatoryAttributeProductionException;
 import User.exception.UserException;
@@ -26,22 +27,45 @@ import javax.ejb.Local;
 @Local
 public interface ProductionFacadeLocal {
 
+    
+    /**
+     * Para editar una paso
+     * 
+     * @param oldStep
+     * @return
+     * @throws UserException 
+     */
     public Step edit(Step oldStep) throws UserException;
+    //ok
 
+    
+    /**
+     * Para remover un paso
+     * 
+     * @param step
+     * @throws UserException 
+     */
     public void remove(Step step) throws UserException;
-
+    //ok
+   
     public Step createStep(Step step) throws UserException;
-
-    public void createProduction(Production production) throws MandatoryAttributeProductionException;
-
-    public void editProduction(Production production) throws MandatoryAttributeProductionException;
-
+    //ok
+    
+    public Production createProduction(Production production) throws MandatoryAttributeProductionException;
+    //ok
+    
+    public Production editProduction(Production production) throws MandatoryAttributeProductionException;
+    //ok
+    
     public List<Product> getProduct();
-
+    //ok
+    
     public List<Production> AllProductions();
-
+    //ok.
+    
     public Optional<Production> getProductionById(Integer id);
-
+    //ok.
+    
     public void createDesign(Design design, DesignData designData, List<NecessarySupply> necessarySupplys);
 
     /**
@@ -51,13 +75,17 @@ public interface ProductionFacadeLocal {
      * @return
      */
     public Optional<Design> findDesignByID(Integer idDesign);
+    //Not FOund
 
     public List<Design> AllDesigns();
+    //ok.
 
     public Optional<Product> getProductById(Integer id);
-
+    //ok
+    
     public Design editDesign(Design design) throws MandatoryAttributeProductionException;
-
+    //ok.
+    
     /**
      * To get all results just set all with null
      *
@@ -73,7 +101,8 @@ public interface ProductionFacadeLocal {
      * @return
      */
     public List<Production> findProduction(Integer idProduction, String name, LocalDate startDate, LocalDate endDate, boolean editable);
-
+    //ok.
+    
     /**
      * Can update Name, Quantity, the Design and Group
      *
@@ -82,9 +111,11 @@ public interface ProductionFacadeLocal {
      * @throws UserException
      */
     public Production updateProduction(Production production) throws UserException;
-
-    public void updateCommentayOfSteps(Production production);
-
+    //ok
+    
+    public Production updateCommentayOfSteps(Production production);
+    //ok
+    
     /**
      * Update and add al steps added to the production
      *
@@ -92,13 +123,22 @@ public interface ProductionFacadeLocal {
      */
 //    public void updateSteps(Production production);
     public void updateExtraCost(List<ExtraCost> listExtraCost, Production production) throws MandatoryAttributeProductionException;
-
+    //ok
+    
     public void addPostDedign(Design postDesign, Production production) throws MandatoryAttributeProductionException;
-
+    //ok
+    
     public double initCost(Production production);
-
+    //ok
+    
     public double finalCost(Production production);
-
+    //ok
+    
     public double totalExtraCost(Production production);
-
+    //ok
+    
+    public Optional<Step> findByIdStep(Integer stepId) ;
+    //ok
+    public Optional<Stage> findByIdStage(Integer stageId);
+    //ok
 }

@@ -10,5 +10,11 @@
       <context-root>/Proyecto-war</context-root>
     </web>
   </module>
+  <module>
+    <web>
+      <web-uri>Proyecto-rest-1.0-SNAPSHOT.war</web-uri>
+      <context-root>/Proyecto-rest</context-root>
+    </web>
+  </module>
   <library-directory>lib</library-directory>
 </application>

@@ -14,44 +14,52 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import static config.Constants.PERSISTENCE_UNIT_NAME;
+import java.util.Optional;
 
 @Stateless
 @LocalBean
-<span class="fc" id="L20">public class CareerRepository {</span>
+<span class="fc" id="L21">public class CareerRepository {</span>
 
     @PersistenceContext(name = PERSISTENCE_UNIT_NAME)
     private EntityManager entityManager;
 
     public void setEntityManager(EntityManager entityManager) {
-<span class="fc" id="L26">        this.entityManager = entityManager;</span>
-<span class="fc" id="L27">    }</span>
+<span class="fc" id="L27">        this.entityManager = entityManager;</span>
+<span class="fc" id="L28">    }</span>
+    
+    public Optional&lt;Career&gt; findCareerById(Integer idCareer) throws UserException {
+<span class="nc bnc" id="L31" title="All 2 branches missed.">        if (idCareer == null) {</span>
+<span class="nc" id="L32">            throw new UserException(&quot;Carrear is null&quot;);</span>
+        }
+<span class="nc" id="L34">        return Optional.ofNullable(entityManager.find(Career.class, idCareer));</span>
+    }
 
     public List&lt;Career&gt; getCareer(Career career) throws UserException {
-<span class="pc bpc" id="L30" title="1 of 2 branches missed.">        if (career == null) {</span>
-<span class="nc" id="L31">            throw new UserException(&quot;career is null&quot;);</span>
+<span class="pc bpc" id="L38" title="1 of 2 branches missed.">        if (career == null) {</span>
+<span class="nc" id="L39">            throw new UserException(&quot;career is null&quot;);</span>
         }
-<span class="fc" id="L33">        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();</span>
-<span class="fc" id="L34">        CriteriaQuery&lt;Career&gt; criteriaQuery = criteriaBuilder.createQuery(Career.class);</span>
-<span class="fc" id="L35">        Root&lt;Career&gt; Career = criteriaQuery.from(Career.class);</span>
-<span class="fc" id="L36">        List&lt;Predicate&gt; predicates = new ArrayList&lt;&gt;();</span>
-<span class="fc bfc" id="L37" title="All 2 branches covered.">        if (career.getIdCareer() != null) {</span>
-<span class="fc" id="L38">            predicates.add(criteriaBuilder.equal(Career.get(&quot;idCareer&quot;), career.getIdCareer()));</span>
+<span class="fc" id="L41">        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();</span>
+<span class="fc" id="L42">        CriteriaQuery&lt;Career&gt; criteriaQuery = criteriaBuilder.createQuery(Career.class);</span>
+<span class="fc" id="L43">        Root&lt;Career&gt; Career = criteriaQuery.from(Career.class);</span>
+<span class="fc" id="L44">        List&lt;Predicate&gt; predicates = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L45" title="All 2 branches covered.">        if (career.getIdCareer() != null) {</span>
+<span class="fc" id="L46">            predicates.add(criteriaBuilder.equal(Career.get(&quot;idCareer&quot;), career.getIdCareer()));</span>
         }
-<span class="fc bfc" id="L40" title="All 2 branches covered.">        if (career.getName()!= null) {</span>
-<span class="fc" id="L41">            predicates.add(criteriaBuilder.like(Career.get(&quot;name&quot;), &quot;%&quot; + career.getName()+ &quot;%&quot;));</span>
+<span class="fc bfc" id="L48" title="All 2 branches covered.">        if (career.getName()!= null) {</span>
+<span class="fc" id="L49">            predicates.add(criteriaBuilder.like(Career.get(&quot;name&quot;), &quot;%&quot; + career.getName()+ &quot;%&quot;));</span>
         }
-<span class="fc" id="L43">        criteriaQuery.where(predicates.stream().toArray(Predicate[]::new));</span>
-<span class="fc" id="L44">        TypedQuery&lt;Career&gt; query = entityManager.createQuery(criteriaQuery);</span>
-<span class="fc" id="L45">        return query.getResultList();</span>
+<span class="fc" id="L51">        criteriaQuery.where(predicates.stream().toArray(Predicate[]::new));</span>
+<span class="fc" id="L52">        TypedQuery&lt;Career&gt; query = entityManager.createQuery(criteriaQuery);</span>
+<span class="fc" id="L53">        return query.getResultList();</span>
     }
 
     public List&lt;Career&gt; getAllCareer() {
-<span class="nc" id="L49">        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();</span>
-<span class="nc" id="L50">        CriteriaQuery&lt;Career&gt; criteriaQuery = criteriaBuilder.createQuery(Career.class);</span>
-<span class="nc" id="L51">        Root&lt;Career&gt; rootEntry = criteriaQuery.from(Career.class);</span>
-<span class="nc" id="L52">        CriteriaQuery&lt;Career&gt; all = criteriaQuery.select(rootEntry); </span>
-<span class="nc" id="L53">        TypedQuery&lt;Career&gt; allQuery = entityManager.createQuery(all);</span>
-<span class="nc" id="L54">        return allQuery.getResultList();</span>
+<span class="nc" id="L57">        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();</span>
+<span class="nc" id="L58">        CriteriaQuery&lt;Career&gt; criteriaQuery = criteriaBuilder.createQuery(Career.class);</span>
+<span class="nc" id="L59">        Root&lt;Career&gt; rootEntry = criteriaQuery.from(Career.class);</span>
+<span class="nc" id="L60">        CriteriaQuery&lt;Career&gt; all = criteriaQuery.select(rootEntry); </span>
+<span class="nc" id="L61">        TypedQuery&lt;Career&gt; allQuery = entityManager.createQuery(all);</span>
+<span class="nc" id="L62">        return allQuery.getResultList();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

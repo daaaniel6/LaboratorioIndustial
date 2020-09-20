@@ -52,6 +52,14 @@ public class DesignData implements Serializable {
     public DesignData() {
     }
 
+    public DesignData(Integer iddesignData, String name, String description) {
+        this.iddesignData = iddesignData;
+        this.name = name;
+        this.description = description;
+    }
+
+    
+    
     public DesignData(Integer iddesignData) {
         this.iddesignData = iddesignData;
     }

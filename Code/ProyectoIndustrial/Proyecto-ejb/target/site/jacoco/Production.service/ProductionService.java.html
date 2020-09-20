@@ -58,14 +58,15 @@ import java.util.List;
      *
      * @param production
      */
-    public void updateCommentayOfSteps(Production production) {
+    public Production updateCommentayOfSteps(Production production) {
 <span class="nc bnc" id="L62" title="All 2 branches missed.">        for (int i = 0; i &lt; production.getStageList().size(); i++) {</span>
 <span class="nc bnc" id="L63" title="All 2 branches missed.">            for (int j = 0; j &lt; production.getStageList().get(i).getStepList().size(); j++) {</span>
 <span class="nc" id="L64">                entityManager.merge(production);</span>
 <span class="nc" id="L65">                entityManager.merge(production.getStageList().get(i).getStepList().get(j));</span>
             }
         }
-<span class="nc" id="L68">    }</span>
+<span class="nc" id="L68">        return production;</span>
+    }
 
     /**
      *
@@ -75,17 +76,17 @@ import java.util.List;
      * @throws MandatoryAttributeProductionException
      */
     public void updateExtraCost(List&lt;ExtraCost&gt; listExtraCost, Production production) throws MandatoryAttributeProductionException {
-<span class="nc bnc" id="L78" title="All 2 branches missed.">        if (production == null) {</span>
-<span class="nc" id="L79">            throw new MandatoryAttributeProductionException(&quot;Produccion no seleccionada&quot;);</span>
+<span class="nc bnc" id="L79" title="All 2 branches missed.">        if (production == null) {</span>
+<span class="nc" id="L80">            throw new MandatoryAttributeProductionException(&quot;Produccion no seleccionada&quot;);</span>
         }
-<span class="nc" id="L81">        production.setExtraCostList(listExtraCost);</span>
-<span class="nc bnc" id="L82" title="All 2 branches missed.">        for (int i = 0; i &lt; listExtraCost.size(); i++) {</span>
-<span class="nc" id="L83">            listExtraCost.get(i).setIdProduction(production);</span>
+<span class="nc" id="L82">        production.setExtraCostList(listExtraCost);</span>
+<span class="nc bnc" id="L83" title="All 2 branches missed.">        for (int i = 0; i &lt; listExtraCost.size(); i++) {</span>
+<span class="nc" id="L84">            listExtraCost.get(i).setIdProduction(production);</span>
         }
 
-<span class="nc" id="L86">        entityManager.merge(production);</span>
+<span class="nc" id="L87">        entityManager.merge(production);</span>
 
-<span class="nc" id="L88">    }</span>
+<span class="nc" id="L89">    }</span>
 
     /**
      *
@@ -94,25 +95,25 @@ import java.util.List;
      * @throws MandatoryAttributeProductionException
      */
     public void addPostDedign(Design postDesign, Production production) throws MandatoryAttributeProductionException {
-<span class="nc bnc" id="L97" title="All 2 branches missed.">        if (production == null) {</span>
-<span class="nc" id="L98">            throw new MandatoryAttributeProductionException(&quot;Produccion no seleccionada&quot;);</span>
+<span class="nc bnc" id="L98" title="All 2 branches missed.">        if (production == null) {</span>
+<span class="nc" id="L99">            throw new MandatoryAttributeProductionException(&quot;Produccion no seleccionada&quot;);</span>
         }
-<span class="nc bnc" id="L100" title="All 2 branches missed.">        if (postDesign == null) {</span>
-<span class="nc" id="L101">            throw new MandatoryAttributeProductionException(&quot;Produccion no seleccionada&quot;);</span>
+<span class="nc bnc" id="L101" title="All 2 branches missed.">        if (postDesign == null) {</span>
+<span class="nc" id="L102">            throw new MandatoryAttributeProductionException(&quot;Produccion no seleccionada&quot;);</span>
         }
 
 //        List&lt;Production&gt; lista = new ArrayList&lt;Production&gt;();
 //        lista.add(production);
 //                
 //        postDesign.setProductionList1(lista);
-<span class="nc bnc" id="L108" title="All 2 branches missed.">        for (int i = 0; i &lt; production.getExtraCostList().size(); i++) {</span>
-<span class="nc" id="L109">            production.getExtraCostList().get(i).setIdProduction(production);</span>
+<span class="nc bnc" id="L109" title="All 2 branches missed.">        for (int i = 0; i &lt; production.getExtraCostList().size(); i++) {</span>
+<span class="nc" id="L110">            production.getExtraCostList().get(i).setIdProduction(production);</span>
         }
 
-<span class="nc" id="L112">        production.setPostDesign(postDesign);</span>
-<span class="nc" id="L113">        entityManager.merge(production);</span>
+<span class="nc" id="L113">        production.setPostDesign(postDesign);</span>
+<span class="nc" id="L114">        entityManager.merge(production);</span>
 
-<span class="nc" id="L115">    }</span>
+<span class="nc" id="L116">    }</span>
 
     /**
      *
@@ -124,17 +125,17 @@ import java.util.List;
      */
     public Production edit(Production Production) throws MandatoryAttributeProductionException {
 
-<span class="fc bfc" id="L127" title="All 2 branches covered.">        if (Production.getName() == null) {</span>
-<span class="fc" id="L128">            throw new MandatoryAttributeProductionException(&quot;Nombre nulo&quot;);</span>
+<span class="fc bfc" id="L128" title="All 2 branches covered.">        if (Production.getName() == null) {</span>
+<span class="fc" id="L129">            throw new MandatoryAttributeProductionException(&quot;Nombre nulo&quot;);</span>
         }
 
-<span class="fc bfc" id="L131" title="All 2 branches covered.">        if (Production.getStartDate() == null) {</span>
-<span class="fc" id="L132">            throw new MandatoryAttributeProductionException(&quot;Fecha de creacion nula&quot;);</span>
+<span class="fc bfc" id="L132" title="All 2 branches covered.">        if (Production.getStartDate() == null) {</span>
+<span class="fc" id="L133">            throw new MandatoryAttributeProductionException(&quot;Fecha de creacion nula&quot;);</span>
         }
 
-<span class="fc" id="L135">        entityManager.merge(Production);</span>
+<span class="fc" id="L136">        entityManager.merge(Production);</span>
 
-<span class="fc" id="L137">        return Production;</span>
+<span class="fc" id="L138">        return Production;</span>
     }
 
     /**
@@ -145,33 +146,33 @@ import java.util.List;
      * @throws UserException
      */
     public Production updateProduction(Production production) throws UserException {
-<span class="nc bnc" id="L148" title="All 2 branches missed.">        if (production == null) {</span>
-<span class="nc" id="L149">            throw new UserException(&quot;No se ha indicado la producción&quot;);</span>
+<span class="nc bnc" id="L149" title="All 2 branches missed.">        if (production == null) {</span>
+<span class="nc" id="L150">            throw new UserException(&quot;No se ha indicado la producción&quot;);</span>
         }
 
-<span class="nc" id="L152">        Production updateProduction = entityManager.find(Production.class, production.getIdProduction());</span>
+<span class="nc" id="L153">        Production updateProduction = entityManager.find(Production.class, production.getIdProduction());</span>
 
-<span class="nc bnc" id="L154" title="All 2 branches missed.">        if (updateProduction == null) {</span>
-<span class="nc" id="L155">            throw new UserException(&quot;No existe la Producción&quot;);</span>
+<span class="nc bnc" id="L155" title="All 2 branches missed.">        if (updateProduction == null) {</span>
+<span class="nc" id="L156">            throw new UserException(&quot;No existe la Producción&quot;);</span>
         }
 
-<span class="nc bnc" id="L158" title="All 2 branches missed.">        if (!production.getName().isEmpty()) {</span>
-<span class="nc" id="L159">            updateProduction.setName(production.getName());</span>
+<span class="nc bnc" id="L159" title="All 2 branches missed.">        if (!production.getName().isEmpty()) {</span>
+<span class="nc" id="L160">            updateProduction.setName(production.getName());</span>
         }
 
-<span class="nc bnc" id="L162" title="All 2 branches missed.">        if (production.getQuantity() &gt; 0) {</span>
-<span class="nc" id="L163">            updateProduction.setQuantity(production.getQuantity());</span>
+<span class="nc bnc" id="L163" title="All 2 branches missed.">        if (production.getQuantity() &gt; 0) {</span>
+<span class="nc" id="L164">            updateProduction.setQuantity(production.getQuantity());</span>
         }
 
-<span class="nc bnc" id="L166" title="All 2 branches missed.">        if (production.getDesignId() != null) {</span>
-<span class="nc" id="L167">            updateProduction.setDesignId(production.getDesignId());</span>
+<span class="nc bnc" id="L167" title="All 2 branches missed.">        if (production.getDesignId() != null) {</span>
+<span class="nc" id="L168">            updateProduction.setDesignId(production.getDesignId());</span>
         }
 
-<span class="nc bnc" id="L170" title="All 2 branches missed.">        if (production.getGroupId() != null) {</span>
-<span class="nc" id="L171">            updateProduction.setGroupId(production.getGroupId());</span>
+<span class="nc bnc" id="L171" title="All 2 branches missed.">        if (production.getGroupId() != null) {</span>
+<span class="nc" id="L172">            updateProduction.setGroupId(production.getGroupId());</span>
         }
 
-<span class="nc" id="L174">        return updateProduction;</span>
+<span class="nc" id="L175">        return updateProduction;</span>
 
     }
 

@@ -1,6 +1,7 @@
 package Production.repository;
 
 import Production.Stage;
+import Production.Step;
 import static config.Constants.PERSISTENCE_UNIT_NAME;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -36,10 +37,12 @@ public class StageRepository {
      */
     public Optional<Stage> findByIdStage(int idStage) {
 
-        TypedQuery<Stage> typedQuery = entityManager.createQuery(QUERY_FIND_BY_ID, Stage.class)
-                .setParameter(1, idStage);
+       // TypedQuery<Stage> typedQuery = entityManager.createQuery(QUERY_FIND_BY_ID, Stage.class)
+               // .setParameter(1, idStage);
         try {
-            return Optional.ofNullable(typedQuery.getSingleResult());
+            return Optional.ofNullable(entityManager.find(Stage.class, idStage));
+            
+            //return Optional.ofNullable(typedQuery.getSingleResult());
         } catch (Exception e) {
             return Optional.empty();
         }

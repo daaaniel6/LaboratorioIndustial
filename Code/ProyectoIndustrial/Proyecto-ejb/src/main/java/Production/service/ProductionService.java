@@ -58,13 +58,14 @@ public class ProductionService {
      *
      * @param production
      */
-    public void updateCommentayOfSteps(Production production) {
+    public Production updateCommentayOfSteps(Production production) {
         for (int i = 0; i < production.getStageList().size(); i++) {
             for (int j = 0; j < production.getStageList().get(i).getStepList().size(); j++) {
                 entityManager.merge(production);
                 entityManager.merge(production.getStageList().get(i).getStepList().get(j));
             }
         }
+        return production;
     }
 
     /**

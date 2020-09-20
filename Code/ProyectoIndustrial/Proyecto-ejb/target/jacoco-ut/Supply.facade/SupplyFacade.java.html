@@ -89,5 +89,10 @@ import java.util.Optional;
 <span class="nc" id="L89">        return supplyService.modifySupply(supply);</span>
     }
 
+    @Override
+    public Optional&lt;Supply&gt; findSupplyByID(Integer id) {
+<span class="nc" id="L94">        return supplyRepository.findSupplyByID(id);</span>
+    }
+
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

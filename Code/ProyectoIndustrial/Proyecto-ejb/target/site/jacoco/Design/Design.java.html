@@ -47,65 +47,72 @@ public class Design implements Serializable {
 <span class="fc" id="L47">    public Design() {</span>
 <span class="fc" id="L48">    }</span>
 
-<span class="nc" id="L50">    public Design(Integer idDesign) {</span>
+<span class="nc" id="L50">    public Design(Integer idDesign, DesignData designData, Product productIdProduct) {</span>
 <span class="nc" id="L51">        this.idDesign = idDesign;</span>
-<span class="nc" id="L52">    }</span>
+<span class="nc" id="L52">        this.designData = designData;</span>
+<span class="nc" id="L53">        this.productIdProduct = productIdProduct;</span>
+<span class="nc" id="L54">    }</span>
+    
+
+<span class="nc" id="L57">    public Design(Integer idDesign) {</span>
+<span class="nc" id="L58">        this.idDesign = idDesign;</span>
+<span class="nc" id="L59">    }</span>
 
     public Integer getIdDesign() {
-<span class="nc" id="L55">        return idDesign;</span>
+<span class="nc" id="L62">        return idDesign;</span>
     }
 
     public void setIdDesign(Integer idDesign) {
-<span class="nc" id="L59">        this.idDesign = idDesign;</span>
-<span class="nc" id="L60">    }</span>
+<span class="nc" id="L66">        this.idDesign = idDesign;</span>
+<span class="nc" id="L67">    }</span>
 
     public List&lt;NecessarySupply&gt; getNecessarySupplyList() {
-<span class="nc" id="L63">        return necessarySupplyList;</span>
+<span class="nc" id="L70">        return necessarySupplyList;</span>
     }
 
     public void setNecessarySupplyList(List&lt;NecessarySupply&gt; necessarySupplyList) {
-<span class="nc" id="L67">        this.necessarySupplyList = necessarySupplyList;</span>
-<span class="nc" id="L68">    }</span>
+<span class="nc" id="L74">        this.necessarySupplyList = necessarySupplyList;</span>
+<span class="nc" id="L75">    }</span>
 
     public DesignData getDesignData() {
-<span class="nc" id="L71">        return designData;</span>
+<span class="nc" id="L78">        return designData;</span>
     }
 
     public void setDesignData(DesignData designData) {
-<span class="nc" id="L75">        this.designData = designData;</span>
-<span class="nc" id="L76">    }</span>
+<span class="nc" id="L82">        this.designData = designData;</span>
+<span class="nc" id="L83">    }</span>
 
     public Product getProductIdProduct() {
-<span class="nc" id="L79">        return productIdProduct;</span>
+<span class="nc" id="L86">        return productIdProduct;</span>
     }
 
     public void setProductIdProduct(Product productIdProduct) {
-<span class="nc" id="L83">        this.productIdProduct = productIdProduct;</span>
-<span class="nc" id="L84">    }</span>
+<span class="nc" id="L90">        this.productIdProduct = productIdProduct;</span>
+<span class="nc" id="L91">    }</span>
 
     @Override
     public int hashCode() {
-<span class="nc" id="L88">        int hash = 0;</span>
-<span class="nc bnc" id="L89" title="All 2 branches missed.">        hash += (idDesign != null ? idDesign.hashCode() : 0);</span>
-<span class="nc" id="L90">        return hash;</span>
+<span class="nc" id="L95">        int hash = 0;</span>
+<span class="nc bnc" id="L96" title="All 2 branches missed.">        hash += (idDesign != null ? idDesign.hashCode() : 0);</span>
+<span class="nc" id="L97">        return hash;</span>
     }
 
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-<span class="pc bpc" id="L96" title="1 of 2 branches missed.">        if (!(object instanceof Design)) {</span>
-<span class="nc" id="L97">            return false;</span>
+<span class="pc bpc" id="L103" title="1 of 2 branches missed.">        if (!(object instanceof Design)) {</span>
+<span class="nc" id="L104">            return false;</span>
         }
-<span class="fc" id="L99">        Design other = (Design) object;</span>
-<span class="pc bpc" id="L100" title="5 of 8 branches missed.">        if ((this.idDesign == null &amp;&amp; other.idDesign != null) || (this.idDesign != null &amp;&amp; !this.idDesign.equals(other.idDesign))) {</span>
-<span class="nc" id="L101">            return false;</span>
+<span class="fc" id="L106">        Design other = (Design) object;</span>
+<span class="pc bpc" id="L107" title="5 of 8 branches missed.">        if ((this.idDesign == null &amp;&amp; other.idDesign != null) || (this.idDesign != null &amp;&amp; !this.idDesign.equals(other.idDesign))) {</span>
+<span class="nc" id="L108">            return false;</span>
         }
-<span class="fc" id="L103">        return true;</span>
+<span class="fc" id="L110">        return true;</span>
     }
 
     @Override
     public String toString() {
-<span class="nc" id="L108">        return &quot;entidades.Design[ idDesign=&quot; + idDesign + &quot; ]&quot;;</span>
+<span class="nc" id="L115">        return &quot;entidades.Design[ idDesign=&quot; + idDesign + &quot; ]&quot;;</span>
     }
 
 }

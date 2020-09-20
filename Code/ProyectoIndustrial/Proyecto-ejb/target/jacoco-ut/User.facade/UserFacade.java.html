@@ -191,5 +191,21 @@ import javax.ejb.LocalBean;
     public boolean resetPassword(Integer userID, String userMail) throws UserException {
 <span class="nc" id="L192">        return userService.resetPassword(userID, userMail);</span>
     }
+
+    @Override
+    public Optional&lt;User&gt; getUserByID(Integer carnet) {
+<span class="nc" id="L197">        return userRepository.getUserByID(carnet);</span>
+    }
+
+    @Override
+    public Optional&lt;RolUser&gt; findRolUserById(int idRolUser) throws UserException {
+<span class="nc" id="L202">        return rolUserRepository.findRolUserById(idRolUser);</span>
+    }
+
+    @Override
+    public Optional&lt;Career&gt; findCareerById(Integer idCareer) throws UserException {
+<span class="nc" id="L207">        return careerRepository.findCareerById(idCareer);</span>
+    }
+
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
