@@ -129,21 +129,21 @@ public class ProductionResource {
      *
      */
 //    @GET
-//    @Path("/product/{id}")
+//    @Path("/products/{id}")
 //    @Produces(MediaType.APPLICATION_JSON)
 //    public ProductODT getProductById(@PathParam("id") Integer id) {
 //        return new ProductODT(productionFacadeLocal.getProductById(id).get());
 //    }
 //
-//    @GET
-//    @Path("/product")
-//    public List<ProductODT> getProducts() {
-//        List<ProductODT> result = new ArrayList<>();
-//        productionFacadeLocal.getProduct().forEach((mod) -> {
-//            result.add(new ProductODT(mod));
-//        });
-//        return result;
-//    }
+    @GET
+    @Path("/products")
+    public List<ProductODT> getProducts() {
+        List<ProductODT> result = new ArrayList<>();
+        productionFacadeLocal.getProduct().forEach((mod) -> {
+            result.add(new ProductODT(mod));
+        });
+        return result;
+    }
     /**
      * ------------------------------------STEP---------------------------------
      *
