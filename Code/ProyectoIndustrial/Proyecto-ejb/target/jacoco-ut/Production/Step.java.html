@@ -61,51 +61,60 @@ public class Step implements Serializable {
 <span class="fc" id="L61">        this.description = description;</span>
 <span class="fc" id="L62">    }</span>
 
+<span class="nc" id="L64">    public Step(Integer idStep, String name, String description, Stage stageId) {</span>
+<span class="nc" id="L65">        this.idStep = idStep;</span>
+<span class="nc" id="L66">        this.name = name;</span>
+<span class="nc" id="L67">        this.description = description;</span>
+<span class="nc" id="L68">        this.stageId = stageId;</span>
+<span class="nc" id="L69">    }</span>
+
+    
+    
     public Integer getIdStep() {
-<span class="fc" id="L65">        return idStep;</span>
+<span class="fc" id="L74">        return idStep;</span>
     }
 
     public void setIdStep(Integer idStep) {
-<span class="fc" id="L69">        this.idStep = idStep;</span>
-<span class="fc" id="L70">    }</span>
+<span class="fc" id="L78">        this.idStep = idStep;</span>
+<span class="fc" id="L79">    }</span>
 
     public String getName() {
-<span class="fc" id="L73">        return name;</span>
+<span class="fc" id="L82">        return name;</span>
     }
 
     public void setName(String name) {
-<span class="fc" id="L77">        this.name = name;</span>
-<span class="fc" id="L78">    }</span>
+<span class="fc" id="L86">        this.name = name;</span>
+<span class="fc" id="L87">    }</span>
 
     public String getDescription() {
-<span class="fc" id="L81">        return description;</span>
+<span class="fc" id="L90">        return description;</span>
     }
 
     public void setDescription(String description) {
-<span class="fc" id="L85">        this.description = description;</span>
-<span class="fc" id="L86">    }</span>
+<span class="fc" id="L94">        this.description = description;</span>
+<span class="fc" id="L95">    }</span>
 
     public Stage getStageId() {
-<span class="fc" id="L89">        return stageId;</span>
+<span class="fc" id="L98">        return stageId;</span>
     }
 
     public void setStageId(Stage stageId) {
-<span class="fc" id="L93">        this.stageId = stageId;</span>
-<span class="fc" id="L94">    }</span>
+<span class="fc" id="L102">        this.stageId = stageId;</span>
+<span class="fc" id="L103">    }</span>
 
     public List&lt;Commentary&gt; getCommentaryList() {
-<span class="nc" id="L97">        return commentaryList;</span>
+<span class="nc" id="L106">        return commentaryList;</span>
     }
 
     public void setCommentaryList(List&lt;Commentary&gt; commentaryList) {
-<span class="nc" id="L101">        this.commentaryList = commentaryList;</span>
-<span class="nc" id="L102">    }</span>
+<span class="nc" id="L110">        this.commentaryList = commentaryList;</span>
+<span class="nc" id="L111">    }</span>
 
     @Override
     public int hashCode() {
-<span class="nc" id="L106">        int hash = 0;</span>
-<span class="nc bnc" id="L107" title="All 2 branches missed.">        hash += (idStep != null ? idStep.hashCode() : 0);</span>
-<span class="nc" id="L108">        return hash;</span>
+<span class="nc" id="L115">        int hash = 0;</span>
+<span class="nc bnc" id="L116" title="All 2 branches missed.">        hash += (idStep != null ? idStep.hashCode() : 0);</span>
+<span class="nc" id="L117">        return hash;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

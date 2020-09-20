@@ -8,28 +8,37 @@ package gt.edu.usac.cunoc.ingenieria.production;
 import Production.Production;
 import Production.Stage;
 import Production.Step;
+import java.io.Serializable;
 import java.util.List;
+import java.util.Objects;
 
 /**
  *
  * @author daniel
  */
-public class StageDTO {
+public class StageDTO implements Serializable{
     
     private Integer idStage;
     private String name;
     private String description;
-    private Production productionId;
-    private List<Step> stepList;
+    private Integer productionId;
+    //private List<Step> stepList;
 
     public StageDTO(Stage stage) {
         this.idStage = stage.getIdStage();
         this.name = stage.getName();
         this.description = stage.getDescription();
-        this.productionId = stage.getProductionId();
-        this.stepList = stage.getStepList();
+        this.productionId = stage.getProductionId().getIdProduction();
+        //this.stepList = stage.getStepList();
     }
 
+    public StageDTO() {
+    }
+
+    
+  
+    
+    
     public Integer getIdStage() {
         return idStage;
     }
@@ -54,22 +63,48 @@ public class StageDTO {
         this.description = description;
     }
 
-    public Production getProductionId() {
+    public Integer getProductionId() {
         return productionId;
     }
 
-    public void setProductionId(Production productionId) {
+    public void setProductionId(Integer productionId) {
         this.productionId = productionId;
     }
 
-    public List<Step> getStepList() {
-        return stepList;
+  
+//    public List<Step> getStepList() {
+//        return stepList;
+//    }
+//
+//    public void setStepList(List<Step> stepList) {
+//        this.stepList = stepList;
+//    }
+//    
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 67 * hash + Objects.hashCode(this.idStage);
+        hash = 67 * hash + Objects.hashCode(this.name);
+        hash = 67 * hash + Objects.hashCode(this.description);
+        hash = 67 * hash + Objects.hashCode(this.productionId);
+        return hash;
     }
 
-    public void setStepList(List<Step> stepList) {
-        this.stepList = stepList;
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final StageDTO other = (StageDTO) obj;
+        return true;
     }
-    
     
     
     

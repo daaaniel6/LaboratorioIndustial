@@ -1,4 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
+<testng-results ignored="0" total="159" passed="159" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2020-08-20T18:29:49 CST" name="Command line suite" finished-at="2020-08-20T18:29:49 CST" duration-ms="335">
+    <groups>
+    </groups>
+    <test started-at="2020-08-20T18:29:49 CST" name="Command line test" finished-at="2020-08-20T18:29:49 CST" duration-ms="335">
+      <class name="Production.CommentaryTest">
+        <test-method signature="testSetAndGetText()[pri:0, instance:Production.CommentaryTest@5b48f0f4]" started-at="2020-08-20T18:29:49 CST" name="testSetAndGetText" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSetAndGetText -->
+        <test-method signature="testSetAndGetIdCommentary()[pri:0, instance:Production.CommentaryTest@5b48f0f4]" started-at="2020-08-20T18:29:49 CST" name="testSetAndGetIdCommentary" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSetAndGetIdCommentary -->
+        <test-method signature="testSetAndGetPaso()[pri:0, instance:Production.CommentaryTest@5b48f0f4]" started-at="2020-08-20T18:29:49 CST" name="testSetAndGetPaso" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+=======
 <testng-results skipped="0" failed="0" ignored="0" total="159" passed="159">
   <reporter-output>
   </reporter-output>
@@ -16,11 +35,61 @@
           </reporter-output>
         </test-method> <!-- testSetAndGetPaso -->
         <test-method status="PASS" signature="testSetAndGetText()[pri:0, instance:Production.CommentaryTest@59fc6d05]" name="testSetAndGetText" duration-ms="0" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
+>>>>>>> dev
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testSetAndGetText -->
+        </test-method> <!-- testSetAndGetPaso -->
       </class> <!-- Production.CommentaryTest -->
       <class name="User.service.RolUserServiceTest">
+<<<<<<< HEAD
+        <test-method signature="createCareerNullTest()[pri:0, instance:User.service.RolUserServiceTest@5dbab232]" started-at="2020-08-20T18:29:49 CST" name="createCareerNullTest" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createCareerNullTest -->
+        <test-method signature="updateCareerTest()[pri:0, instance:User.service.RolUserServiceTest@5dbab232]" started-at="2020-08-20T18:29:49 CST" name="updateCareerTest" finished-at="2020-08-20T18:29:49 CST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- updateCareerTest -->
+        <test-method signature="updateCareerNullTest()[pri:0, instance:User.service.RolUserServiceTest@5dbab232]" started-at="2020-08-20T18:29:49 CST" name="updateCareerNullTest" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- updateCareerNullTest -->
+        <test-method signature="createCareerTest()[pri:0, instance:User.service.RolUserServiceTest@5dbab232]" started-at="2020-08-20T18:29:49 CST" name="createCareerTest" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createCareerTest -->
+      </class> <!-- User.service.RolUserServiceTest -->
+      <class name="User.UserTest">
+        <test-method signature="setAndGetCarnet()[pri:0, instance:User.UserTest@5939e24]" started-at="2020-08-20T18:29:49 CST" name="setAndGetCarnet" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setAndGetCarnet -->
+        <test-method signature="setAndGetCareer()[pri:0, instance:User.UserTest@5939e24]" started-at="2020-08-20T18:29:49 CST" name="setAndGetCareer" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setAndGetCareer -->
+        <test-method signature="setAndGetPassword()[pri:0, instance:User.UserTest@5939e24]" started-at="2020-08-20T18:29:49 CST" name="setAndGetPassword" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setAndGetPassword -->
+        <test-method signature="setAndGetEmail()[pri:0, instance:User.UserTest@5939e24]" started-at="2020-08-20T18:29:49 CST" name="setAndGetEmail" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setAndGetEmail -->
+        <test-method signature="setAndGetName()[pri:0, instance:User.UserTest@5939e24]" started-at="2020-08-20T18:29:49 CST" name="setAndGetName" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setAndGetName -->
+        <test-method signature="setAndGetPhone()[pri:0, instance:User.UserTest@5939e24]" started-at="2020-08-20T18:29:49 CST" name="setAndGetPhone" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setAndGetPhone -->
+        <test-method signature="setAndGetRoluser()[pri:0, instance:User.UserTest@5939e24]" started-at="2020-08-20T18:29:49 CST" name="setAndGetRoluser" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setAndGetRoluser -->
+        <test-method signature="setAndGetState()[pri:0, instance:User.UserTest@5939e24]" started-at="2020-08-20T18:29:49 CST" name="setAndGetState" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+=======
         <test-method status="PASS" signature="createCareerNullTest()[pri:0, instance:User.service.RolUserServiceTest@6f5d0190]" name="createCareerNullTest" duration-ms="6" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
           <reporter-output>
           </reporter-output>
@@ -68,11 +137,23 @@
           </reporter-output>
         </test-method> <!-- setAndGetRoluser -->
         <test-method status="PASS" signature="setAndGetState()[pri:0, instance:User.UserTest@679dd234]" name="setAndGetState" duration-ms="0" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
+>>>>>>> dev
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setAndGetState -->
       </class> <!-- User.UserTest -->
       <class name="Production.repository.ProductRepositoryTest">
+<<<<<<< HEAD
+        <test-method signature="getAllWithNoResult()[pri:0, instance:Production.repository.ProductRepositoryTest@7994a0d1]" started-at="2020-08-20T18:29:49 CST" name="getAllWithNoResult" finished-at="2020-08-20T18:29:49 CST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getAllWithNoResult -->
+        <test-method signature="getAllWithResult()[pri:0, instance:Production.repository.ProductRepositoryTest@7994a0d1]" started-at="2020-08-20T18:29:49 CST" name="getAllWithResult" finished-at="2020-08-20T18:29:49 CST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getAllWithResult -->
+        <test-method signature="getProductByIdtWithResult()[pri:0, instance:Production.repository.ProductRepositoryTest@7994a0d1]" started-at="2020-08-20T18:29:49 CST" name="getProductByIdtWithResult" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+=======
         <test-method status="PASS" signature="getAllWithNoResult()[pri:0, instance:Production.repository.ProductRepositoryTest@1983b48a]" name="getAllWithNoResult" duration-ms="2" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
           <reporter-output>
           </reporter-output>
@@ -82,21 +163,53 @@
           </reporter-output>
         </test-method> <!-- getAllWithResult -->
         <test-method status="PASS" signature="getProductByIdtWithResult()[pri:0, instance:Production.repository.ProductRepositoryTest@1983b48a]" name="getProductByIdtWithResult" duration-ms="1" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
+>>>>>>> dev
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getProductByIdtWithResult -->
       </class> <!-- Production.repository.ProductRepositoryTest -->
       <class name="Production.NecessarySupplyTest">
+<<<<<<< HEAD
+        <test-method signature="testSetAndGetIdDesign()[pri:0, instance:Production.NecessarySupplyTest@1df9186f]" started-at="2020-08-20T18:29:49 CST" name="testSetAndGetIdDesign" finished-at="2020-08-20T18:29:49 CST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSetAndGetIdDesign -->
+        <test-method signature="testSetAndGetIdNecessarySupply()[pri:0, instance:Production.NecessarySupplyTest@1df9186f]" started-at="2020-08-20T18:29:49 CST" name="testSetAndGetIdNecessarySupply" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+=======
         <test-method status="PASS" signature="testSetAndGetIdDesign()[pri:0, instance:Production.NecessarySupplyTest@47829d6d]" name="testSetAndGetIdDesign" duration-ms="2" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testSetAndGetIdDesign -->
         <test-method status="PASS" signature="testSetAndGetIdNecessarySupply()[pri:0, instance:Production.NecessarySupplyTest@47829d6d]" name="testSetAndGetIdNecessarySupply" duration-ms="0" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
+>>>>>>> dev
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testSetAndGetIdNecessarySupply -->
       </class> <!-- Production.NecessarySupplyTest -->
       <class name="Production.StageTest">
+<<<<<<< HEAD
+        <test-method signature="stageBuilderTest()[pri:0, instance:Production.StageTest@5d1bdd4a]" started-at="2020-08-20T18:29:49 CST" name="stageBuilderTest" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- stageBuilderTest -->
+        <test-method signature="testEquals()[pri:0, instance:Production.StageTest@5d1bdd4a]" started-at="2020-08-20T18:29:49 CST" name="testEquals" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testEquals -->
+        <test-method signature="testSetAndGetDescription()[pri:0, instance:Production.StageTest@5d1bdd4a]" started-at="2020-08-20T18:29:49 CST" name="testSetAndGetDescription" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSetAndGetDescription -->
+        <test-method signature="testSetAndGetIdStage()[pri:0, instance:Production.StageTest@5d1bdd4a]" started-at="2020-08-20T18:29:49 CST" name="testSetAndGetIdStage" finished-at="2020-08-20T18:29:49 CST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSetAndGetIdStage -->
+        <test-method signature="testSetAndGetName()[pri:0, instance:Production.StageTest@5d1bdd4a]" started-at="2020-08-20T18:29:49 CST" name="testSetAndGetName" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSetAndGetName -->
+        <test-method signature="testSetAndGetProductionId()[pri:0, instance:Production.StageTest@5d1bdd4a]" started-at="2020-08-20T18:29:49 CST" name="testSetAndGetProductionId" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+=======
         <test-method status="PASS" signature="stageBuilderTest()[pri:0, instance:Production.StageTest@3bfae028]" name="stageBuilderTest" duration-ms="0" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
           <reporter-output>
           </reporter-output>
@@ -118,10 +231,65 @@
           </reporter-output>
         </test-method> <!-- testSetAndGetIdStage -->
         <test-method status="PASS" signature="testSetAndGetProductionId()[pri:0, instance:Production.StageTest@3bfae028]" name="testSetAndGetProductionId" duration-ms="0" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
+>>>>>>> dev
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testSetAndGetProductionId -->
       </class> <!-- Production.StageTest -->
+<<<<<<< HEAD
+      <class name="Production.repository.StageRepositoryTest">
+        <test-method signature="AllProductionsTest()[pri:0, instance:Production.repository.StageRepositoryTest@7a66c35a]" started-at="2020-08-20T18:29:49 CST" name="AllProductionsTest" finished-at="2020-08-20T18:29:49 CST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AllProductionsTest -->
+        <test-method signature="FindByIdProductionNoResultExceptionTest()[pri:0, instance:Production.repository.StageRepositoryTest@7a66c35a]" started-at="2020-08-20T18:29:49 CST" name="FindByIdProductionNoResultExceptionTest" finished-at="2020-08-20T18:29:49 CST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- FindByIdProductionNoResultExceptionTest -->
+        <test-method signature="findProductionLikeNameTest()[pri:0, instance:Production.repository.StageRepositoryTest@7a66c35a]" started-at="2020-08-20T18:29:49 CST" name="findProductionLikeNameTest" finished-at="2020-08-20T18:29:49 CST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- findProductionLikeNameTest -->
+      </class> <!-- Production.repository.StageRepositoryTest -->
+      <class name="Supply.SupplyTest">
+        <test-method signature="testSetAndGetAvailability()[pri:0, instance:Supply.SupplyTest@5b8853]" started-at="2020-08-20T18:29:49 CST" name="testSetAndGetAvailability" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSetAndGetAvailability -->
+        <test-method signature="testSetAndGetCode()[pri:0, instance:Supply.SupplyTest@5b8853]" started-at="2020-08-20T18:29:49 CST" name="testSetAndGetCode" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSetAndGetCode -->
+        <test-method signature="testSetAndGetCost()[pri:0, instance:Supply.SupplyTest@5b8853]" started-at="2020-08-20T18:29:49 CST" name="testSetAndGetCost" finished-at="2020-08-20T18:29:49 CST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSetAndGetCost -->
+        <test-method signature="testSetAndGetDateOfAdmission()[pri:0, instance:Supply.SupplyTest@5b8853]" started-at="2020-08-20T18:29:49 CST" name="testSetAndGetDateOfAdmission" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSetAndGetDateOfAdmission -->
+        <test-method signature="testSetAndGetExpirationDate()[pri:0, instance:Supply.SupplyTest@5b8853]" started-at="2020-08-20T18:29:49 CST" name="testSetAndGetExpirationDate" finished-at="2020-08-20T18:29:49 CST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSetAndGetExpirationDate -->
+        <test-method signature="testSetAndGetDescription()[pri:0, instance:Supply.SupplyTest@5b8853]" started-at="2020-08-20T18:29:49 CST" name="testSetAndGetDescription" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSetAndGetDescription -->
+        <test-method signature="testSetAndGetInternalCode()[pri:0, instance:Supply.SupplyTest@5b8853]" started-at="2020-08-20T18:29:49 CST" name="testSetAndGetInternalCode" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSetAndGetInternalCode -->
+        <test-method signature="testSetAndGetMeasure()[pri:0, instance:Supply.SupplyTest@5b8853]" started-at="2020-08-20T18:29:49 CST" name="testSetAndGetMeasure" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSetAndGetMeasure -->
+        <test-method signature="testSetAndGetName()[pri:0, instance:Supply.SupplyTest@5b8853]" started-at="2020-08-20T18:29:49 CST" name="testSetAndGetName" finished-at="2020-08-20T18:29:49 CST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSetAndGetName -->
+        <test-method signature="testSetAndGetQuantity()[pri:0, instance:Supply.SupplyTest@5b8853]" started-at="2020-08-20T18:29:49 CST" name="testSetAndGetQuantity" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+=======
       <class name="Supply.SupplyTest">
         <test-method status="PASS" signature="testSetAndGetAvailability()[pri:0, instance:Supply.SupplyTest@1980a3f]" name="testSetAndGetAvailability" duration-ms="0" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
           <reporter-output>
@@ -160,6 +328,7 @@
           </reporter-output>
         </test-method> <!-- testSetAndGetName -->
         <test-method status="PASS" signature="testSetAndGetQuantity()[pri:0, instance:Supply.SupplyTest@1980a3f]" name="testSetAndGetQuantity" duration-ms="0" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
+>>>>>>> dev
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testSetAndGetQuantity -->
@@ -183,6 +352,17 @@
         </test-method> <!-- findProductionLikeNameTest -->
       </class> <!-- Production.repository.StageRepositoryTest -->
       <class name="User.repository.RolUserRepositoryTest">
+<<<<<<< HEAD
+        <test-method signature="getRolUser()[pri:0, instance:User.repository.RolUserRepositoryTest@93bf0e0]" started-at="2020-08-20T18:29:49 CST" name="getRolUser" finished-at="2020-08-20T18:29:49 CST" duration-ms="8" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getRolUser -->
+        <test-method signature="getRolUserWithId()[pri:0, instance:User.repository.RolUserRepositoryTest@93bf0e0]" started-at="2020-08-20T18:29:49 CST" name="getRolUserWithId" finished-at="2020-08-20T18:29:49 CST" duration-ms="6" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getRolUserWithId -->
+        <test-method signature="getRolUserWithName()[pri:0, instance:User.repository.RolUserRepositoryTest@93bf0e0]" started-at="2020-08-20T18:29:49 CST" name="getRolUserWithName" finished-at="2020-08-20T18:29:49 CST" duration-ms="2" status="PASS">
+=======
         <test-method status="PASS" signature="getRolUser()[pri:0, instance:User.repository.RolUserRepositoryTest@4c3de38e]" name="getRolUser" duration-ms="3" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
           <reporter-output>
           </reporter-output>
@@ -192,11 +372,23 @@
           </reporter-output>
         </test-method> <!-- getRolUserWithId -->
         <test-method status="PASS" signature="getRolUserWithName()[pri:0, instance:User.repository.RolUserRepositoryTest@4c3de38e]" name="getRolUserWithName" duration-ms="2" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
+>>>>>>> dev
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getRolUserWithName -->
       </class> <!-- User.repository.RolUserRepositoryTest -->
       <class name="Group.service.GroupUserServiceTest">
+<<<<<<< HEAD
+        <test-method signature="createGroupUserTest()[pri:0, instance:Group.service.GroupUserServiceTest@19662208]" started-at="2020-08-20T18:29:49 CST" name="createGroupUserTest" finished-at="2020-08-20T18:29:49 CST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createGroupUserTest -->
+        <test-method signature="removeUserFromGroupSuccessTest()[pri:0, instance:Group.service.GroupUserServiceTest@19662208]" started-at="2020-08-20T18:29:49 CST" name="removeUserFromGroupSuccessTest" finished-at="2020-08-20T18:29:49 CST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- removeUserFromGroupSuccessTest -->
+        <test-method signature="updateUserGroupTest()[pri:0, instance:Group.service.GroupUserServiceTest@19662208]" started-at="2020-08-20T18:29:49 CST" name="updateUserGroupTest" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+=======
         <test-method status="PASS" signature="createGroupUserTest()[pri:0, instance:Group.service.GroupUserServiceTest@1ca610a0]" name="createGroupUserTest" duration-ms="2" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
           <reporter-output>
           </reporter-output>
@@ -206,11 +398,23 @@
           </reporter-output>
         </test-method> <!-- removeUserFromGroupSuccessTest -->
         <test-method status="PASS" signature="updateUserGroupTest()[pri:0, instance:Group.service.GroupUserServiceTest@1ca610a0]" name="updateUserGroupTest" duration-ms="0" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
+>>>>>>> dev
           <reporter-output>
           </reporter-output>
         </test-method> <!-- updateUserGroupTest -->
       </class> <!-- Group.service.GroupUserServiceTest -->
       <class name="Production.service.ProductServiceTest">
+<<<<<<< HEAD
+        <test-method signature="createProductTest()[pri:0, instance:Production.service.ProductServiceTest@2726a511]" started-at="2020-08-20T18:29:49 CST" name="createProductTest" finished-at="2020-08-20T18:29:49 CST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createProductTest -->
+        <test-method signature="updateAllProductTest()[pri:0, instance:Production.service.ProductServiceTest@2726a511]" started-at="2020-08-20T18:29:49 CST" name="updateAllProductTest" finished-at="2020-08-20T18:29:49 CST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- updateAllProductTest -->
+        <test-method signature="updateNullProductTest()[pri:0, instance:Production.service.ProductServiceTest@2726a511]" started-at="2020-08-20T18:29:49 CST" name="updateNullProductTest" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+=======
         <test-method status="PASS" signature="createProductTest()[pri:0, instance:Production.service.ProductServiceTest@2921199d]" name="createProductTest" duration-ms="1" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
           <reporter-output>
           </reporter-output>
@@ -220,11 +424,23 @@
           </reporter-output>
         </test-method> <!-- updateAllProductTest -->
         <test-method status="PASS" signature="updateNullProductTest()[pri:0, instance:Production.service.ProductServiceTest@2921199d]" name="updateNullProductTest" duration-ms="1" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
+>>>>>>> dev
           <reporter-output>
           </reporter-output>
         </test-method> <!-- updateNullProductTest -->
       </class> <!-- Production.service.ProductServiceTest -->
       <class name="Production.ProductTest">
+<<<<<<< HEAD
+        <test-method signature="testSetAndGetDescription()[pri:0, instance:Production.ProductTest@1b8aaeab]" started-at="2020-08-20T18:29:49 CST" name="testSetAndGetDescription" finished-at="2020-08-20T18:29:49 CST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSetAndGetDescription -->
+        <test-method signature="testSetAndGetName()[pri:0, instance:Production.ProductTest@1b8aaeab]" started-at="2020-08-20T18:29:49 CST" name="testSetAndGetName" finished-at="2020-08-20T18:29:49 CST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSetAndGetName -->
+        <test-method signature="testSetAndGetIdProduct()[pri:0, instance:Production.ProductTest@1b8aaeab]" started-at="2020-08-20T18:29:49 CST" name="testSetAndGetIdProduct" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+=======
         <test-method status="PASS" signature="testSetAndGetDescription()[pri:0, instance:Production.ProductTest@40d52be7]" name="testSetAndGetDescription" duration-ms="1" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
           <reporter-output>
           </reporter-output>
@@ -234,11 +450,27 @@
           </reporter-output>
         </test-method> <!-- testSetAndGetIdProduct -->
         <test-method status="PASS" signature="testSetAndGetName()[pri:0, instance:Production.ProductTest@40d52be7]" name="testSetAndGetName" duration-ms="0" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
+>>>>>>> dev
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testSetAndGetName -->
       </class> <!-- Production.ProductTest -->
       <class name="Group.repository.GroupRepositoryTest">
+<<<<<<< HEAD
+        <test-method signature="findByIdWithNoResult()[pri:0, instance:Group.repository.GroupRepositoryTest@5bfc79cb]" started-at="2020-08-20T18:29:49 CST" name="findByIdWithNoResult" finished-at="2020-08-20T18:29:49 CST" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- findByIdWithNoResult -->
+        <test-method signature="findByIdWithResult()[pri:0, instance:Group.repository.GroupRepositoryTest@5bfc79cb]" started-at="2020-08-20T18:29:49 CST" name="findByIdWithResult" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- findByIdWithResult -->
+        <test-method signature="getAllEmptyResult()[pri:0, instance:Group.repository.GroupRepositoryTest@5bfc79cb]" started-at="2020-08-20T18:29:49 CST" name="getAllEmptyResult" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getAllEmptyResult -->
+        <test-method signature="getAllWithResult()[pri:0, instance:Group.repository.GroupRepositoryTest@5bfc79cb]" started-at="2020-08-20T18:29:49 CST" name="getAllWithResult" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+=======
         <test-method status="PASS" signature="findByIdWithNoResult()[pri:0, instance:Group.repository.GroupRepositoryTest@49433c98]" name="findByIdWithNoResult" duration-ms="1" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
           <reporter-output>
           </reporter-output>
@@ -252,21 +484,45 @@
           </reporter-output>
         </test-method> <!-- getAllEmptyResult -->
         <test-method status="PASS" signature="getAllWithResult()[pri:0, instance:Group.repository.GroupRepositoryTest@49433c98]" name="getAllWithResult" duration-ms="1" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
+>>>>>>> dev
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getAllWithResult -->
       </class> <!-- Group.repository.GroupRepositoryTest -->
       <class name="User.CareerTest">
+<<<<<<< HEAD
+        <test-method signature="testSetAndGetIdCareer()[pri:0, instance:User.CareerTest@6b867ee7]" started-at="2020-08-20T18:29:49 CST" name="testSetAndGetIdCareer" finished-at="2020-08-20T18:29:49 CST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSetAndGetIdCareer -->
+        <test-method signature="testSetAndGetName()[pri:0, instance:User.CareerTest@6b867ee7]" started-at="2020-08-20T18:29:49 CST" name="testSetAndGetName" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+=======
         <test-method status="PASS" signature="testSetAndGetIdCareer()[pri:0, instance:User.CareerTest@60cb1ed6]" name="testSetAndGetIdCareer" duration-ms="1" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testSetAndGetIdCareer -->
         <test-method status="PASS" signature="testSetAndGetName()[pri:0, instance:User.CareerTest@60cb1ed6]" name="testSetAndGetName" duration-ms="0" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
+>>>>>>> dev
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testSetAndGetName -->
       </class> <!-- User.CareerTest -->
       <class name="Group.GroupUserTest">
+<<<<<<< HEAD
+        <test-method signature="testSetAndGetIdGroupAdmissionDate()[pri:0, instance:Group.GroupUserTest@216c22ce]" started-at="2020-08-20T18:29:49 CST" name="testSetAndGetIdGroupAdmissionDate" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSetAndGetIdGroupAdmissionDate -->
+        <test-method signature="testSetAndGetGroup()[pri:0, instance:Group.GroupUserTest@216c22ce]" started-at="2020-08-20T18:29:49 CST" name="testSetAndGetGroup" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSetAndGetGroup -->
+        <test-method signature="testSetAndGetIdGroupUser()[pri:0, instance:Group.GroupUserTest@216c22ce]" started-at="2020-08-20T18:29:49 CST" name="testSetAndGetIdGroupUser" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSetAndGetIdGroupUser -->
+        <test-method signature="testSetAndGetUser()[pri:0, instance:Group.GroupUserTest@216c22ce]" started-at="2020-08-20T18:29:49 CST" name="testSetAndGetUser" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+=======
         <test-method status="PASS" signature="testSetAndGetGroup()[pri:0, instance:Group.GroupUserTest@3d8d17a3]" name="testSetAndGetGroup" duration-ms="2" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
           <reporter-output>
           </reporter-output>
@@ -280,11 +536,31 @@
           </reporter-output>
         </test-method> <!-- testSetAndGetIdGroupUser -->
         <test-method status="PASS" signature="testSetAndGetUser()[pri:0, instance:Group.GroupUserTest@3d8d17a3]" name="testSetAndGetUser" duration-ms="0" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
+>>>>>>> dev
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testSetAndGetUser -->
       </class> <!-- Group.GroupUserTest -->
       <class name="User.facade.UserFacadeTest">
+<<<<<<< HEAD
+        <test-method signature="createUserTest()[pri:0, instance:User.facade.UserFacadeTest@62f9c790]" started-at="2020-08-20T18:29:49 CST" name="createUserTest" finished-at="2020-08-20T18:29:49 CST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createUserTest -->
+        <test-method signature="createCareerTest()[pri:0, instance:User.facade.UserFacadeTest@62f9c790]" started-at="2020-08-20T18:29:49 CST" name="createCareerTest" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createCareerTest -->
+        <test-method signature="getUserTest()[pri:0, instance:User.facade.UserFacadeTest@62f9c790]" started-at="2020-08-20T18:29:49 CST" name="getUserTest" finished-at="2020-08-20T18:29:49 CST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getUserTest -->
+        <test-method signature="getCareerTest()[pri:0, instance:User.facade.UserFacadeTest@62f9c790]" started-at="2020-08-20T18:29:49 CST" name="getCareerTest" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getCareerTest -->
+        <test-method signature="updateUserTest()[pri:0, instance:User.facade.UserFacadeTest@62f9c790]" started-at="2020-08-20T18:29:49 CST" name="updateUserTest" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+=======
         <test-method status="PASS" signature="createCareerTest()[pri:0, instance:User.facade.UserFacadeTest@39941489]" name="createCareerTest" duration-ms="0" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
           <reporter-output>
           </reporter-output>
@@ -306,21 +582,49 @@
           </reporter-output>
         </test-method> <!-- updateCareerTest -->
         <test-method status="PASS" signature="updateUserTest()[pri:0, instance:User.facade.UserFacadeTest@39941489]" name="updateUserTest" duration-ms="1" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
+>>>>>>> dev
           <reporter-output>
           </reporter-output>
         </test-method> <!-- updateUserTest -->
+        <test-method signature="updateCareerTest()[pri:0, instance:User.facade.UserFacadeTest@62f9c790]" started-at="2020-08-20T18:29:49 CST" name="updateCareerTest" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- updateCareerTest -->
       </class> <!-- User.facade.UserFacadeTest -->
       <class name="Production.repository.ProductionRepositoryTest">
+<<<<<<< HEAD
+        <test-method signature="AllProductionsTest()[pri:0, instance:Production.repository.ProductionRepositoryTest@73e4387]" started-at="2020-08-20T18:29:49 CST" name="AllProductionsTest" finished-at="2020-08-20T18:29:49 CST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AllProductionsTest -->
+        <test-method signature="findProductionLikeNameTest()[pri:0, instance:Production.repository.ProductionRepositoryTest@73e4387]" started-at="2020-08-20T18:29:49 CST" name="findProductionLikeNameTest" finished-at="2020-08-20T18:29:49 CST" duration-ms="1" status="PASS">
+=======
         <test-method status="PASS" signature="AllProductionsTest()[pri:0, instance:Production.repository.ProductionRepositoryTest@b791a81]" name="AllProductionsTest" duration-ms="1" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- AllProductionsTest -->
         <test-method status="PASS" signature="findProductionLikeNameTest()[pri:0, instance:Production.repository.ProductionRepositoryTest@b791a81]" name="findProductionLikeNameTest" duration-ms="1" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
+>>>>>>> dev
           <reporter-output>
           </reporter-output>
         </test-method> <!-- findProductionLikeNameTest -->
       </class> <!-- Production.repository.ProductionRepositoryTest -->
       <class name="User.service.UserServiceTest">
+<<<<<<< HEAD
+        <test-method signature="createUserNullTest()[pri:0, instance:User.service.UserServiceTest@3dec3f87]" started-at="2020-08-20T18:29:49 CST" name="createUserNullTest" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createUserNullTest -->
+        <test-method signature="createUserTest()[pri:0, instance:User.service.UserServiceTest@3dec3f87]" started-at="2020-08-20T18:29:49 CST" name="createUserTest" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createUserTest -->
+        <test-method signature="updateUserNullTest()[pri:0, instance:User.service.UserServiceTest@3dec3f87]" started-at="2020-08-20T18:29:49 CST" name="updateUserNullTest" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- updateUserNullTest -->
+        <test-method signature="updateUserTest()[pri:0, instance:User.service.UserServiceTest@3dec3f87]" started-at="2020-08-20T18:29:49 CST" name="updateUserTest" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+=======
         <test-method status="PASS" signature="createUserNullTest()[pri:0, instance:User.service.UserServiceTest@7e34b127]" name="createUserNullTest" duration-ms="1" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
           <reporter-output>
           </reporter-output>
@@ -334,17 +638,31 @@
           </reporter-output>
         </test-method> <!-- updateUserNullTest -->
         <test-method status="PASS" signature="updateUserTest()[pri:0, instance:User.service.UserServiceTest@7e34b127]" name="updateUserTest" duration-ms="1" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
+>>>>>>> dev
           <reporter-output>
           </reporter-output>
         </test-method> <!-- updateUserTest -->
       </class> <!-- User.service.UserServiceTest -->
       <class name="Production.service.ProductionServiceTest">
+<<<<<<< HEAD
+        <test-method signature="MandatoryAttributeProductionExceptionNameCreate()[pri:0, instance:Production.service.ProductionServiceTest@72c9ebfa]" started-at="2020-08-20T18:29:49 CST" name="MandatoryAttributeProductionExceptionNameCreate" finished-at="2020-08-20T18:29:49 CST" duration-ms="1" status="PASS">
+=======
         <test-method status="PASS" signature="MandatoryAttributeProductionExceptionDateEdit()[pri:0, instance:Production.service.ProductionServiceTest@7a1b8a46]" name="MandatoryAttributeProductionExceptionDateEdit" duration-ms="0" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
+>>>>>>> dev
           <exception class="Production.exceptions.MandatoryAttributeProductionException">
             <message>
-              <![CDATA[Fecha de creacion nula]]>
+              <![CDATA[Nombre nulo]]>
             </message>
             <full-stacktrace>
+<<<<<<< HEAD
+              <![CDATA[Production.exceptions.MandatoryAttributeProductionException: Nombre nulo
+at Production.service.ProductionService.create(ProductionService.java:43)
+at Production.service.ProductionServiceTest.MandatoryAttributeProductionExceptionNameCreate(ProductionServiceTest.java:50)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+=======
               <![CDATA[Production.exceptions.MandatoryAttributeProductionException: Fecha de creacion nula
 at Production.service.ProductionService.edit(ProductionService.java:132)
 at Production.service.ProductionServiceTest.MandatoryAttributeProductionExceptionDateEdit(ProductionServiceTest.java:119)
@@ -352,6 +670,7 @@ at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 at java.lang.reflect.Method.invoke(Method.java:498)
+>>>>>>> dev
 at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
 at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
 at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
@@ -360,7 +679,11 @@ at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java
 at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
 at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
 at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+<<<<<<< HEAD
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+=======
 at java.util.ArrayList.forEach(ArrayList.java:1257)
+>>>>>>> dev
 at org.testng.TestRunner.privateRun(TestRunner.java:770)
 at org.testng.TestRunner.run(TestRunner.java:591)
 at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
@@ -391,13 +714,27 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
           </exception> <!-- Production.exceptions.MandatoryAttributeProductionException -->
           <reporter-output>
           </reporter-output>
+<<<<<<< HEAD
+        </test-method> <!-- MandatoryAttributeProductionExceptionNameCreate -->
+        <test-method signature="MandatoryAttributeProductionExceptionDateEdit()[pri:0, instance:Production.service.ProductionServiceTest@72c9ebfa]" started-at="2020-08-20T18:29:49 CST" name="MandatoryAttributeProductionExceptionDateEdit" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+=======
         </test-method> <!-- MandatoryAttributeProductionExceptionDateEdit -->
         <test-method status="PASS" signature="MandatoryAttributeProductionExceptionNameCreate()[pri:0, instance:Production.service.ProductionServiceTest@7a1b8a46]" name="MandatoryAttributeProductionExceptionNameCreate" duration-ms="0" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
+>>>>>>> dev
           <exception class="Production.exceptions.MandatoryAttributeProductionException">
             <message>
-              <![CDATA[Nombre nulo]]>
+              <![CDATA[Fecha de creacion nula]]>
             </message>
             <full-stacktrace>
+<<<<<<< HEAD
+              <![CDATA[Production.exceptions.MandatoryAttributeProductionException: Fecha de creacion nula
+at Production.service.ProductionService.edit(ProductionService.java:132)
+at Production.service.ProductionServiceTest.MandatoryAttributeProductionExceptionDateEdit(ProductionServiceTest.java:119)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+=======
               <![CDATA[Production.exceptions.MandatoryAttributeProductionException: Nombre nulo
 at Production.service.ProductionService.create(ProductionService.java:43)
 at Production.service.ProductionServiceTest.MandatoryAttributeProductionExceptionNameCreate(ProductionServiceTest.java:50)
@@ -405,6 +742,7 @@ at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 at java.lang.reflect.Method.invoke(Method.java:498)
+>>>>>>> dev
 at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
 at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
 at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
@@ -413,7 +751,11 @@ at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java
 at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
 at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
 at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+<<<<<<< HEAD
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+=======
 at java.util.ArrayList.forEach(ArrayList.java:1257)
+>>>>>>> dev
 at org.testng.TestRunner.privateRun(TestRunner.java:770)
 at org.testng.TestRunner.run(TestRunner.java:591)
 at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
@@ -444,8 +786,13 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
           </exception> <!-- Production.exceptions.MandatoryAttributeProductionException -->
           <reporter-output>
           </reporter-output>
+<<<<<<< HEAD
+        </test-method> <!-- MandatoryAttributeProductionExceptionDateEdit -->
+        <test-method signature="MandatoryAttributeProductionExceptionNameEdit()[pri:0, instance:Production.service.ProductionServiceTest@72c9ebfa]" started-at="2020-08-20T18:29:49 CST" name="MandatoryAttributeProductionExceptionNameEdit" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+=======
         </test-method> <!-- MandatoryAttributeProductionExceptionNameCreate -->
         <test-method status="PASS" signature="MandatoryAttributeProductionExceptionNameEdit()[pri:0, instance:Production.service.ProductionServiceTest@7a1b8a46]" name="MandatoryAttributeProductionExceptionNameEdit" duration-ms="1" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
+>>>>>>> dev
           <exception class="Production.exceptions.MandatoryAttributeProductionException">
             <message>
               <![CDATA[Nombre nulo]]>
@@ -466,7 +813,11 @@ at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java
 at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
 at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
 at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+<<<<<<< HEAD
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+=======
 at java.util.ArrayList.forEach(ArrayList.java:1257)
+>>>>>>> dev
 at org.testng.TestRunner.privateRun(TestRunner.java:770)
 at org.testng.TestRunner.run(TestRunner.java:591)
 at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
@@ -498,7 +849,11 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- MandatoryAttributeProductionExceptionNameEdit -->
+<<<<<<< HEAD
+        <test-method signature="MandatoryAttributeProductionExceptionUnityCreate()[pri:0, instance:Production.service.ProductionServiceTest@72c9ebfa]" started-at="2020-08-20T18:29:49 CST" name="MandatoryAttributeProductionExceptionUnityCreate" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+=======
         <test-method status="PASS" signature="MandatoryAttributeProductionExceptionUnityCreate()[pri:0, instance:Production.service.ProductionServiceTest@7a1b8a46]" name="MandatoryAttributeProductionExceptionUnityCreate" duration-ms="0" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
+>>>>>>> dev
           <exception class="Production.exceptions.MandatoryAttributeProductionException">
             <message>
               <![CDATA[Fecha de creacion nula]]>
@@ -519,7 +874,11 @@ at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java
 at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
 at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
 at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+<<<<<<< HEAD
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+=======
 at java.util.ArrayList.forEach(ArrayList.java:1257)
+>>>>>>> dev
 at org.testng.TestRunner.privateRun(TestRunner.java:770)
 at org.testng.TestRunner.run(TestRunner.java:591)
 at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
@@ -551,12 +910,47 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- MandatoryAttributeProductionExceptionUnityCreate -->
+<<<<<<< HEAD
+        <test-method signature="editProductionTest()[pri:0, instance:Production.service.ProductionServiceTest@72c9ebfa]" started-at="2020-08-20T18:29:49 CST" name="editProductionTest" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+=======
         <test-method status="PASS" signature="editProductionTest()[pri:0, instance:Production.service.ProductionServiceTest@7a1b8a46]" name="editProductionTest" duration-ms="0" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
+>>>>>>> dev
           <reporter-output>
           </reporter-output>
         </test-method> <!-- editProductionTest -->
       </class> <!-- Production.service.ProductionServiceTest -->
       <class name="Production.repository.NecessarySupplyRepositoryTest">
+<<<<<<< HEAD
+        <test-method signature="getAllWithNoResult()[pri:0, instance:Production.repository.NecessarySupplyRepositoryTest@d87d449]" started-at="2020-08-20T18:29:49 CST" name="getAllWithNoResult" finished-at="2020-08-20T18:29:49 CST" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getAllWithNoResult -->
+        <test-method signature="getAllWithResult()[pri:0, instance:Production.repository.NecessarySupplyRepositoryTest@d87d449]" started-at="2020-08-20T18:29:49 CST" name="getAllWithResult" finished-at="2020-08-20T18:29:49 CST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getAllWithResult -->
+        <test-method signature="getNecessarySupplyByIdWithNoResult()[pri:0, instance:Production.repository.NecessarySupplyRepositoryTest@d87d449]" started-at="2020-08-20T18:29:49 CST" name="getNecessarySupplyByIdWithNoResult" finished-at="2020-08-20T18:29:49 CST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getNecessarySupplyByIdWithNoResult -->
+        <test-method signature="getNecessarySupplyByStepWithNoResult()[pri:0, instance:Production.repository.NecessarySupplyRepositoryTest@d87d449]" started-at="2020-08-20T18:29:49 CST" name="getNecessarySupplyByStepWithNoResult" finished-at="2020-08-20T18:29:49 CST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getNecessarySupplyByStepWithNoResult -->
+        <test-method signature="getNecessarySupplyByIdWithResult()[pri:0, instance:Production.repository.NecessarySupplyRepositoryTest@d87d449]" started-at="2020-08-20T18:29:49 CST" name="getNecessarySupplyByIdWithResult" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getNecessarySupplyByIdWithResult -->
+        <test-method signature="getNecessarySupplyByStepWithResult()[pri:0, instance:Production.repository.NecessarySupplyRepositoryTest@d87d449]" started-at="2020-08-20T18:29:49 CST" name="getNecessarySupplyByStepWithResult" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getNecessarySupplyByStepWithResult -->
+        <test-method signature="getNecessarySupplyBySupplyWithNoResult()[pri:0, instance:Production.repository.NecessarySupplyRepositoryTest@d87d449]" started-at="2020-08-20T18:29:49 CST" name="getNecessarySupplyBySupplyWithNoResult" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getNecessarySupplyBySupplyWithNoResult -->
+        <test-method signature="getNecessarySupplyBySupplyWithResult()[pri:0, instance:Production.repository.NecessarySupplyRepositoryTest@d87d449]" started-at="2020-08-20T18:29:49 CST" name="getNecessarySupplyBySupplyWithResult" finished-at="2020-08-20T18:29:49 CST" duration-ms="1" status="PASS">
+=======
         <test-method status="PASS" signature="getAllWithNoResult()[pri:0, instance:Production.repository.NecessarySupplyRepositoryTest@629a9f26]" name="getAllWithNoResult" duration-ms="3" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
           <reporter-output>
           </reporter-output>
@@ -586,17 +980,33 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
           </reporter-output>
         </test-method> <!-- getNecessarySupplyBySupplyWithNoResult -->
         <test-method status="PASS" signature="getNecessarySupplyBySupplyWithResult()[pri:0, instance:Production.repository.NecessarySupplyRepositoryTest@629a9f26]" name="getNecessarySupplyBySupplyWithResult" duration-ms="1" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
+>>>>>>> dev
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getNecessarySupplyBySupplyWithResult -->
       </class> <!-- Production.repository.NecessarySupplyRepositoryTest -->
       <class name="Modify.service.ModifySupplyServiceTest">
+<<<<<<< HEAD
+        <test-method signature="createModifySupplyTest()[pri:0, instance:Modify.service.ModifySupplyServiceTest@4fd74223]" started-at="2020-08-20T18:29:49 CST" name="createModifySupplyTest" finished-at="2020-08-20T18:29:49 CST" duration-ms="3" status="PASS">
+=======
         <test-method status="PASS" signature="createModifySupplyTest()[pri:0, instance:Modify.service.ModifySupplyServiceTest@74b86971]" name="createModifySupplyTest" duration-ms="4" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
+>>>>>>> dev
           <reporter-output>
           </reporter-output>
         </test-method> <!-- createModifySupplyTest -->
       </class> <!-- Modify.service.ModifySupplyServiceTest -->
       <class name="Supply.MeasureTest">
+<<<<<<< HEAD
+        <test-method signature="testSetAndGetCollectionSupply()[pri:0, instance:Supply.MeasureTest@32ae8f27]" started-at="2020-08-20T18:29:49 CST" name="testSetAndGetCollectionSupply" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSetAndGetCollectionSupply -->
+        <test-method signature="testSetAndGetName()[pri:0, instance:Supply.MeasureTest@32ae8f27]" started-at="2020-08-20T18:29:49 CST" name="testSetAndGetName" finished-at="2020-08-20T18:29:49 CST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSetAndGetName -->
+        <test-method signature="testSetAndGetIdMeasure()[pri:0, instance:Supply.MeasureTest@32ae8f27]" started-at="2020-08-20T18:29:49 CST" name="testSetAndGetIdMeasure" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+=======
         <test-method status="PASS" signature="testSetAndGetCollectionSupply()[pri:0, instance:Supply.MeasureTest@67f63d26]" name="testSetAndGetCollectionSupply" duration-ms="0" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
           <reporter-output>
           </reporter-output>
@@ -606,11 +1016,27 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
           </reporter-output>
         </test-method> <!-- testSetAndGetName -->
         <test-method status="PASS" signature="testSetAndGetIdMeasure()[pri:0, instance:Supply.MeasureTest@67f63d26]" name="testSetAndGetIdMeasure" duration-ms="0" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
+>>>>>>> dev
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testSetAndGetIdMeasure -->
       </class> <!-- Supply.MeasureTest -->
       <class name="Group.service.GroupServiceTest">
+<<<<<<< HEAD
+        <test-method signature="createGroupTest()[pri:0, instance:Group.service.GroupServiceTest@3bbf1c0d]" started-at="2020-08-20T18:29:49 CST" name="createGroupTest" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createGroupTest -->
+        <test-method signature="updateGroupInformationTest()[pri:0, instance:Group.service.GroupServiceTest@3bbf1c0d]" started-at="2020-08-20T18:29:49 CST" name="updateGroupInformationTest" finished-at="2020-08-20T18:29:49 CST" duration-ms="4" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- updateGroupInformationTest -->
+        <test-method signature="updateGroupSectionAndInformationTest()[pri:0, instance:Group.service.GroupServiceTest@3bbf1c0d]" started-at="2020-08-20T18:29:49 CST" name="updateGroupSectionAndInformationTest" finished-at="2020-08-20T18:29:49 CST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- updateGroupSectionAndInformationTest -->
+        <test-method signature="updateGroupSectionTest()[pri:0, instance:Group.service.GroupServiceTest@3bbf1c0d]" started-at="2020-08-20T18:29:49 CST" name="updateGroupSectionTest" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+=======
         <test-method status="PASS" signature="createGroupTest()[pri:0, instance:Group.service.GroupServiceTest@7f79edee]" name="createGroupTest" duration-ms="5" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
           <reporter-output>
           </reporter-output>
@@ -624,21 +1050,41 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
           </reporter-output>
         </test-method> <!-- updateGroupSectionAndInformationTest -->
         <test-method status="PASS" signature="updateGroupSectionTest()[pri:0, instance:Group.service.GroupServiceTest@7f79edee]" name="updateGroupSectionTest" duration-ms="0" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
+>>>>>>> dev
           <reporter-output>
           </reporter-output>
         </test-method> <!-- updateGroupSectionTest -->
       </class> <!-- Group.service.GroupServiceTest -->
       <class name="Supply.repository.MeasureRepositoryTest">
+<<<<<<< HEAD
+        <test-method signature="getMeasuresTestEmpty()[pri:0, instance:Supply.repository.MeasureRepositoryTest@75e80a97]" started-at="2020-08-20T18:29:49 CST" name="getMeasuresTestEmpty" finished-at="2020-08-20T18:29:49 CST" duration-ms="52" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getMeasuresTestEmpty -->
+        <test-method signature="getMeasuresTestNoEmpty()[pri:0, instance:Supply.repository.MeasureRepositoryTest@75e80a97]" started-at="2020-08-20T18:29:49 CST" name="getMeasuresTestNoEmpty" finished-at="2020-08-20T18:29:49 CST" duration-ms="1" status="PASS">
+=======
         <test-method status="PASS" signature="getMeasuresTestEmpty()[pri:0, instance:Supply.repository.MeasureRepositoryTest@536b71b4]" name="getMeasuresTestEmpty" duration-ms="145" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getMeasuresTestEmpty -->
         <test-method status="PASS" signature="getMeasuresTestNoEmpty()[pri:0, instance:Supply.repository.MeasureRepositoryTest@536b71b4]" name="getMeasuresTestNoEmpty" duration-ms="2" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
+>>>>>>> dev
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getMeasuresTestNoEmpty -->
       </class> <!-- Supply.repository.MeasureRepositoryTest -->
       <class name="Group.GroupTest">
+<<<<<<< HEAD
+        <test-method signature="testSetAndGetIdGroup()[pri:0, instance:Group.GroupTest@27ec8754]" started-at="2020-08-20T18:29:49 CST" name="testSetAndGetIdGroup" finished-at="2020-08-20T18:29:49 CST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSetAndGetIdGroup -->
+        <test-method signature="testSetAndGetInformation()[pri:0, instance:Group.GroupTest@27ec8754]" started-at="2020-08-20T18:29:49 CST" name="testSetAndGetInformation" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSetAndGetInformation -->
+        <test-method signature="testSetAndGetSection()[pri:0, instance:Group.GroupTest@27ec8754]" started-at="2020-08-20T18:29:49 CST" name="testSetAndGetSection" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+=======
         <test-method status="PASS" signature="testSetAndGetInformation()[pri:0, instance:Group.GroupTest@ac91282]" name="testSetAndGetInformation" duration-ms="0" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
           <reporter-output>
           </reporter-output>
@@ -648,11 +1094,35 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
           </reporter-output>
         </test-method> <!-- testSetAndGetIdGroup -->
         <test-method status="PASS" signature="testSetAndGetSection()[pri:0, instance:Group.GroupTest@ac91282]" name="testSetAndGetSection" duration-ms="0" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
+>>>>>>> dev
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testSetAndGetSection -->
       </class> <!-- Group.GroupTest -->
       <class name="Production.repository.CommentaryRepositoryTest">
+<<<<<<< HEAD
+        <test-method signature="getAllWithNoResult()[pri:0, instance:Production.repository.CommentaryRepositoryTest@3457cc8d]" started-at="2020-08-20T18:29:49 CST" name="getAllWithNoResult" finished-at="2020-08-20T18:29:49 CST" duration-ms="3" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getAllWithNoResult -->
+        <test-method signature="getAllWithResult()[pri:0, instance:Production.repository.CommentaryRepositoryTest@3457cc8d]" started-at="2020-08-20T18:29:49 CST" name="getAllWithResult" finished-at="2020-08-20T18:29:49 CST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getAllWithResult -->
+        <test-method signature="getCommentaryByIdResultWithNoResult()[pri:0, instance:Production.repository.CommentaryRepositoryTest@3457cc8d]" started-at="2020-08-20T18:29:49 CST" name="getCommentaryByIdResultWithNoResult" finished-at="2020-08-20T18:29:49 CST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getCommentaryByIdResultWithNoResult -->
+        <test-method signature="getCommentaryByIdResultWithResult()[pri:0, instance:Production.repository.CommentaryRepositoryTest@3457cc8d]" started-at="2020-08-20T18:29:49 CST" name="getCommentaryByIdResultWithResult" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getCommentaryByIdResultWithResult -->
+        <test-method signature="getCommentaryByStageWithNoResult()[pri:0, instance:Production.repository.CommentaryRepositoryTest@3457cc8d]" started-at="2020-08-20T18:29:49 CST" name="getCommentaryByStageWithNoResult" finished-at="2020-08-20T18:29:49 CST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getCommentaryByStageWithNoResult -->
+        <test-method signature="getCommentaryByStageWithResult()[pri:0, instance:Production.repository.CommentaryRepositoryTest@3457cc8d]" started-at="2020-08-20T18:29:49 CST" name="getCommentaryByStageWithResult" finished-at="2020-08-20T18:29:49 CST" duration-ms="1" status="PASS">
+=======
         <test-method status="PASS" signature="getAllWithNoResult()[pri:0, instance:Production.repository.CommentaryRepositoryTest@23ad71bf]" name="getAllWithNoResult" duration-ms="4" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
           <reporter-output>
           </reporter-output>
@@ -674,11 +1144,31 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
           </reporter-output>
         </test-method> <!-- getCommentaryByStageWithNoResult -->
         <test-method status="PASS" signature="getCommentaryByStageWithResult()[pri:0, instance:Production.repository.CommentaryRepositoryTest@23ad71bf]" name="getCommentaryByStageWithResult" duration-ms="1" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
+>>>>>>> dev
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getCommentaryByStageWithResult -->
       </class> <!-- Production.repository.CommentaryRepositoryTest -->
       <class name="Production.StepTest">
+<<<<<<< HEAD
+        <test-method signature="stageBuilderTest()[pri:0, instance:Production.StepTest@4137aab0]" started-at="2020-08-20T18:29:49 CST" name="stageBuilderTest" finished-at="2020-08-20T18:29:49 CST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- stageBuilderTest -->
+        <test-method signature="testEquals()[pri:0, instance:Production.StepTest@4137aab0]" started-at="2020-08-20T18:29:49 CST" name="testEquals" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testEquals -->
+        <test-method signature="testSetAndGetIdStep()[pri:0, instance:Production.StepTest@4137aab0]" started-at="2020-08-20T18:29:49 CST" name="testSetAndGetIdStep" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSetAndGetIdStep -->
+        <test-method signature="testSetAndGetDescription()[pri:0, instance:Production.StepTest@4137aab0]" started-at="2020-08-20T18:29:49 CST" name="testSetAndGetDescription" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSetAndGetDescription -->
+        <test-method signature="testSetAndGetStageId()[pri:0, instance:Production.StepTest@4137aab0]" started-at="2020-08-20T18:29:49 CST" name="testSetAndGetStageId" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+=======
         <test-method status="PASS" signature="stageBuilderTest()[pri:0, instance:Production.StepTest@78307a56]" name="stageBuilderTest" duration-ms="0" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
           <reporter-output>
           </reporter-output>
@@ -700,12 +1190,21 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
           </reporter-output>
         </test-method> <!-- testSetAndGetName -->
         <test-method status="PASS" signature="testSetAndGetStageId()[pri:0, instance:Production.StepTest@78307a56]" name="testSetAndGetStageId" duration-ms="1" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
+>>>>>>> dev
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testSetAndGetStageId -->
+        <test-method signature="testSetAndGetName()[pri:0, instance:Production.StepTest@4137aab0]" started-at="2020-08-20T18:29:49 CST" name="testSetAndGetName" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSetAndGetName -->
       </class> <!-- Production.StepTest -->
       <class name="Production.service.StageServiceTest">
+<<<<<<< HEAD
+        <test-method signature="MandatoryAttributeProductionExceptionNameEdit()[pri:0, instance:Production.service.StageServiceTest@686cf8ad]" started-at="2020-08-20T18:29:49 CST" name="MandatoryAttributeProductionExceptionNameEdit" finished-at="2020-08-20T18:29:49 CST" duration-ms="1" status="PASS">
+=======
         <test-method status="PASS" signature="MandatoryAttributeProductionExceptionNameEdit()[pri:0, instance:Production.service.StageServiceTest@2f677247]" name="MandatoryAttributeProductionExceptionNameEdit" duration-ms="1" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
+>>>>>>> dev
           <exception class="Production.exceptions.MandatoryAttributeProductionException">
             <message>
               <![CDATA[Nombre nulo]]>
@@ -726,7 +1225,11 @@ at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java
 at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
 at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
 at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+<<<<<<< HEAD
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+=======
 at java.util.ArrayList.forEach(ArrayList.java:1257)
+>>>>>>> dev
 at org.testng.TestRunner.privateRun(TestRunner.java:770)
 at org.testng.TestRunner.run(TestRunner.java:591)
 at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
@@ -758,7 +1261,11 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- MandatoryAttributeProductionExceptionNameEdit -->
+<<<<<<< HEAD
+        <test-method signature="MandatoryAttributeProductionExceptionUnityEdit()[pri:0, instance:Production.service.StageServiceTest@686cf8ad]" started-at="2020-08-20T18:29:49 CST" name="MandatoryAttributeProductionExceptionUnityEdit" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+=======
         <test-method status="PASS" signature="MandatoryAttributeProductionExceptionUnityEdit()[pri:0, instance:Production.service.StageServiceTest@2f677247]" name="MandatoryAttributeProductionExceptionUnityEdit" duration-ms="1" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
+>>>>>>> dev
           <exception class="Production.exceptions.MandatoryAttributeProductionException">
             <message>
               <![CDATA[Descripcion nula]]>
@@ -779,7 +1286,11 @@ at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java
 at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
 at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
 at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+<<<<<<< HEAD
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+=======
 at java.util.ArrayList.forEach(ArrayList.java:1257)
+>>>>>>> dev
 at org.testng.TestRunner.privateRun(TestRunner.java:770)
 at org.testng.TestRunner.run(TestRunner.java:591)
 at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
@@ -811,12 +1322,27 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- MandatoryAttributeProductionExceptionUnityEdit -->
+<<<<<<< HEAD
+        <test-method signature="editProductionTest()[pri:0, instance:Production.service.StageServiceTest@686cf8ad]" started-at="2020-08-20T18:29:49 CST" name="editProductionTest" finished-at="2020-08-20T18:29:49 CST" duration-ms="1" status="PASS">
+=======
         <test-method status="PASS" signature="editProductionTest()[pri:0, instance:Production.service.StageServiceTest@2f677247]" name="editProductionTest" duration-ms="0" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
+>>>>>>> dev
           <reporter-output>
           </reporter-output>
         </test-method> <!-- editProductionTest -->
       </class> <!-- Production.service.StageServiceTest -->
       <class name="User.repository.CareerRepositoryTest">
+<<<<<<< HEAD
+        <test-method signature="getCareer()[pri:0, instance:User.repository.CareerRepositoryTest@4981d95b]" started-at="2020-08-20T18:29:49 CST" name="getCareer" finished-at="2020-08-20T18:29:49 CST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getCareer -->
+        <test-method signature="getCareerWithId()[pri:0, instance:User.repository.CareerRepositoryTest@4981d95b]" started-at="2020-08-20T18:29:49 CST" name="getCareerWithId" finished-at="2020-08-20T18:29:49 CST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getCareerWithId -->
+        <test-method signature="getCareerWithName()[pri:0, instance:User.repository.CareerRepositoryTest@4981d95b]" started-at="2020-08-20T18:29:49 CST" name="getCareerWithName" finished-at="2020-08-20T18:29:49 CST" duration-ms="2" status="PASS">
+=======
         <test-method status="PASS" signature="getCareer()[pri:0, instance:User.repository.CareerRepositoryTest@4538856f]" name="getCareer" duration-ms="2" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
           <reporter-output>
           </reporter-output>
@@ -826,11 +1352,43 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
           </reporter-output>
         </test-method> <!-- getCareerWithId -->
         <test-method status="PASS" signature="getCareerWithName()[pri:0, instance:User.repository.CareerRepositoryTest@4538856f]" name="getCareerWithName" duration-ms="2" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
+>>>>>>> dev
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getCareerWithName -->
       </class> <!-- User.repository.CareerRepositoryTest -->
       <class name="Production.ProductionTest">
+<<<<<<< HEAD
+        <test-method signature="productionBuilderTest()[pri:0, instance:Production.ProductionTest@682e422c]" started-at="2020-08-20T18:29:49 CST" name="productionBuilderTest" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- productionBuilderTest -->
+        <test-method signature="testSetAndGetIdProduction()[pri:0, instance:Production.ProductionTest@682e422c]" started-at="2020-08-20T18:29:49 CST" name="testSetAndGetIdProduction" finished-at="2020-08-20T18:29:49 CST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSetAndGetIdProduction -->
+        <test-method signature="testEquals()[pri:0, instance:Production.ProductionTest@682e422c]" started-at="2020-08-20T18:29:49 CST" name="testEquals" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testEquals -->
+        <test-method signature="testSetAndGetName()[pri:0, instance:Production.ProductionTest@682e422c]" started-at="2020-08-20T18:29:49 CST" name="testSetAndGetName" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSetAndGetName -->
+        <test-method signature="testSetAndGetProduct()[pri:0, instance:Production.ProductionTest@682e422c]" started-at="2020-08-20T18:29:49 CST" name="testSetAndGetProduct" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSetAndGetProduct -->
+        <test-method signature="testSetAndGetState()[pri:0, instance:Production.ProductionTest@682e422c]" started-at="2020-08-20T18:29:49 CST" name="testSetAndGetState" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSetAndGetState -->
+        <test-method signature="testSetAndGetUnity()[pri:0, instance:Production.ProductionTest@682e422c]" started-at="2020-08-20T18:29:49 CST" name="testSetAndGetUnity" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSetAndGetUnity -->
+        <test-method signature="testSetAndQuantit()[pri:0, instance:Production.ProductionTest@682e422c]" started-at="2020-08-20T18:29:49 CST" name="testSetAndQuantit" finished-at="2020-08-20T18:29:49 CST" duration-ms="1" status="PASS">
+=======
         <test-method status="PASS" signature="productionBuilderTest()[pri:0, instance:Production.ProductionTest@1775c4e7]" name="productionBuilderTest" duration-ms="0" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
           <reporter-output>
           </reporter-output>
@@ -860,11 +1418,33 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
           </reporter-output>
         </test-method> <!-- testSetAndGetUnity -->
         <test-method status="PASS" signature="testSetAndQuantit()[pri:0, instance:Production.ProductionTest@1775c4e7]" name="testSetAndQuantit" duration-ms="0" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
+>>>>>>> dev
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testSetAndQuantit -->
       </class> <!-- Production.ProductionTest -->
       <class name="User.service.CareerServiceTest">
+<<<<<<< HEAD
+        <test-method signature="createCareerTest()[pri:0, instance:User.service.CareerServiceTest@7a606260]" started-at="2020-08-20T18:29:49 CST" name="createCareerTest" finished-at="2020-08-20T18:29:49 CST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createCareerTest -->
+        <test-method signature="createCareerNullTest()[pri:0, instance:User.service.CareerServiceTest@7a606260]" started-at="2020-08-20T18:29:49 CST" name="createCareerNullTest" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createCareerNullTest -->
+        <test-method signature="updateCareerNullTest()[pri:0, instance:User.service.CareerServiceTest@7a606260]" started-at="2020-08-20T18:29:49 CST" name="updateCareerNullTest" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- updateCareerNullTest -->
+        <test-method signature="updateCareerTest()[pri:0, instance:User.service.CareerServiceTest@7a606260]" started-at="2020-08-20T18:29:49 CST" name="updateCareerTest" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- updateCareerTest -->
+      </class> <!-- User.service.CareerServiceTest -->
+      <class name="Group.repository.GroupUserRepositoryTest">
+        <test-method signature="findByIdTestWithResult()[pri:0, instance:Group.repository.GroupUserRepositoryTest@546ed2a0]" started-at="2020-08-20T18:29:49 CST" name="findByIdTestWithResult" finished-at="2020-08-20T18:29:49 CST" duration-ms="1" status="PASS">
+=======
         <test-method status="PASS" signature="createCareerNullTest()[pri:0, instance:User.service.CareerServiceTest@67332b1e]" name="createCareerNullTest" duration-ms="1" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
           <reporter-output>
           </reporter-output>
@@ -884,11 +1464,35 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
       </class> <!-- User.service.CareerServiceTest -->
       <class name="Group.repository.GroupUserRepositoryTest">
         <test-method status="PASS" signature="findByIdTestWithResult()[pri:0, instance:Group.repository.GroupUserRepositoryTest@b5c6a30]" name="findByIdTestWithResult" duration-ms="2" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
+>>>>>>> dev
           <reporter-output>
           </reporter-output>
         </test-method> <!-- findByIdTestWithResult -->
       </class> <!-- Group.repository.GroupUserRepositoryTest -->
       <class name="Modify.ModifySupplyTest">
+<<<<<<< HEAD
+        <test-method signature="testGetAndSetDate()[pri:0, instance:Modify.ModifySupplyTest@4fea840f]" started-at="2020-08-20T18:29:49 CST" name="testGetAndSetDate" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGetAndSetDate -->
+        <test-method signature="testGetAndSetIdModifySupply()[pri:0, instance:Modify.ModifySupplyTest@4fea840f]" started-at="2020-08-20T18:29:49 CST" name="testGetAndSetIdModifySupply" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGetAndSetIdModifySupply -->
+        <test-method signature="testGetAndSetNota()[pri:0, instance:Modify.ModifySupplyTest@4fea840f]" started-at="2020-08-20T18:29:49 CST" name="testGetAndSetNota" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGetAndSetNota -->
+        <test-method signature="testGetAndSetSupply()[pri:0, instance:Modify.ModifySupplyTest@4fea840f]" started-at="2020-08-20T18:29:49 CST" name="testGetAndSetSupply" finished-at="2020-08-20T18:29:49 CST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGetAndSetSupply -->
+        <test-method signature="testGetAndSetQuantity()[pri:0, instance:Modify.ModifySupplyTest@4fea840f]" started-at="2020-08-20T18:29:49 CST" name="testGetAndSetQuantity" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGetAndSetQuantity -->
+        <test-method signature="testGetAndSetUser()[pri:0, instance:Modify.ModifySupplyTest@4fea840f]" started-at="2020-08-20T18:29:49 CST" name="testGetAndSetUser" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+=======
         <test-method status="PASS" signature="testGetAndSetDate()[pri:0, instance:Modify.ModifySupplyTest@1f9d4b0e]" name="testGetAndSetDate" duration-ms="1" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
           <reporter-output>
           </reporter-output>
@@ -910,11 +1514,23 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
           </reporter-output>
         </test-method> <!-- testGetAndSetQuantity -->
         <test-method status="PASS" signature="testGetAndSetUser()[pri:0, instance:Modify.ModifySupplyTest@1f9d4b0e]" name="testGetAndSetUser" duration-ms="0" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
+>>>>>>> dev
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testGetAndSetUser -->
       </class> <!-- Modify.ModifySupplyTest -->
       <class name="Production.repository.StepRepositoryTest">
+<<<<<<< HEAD
+        <test-method signature="AllProductionsTest()[pri:0, instance:Production.repository.StepRepositoryTest@6812c8cc]" started-at="2020-08-20T18:29:49 CST" name="AllProductionsTest" finished-at="2020-08-20T18:29:49 CST" duration-ms="12" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AllProductionsTest -->
+        <test-method signature="FindByIdProductionNoResultExceptionTest()[pri:0, instance:Production.repository.StepRepositoryTest@6812c8cc]" started-at="2020-08-20T18:29:49 CST" name="FindByIdProductionNoResultExceptionTest" finished-at="2020-08-20T18:29:49 CST" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- FindByIdProductionNoResultExceptionTest -->
+        <test-method signature="findProductionLikeNameTest()[pri:0, instance:Production.repository.StepRepositoryTest@6812c8cc]" started-at="2020-08-20T18:29:49 CST" name="findProductionLikeNameTest" finished-at="2020-08-20T18:29:49 CST" duration-ms="1" status="PASS">
+=======
         <test-method status="PASS" signature="AllProductionsTest()[pri:0, instance:Production.repository.StepRepositoryTest@47b269c4]" name="AllProductionsTest" duration-ms="0" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
           <reporter-output>
           </reporter-output>
@@ -924,11 +1540,23 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
           </reporter-output>
         </test-method> <!-- FindByIdProductionNoResultExceptionTest -->
         <test-method status="PASS" signature="findProductionLikeNameTest()[pri:0, instance:Production.repository.StepRepositoryTest@47b269c4]" name="findProductionLikeNameTest" duration-ms="1" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
+>>>>>>> dev
           <reporter-output>
           </reporter-output>
         </test-method> <!-- findProductionLikeNameTest -->
       </class> <!-- Production.repository.StepRepositoryTest -->
       <class name="Production.service.NecessarySupplyServiceTest">
+<<<<<<< HEAD
+        <test-method signature="createNecessarySupply()[pri:0, instance:Production.service.NecessarySupplyServiceTest@747f6c5a]" started-at="2020-08-20T18:29:49 CST" name="createNecessarySupply" finished-at="2020-08-20T18:29:49 CST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createNecessarySupply -->
+        <test-method signature="updateNecessarySupplyIdStepTest()[pri:0, instance:Production.service.NecessarySupplyServiceTest@747f6c5a]" started-at="2020-08-20T18:29:49 CST" name="updateNecessarySupplyIdStepTest" finished-at="2020-08-20T18:29:49 CST" duration-ms="5" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- updateNecessarySupplyIdStepTest -->
+        <test-method signature="updateNecessarySupplyIdSupplyTest()[pri:0, instance:Production.service.NecessarySupplyServiceTest@747f6c5a]" started-at="2020-08-20T18:29:49 CST" name="updateNecessarySupplyIdSupplyTest" finished-at="2020-08-20T18:29:49 CST" duration-ms="1" status="PASS">
+=======
         <test-method status="PASS" signature="createNecessarySupply()[pri:0, instance:Production.service.NecessarySupplyServiceTest@3d40a3b4]" name="createNecessarySupply" duration-ms="3" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
           <reporter-output>
           </reporter-output>
@@ -938,11 +1566,23 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
           </reporter-output>
         </test-method> <!-- updateNecessarySupplyIdStepTest -->
         <test-method status="PASS" signature="updateNecessarySupplyIdSupplyTest()[pri:0, instance:Production.service.NecessarySupplyServiceTest@3d40a3b4]" name="updateNecessarySupplyIdSupplyTest" duration-ms="0" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
+>>>>>>> dev
           <reporter-output>
           </reporter-output>
         </test-method> <!-- updateNecessarySupplyIdSupplyTest -->
       </class> <!-- Production.service.NecessarySupplyServiceTest -->
       <class name="Production.service.CommentaryServiceTest">
+<<<<<<< HEAD
+        <test-method signature="createCommentaryTest()[pri:0, instance:Production.service.CommentaryServiceTest@5bb8e6fc]" started-at="2020-08-20T18:29:49 CST" name="createCommentaryTest" finished-at="2020-08-20T18:29:49 CST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createCommentaryTest -->
+        <test-method signature="updateCommentaryStageIdTest()[pri:0, instance:Production.service.CommentaryServiceTest@5bb8e6fc]" started-at="2020-08-20T18:29:49 CST" name="updateCommentaryStageIdTest" finished-at="2020-08-20T18:29:49 CST" duration-ms="4" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- updateCommentaryStageIdTest -->
+        <test-method signature="updateCommentaryTextTest()[pri:0, instance:Production.service.CommentaryServiceTest@5bb8e6fc]" started-at="2020-08-20T18:29:49 CST" name="updateCommentaryTextTest" finished-at="2020-08-20T18:29:49 CST" duration-ms="1" status="PASS">
+=======
         <test-method status="PASS" signature="createCommentaryTest()[pri:0, instance:Production.service.CommentaryServiceTest@43f03c23]" name="createCommentaryTest" duration-ms="2" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
           <reporter-output>
           </reporter-output>
@@ -952,10 +1592,39 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
           </reporter-output>
         </test-method> <!-- updateCommentaryStageIdTest -->
         <test-method status="PASS" signature="updateCommentaryTextTest()[pri:0, instance:Production.service.CommentaryServiceTest@43f03c23]" name="updateCommentaryTextTest" duration-ms="0" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
+>>>>>>> dev
           <reporter-output>
           </reporter-output>
         </test-method> <!-- updateCommentaryTextTest -->
       </class> <!-- Production.service.CommentaryServiceTest -->
+<<<<<<< HEAD
+      <class name="User.repository.UserRepositoryTest">
+        <test-method signature="getUseTest()[pri:0, instance:User.repository.UserRepositoryTest@656842bc]" started-at="2020-08-20T18:29:49 CST" name="getUseTest" finished-at="2020-08-20T18:29:49 CST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getUseTest -->
+        <test-method signature="getUserByCarnetEmptyTest()[pri:0, instance:User.repository.UserRepositoryTest@656842bc]" started-at="2020-08-20T18:29:49 CST" name="getUserByCarnetEmptyTest" finished-at="2020-08-20T18:29:49 CST" duration-ms="3" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getUserByCarnetEmptyTest -->
+        <test-method signature="getUserByCarnetTest()[pri:0, instance:User.repository.UserRepositoryTest@656842bc]" started-at="2020-08-20T18:29:49 CST" name="getUserByCarnetTest" finished-at="2020-08-20T18:29:49 CST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getUserByCarnetTest -->
+        <test-method signature="getUserWithCarnetTest()[pri:0, instance:User.repository.UserRepositoryTest@656842bc]" started-at="2020-08-20T18:29:49 CST" name="getUserWithCarnetTest" finished-at="2020-08-20T18:29:49 CST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getUserWithCarnetTest -->
+        <test-method signature="getUserWithIdCareer()[pri:0, instance:User.repository.UserRepositoryTest@656842bc]" started-at="2020-08-20T18:29:49 CST" name="getUserWithIdCareer" finished-at="2020-08-20T18:29:49 CST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getUserWithIdCareer -->
+        <test-method signature="getUserWithNameTest()[pri:0, instance:User.repository.UserRepositoryTest@656842bc]" started-at="2020-08-20T18:29:49 CST" name="getUserWithNameTest" finished-at="2020-08-20T18:29:49 CST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getUserWithNameTest -->
+        <test-method signature="getUserWithStateTest()[pri:0, instance:User.repository.UserRepositoryTest@656842bc]" started-at="2020-08-20T18:29:49 CST" name="getUserWithStateTest" finished-at="2020-08-20T18:29:49 CST" duration-ms="1" status="PASS">
+=======
       <class name="Modify.repository.ModifySupplyRepositoryTest">
         <test-method status="PASS" signature="findByIdTest()[pri:0, instance:Modify.repository.ModifySupplyRepositoryTest@1e8fb66f]" name="findByIdTest" duration-ms="3" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
           <reporter-output>
@@ -996,22 +1665,53 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
           </reporter-output>
         </test-method> <!-- getUserWithNameTest -->
         <test-method status="PASS" signature="getUserWithStateTest()[pri:0, instance:User.repository.UserRepositoryTest@1e5eb20a]" name="getUserWithStateTest" duration-ms="2" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
+>>>>>>> dev
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getUserWithStateTest -->
       </class> <!-- User.repository.UserRepositoryTest -->
+      <class name="Modify.repository.ModifySupplyRepositoryTest">
+        <test-method signature="findByIdTest()[pri:0, instance:Modify.repository.ModifySupplyRepositoryTest@76563ae7]" started-at="2020-08-20T18:29:49 CST" name="findByIdTest" finished-at="2020-08-20T18:29:49 CST" duration-ms="32" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- findByIdTest -->
+        <test-method signature="getAllTest()[pri:0, instance:Modify.repository.ModifySupplyRepositoryTest@76563ae7]" started-at="2020-08-20T18:29:49 CST" name="getAllTest" finished-at="2020-08-20T18:29:49 CST" duration-ms="16" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getAllTest -->
+        <test-method signature="getMidificationBySupplyTest()[pri:0, instance:Modify.repository.ModifySupplyRepositoryTest@76563ae7]" started-at="2020-08-20T18:29:49 CST" name="getMidificationBySupplyTest" finished-at="2020-08-20T18:29:49 CST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getMidificationBySupplyTest -->
+        <test-method signature="getMidificationByUserTest()[pri:0, instance:Modify.repository.ModifySupplyRepositoryTest@76563ae7]" started-at="2020-08-20T18:29:49 CST" name="getMidificationByUserTest" finished-at="2020-08-20T18:29:49 CST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getMidificationByUserTest -->
+      </class> <!-- Modify.repository.ModifySupplyRepositoryTest -->
       <class name="Production.service.StepServiceTest">
+<<<<<<< HEAD
+        <test-method signature="editTest()[pri:0, instance:Production.service.StepServiceTest@66e341e9]" started-at="2020-08-20T18:29:49 CST" name="editTest" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+=======
         <test-method status="PASS" signature="editTest()[pri:0, instance:Production.service.StepServiceTest@7f13811b]" name="editTest" duration-ms="1" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
+>>>>>>> dev
           <reporter-output>
           </reporter-output>
         </test-method> <!-- editTest -->
       </class> <!-- Production.service.StepServiceTest -->
       <class name="User.RolUserTest">
+<<<<<<< HEAD
+        <test-method signature="testSetAndGetName()[pri:0, instance:User.RolUserTest@21e5f0b6]" started-at="2020-08-20T18:29:49 CST" name="testSetAndGetName" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSetAndGetName -->
+        <test-method signature="testSetAndGetIdRolUser()[pri:0, instance:User.RolUserTest@21e5f0b6]" started-at="2020-08-20T18:29:49 CST" name="testSetAndGetIdRolUser" finished-at="2020-08-20T18:29:49 CST" duration-ms="0" status="PASS">
+=======
         <test-method status="PASS" signature="testSetAndGetIdRolUser()[pri:0, instance:User.RolUserTest@789c3057]" name="testSetAndGetIdRolUser" duration-ms="1" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testSetAndGetIdRolUser -->
         <test-method status="PASS" signature="testSetAndGetName()[pri:0, instance:User.RolUserTest@789c3057]" name="testSetAndGetName" duration-ms="0" started-at="2020-08-20T03:10:56 CST" finished-at="2020-08-20T03:10:56 CST">
+>>>>>>> dev
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testSetAndGetName -->

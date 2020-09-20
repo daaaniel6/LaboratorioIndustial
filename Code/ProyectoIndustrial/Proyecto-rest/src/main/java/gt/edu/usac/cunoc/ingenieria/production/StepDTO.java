@@ -10,6 +10,7 @@ import Production.Stage;
 import Production.Step;
 import java.io.Serializable;
 import java.util.List;
+import java.util.Objects;
 
 /**
  *
@@ -23,17 +24,23 @@ public class StepDTO implements Serializable {
 
     private String description;
 
-    private Stage stageId;
-    private List<Commentary> commentaryList;
+    private Integer stageId;
+    //private List<Commentary> commentaryList;
 
     public StepDTO(Step step) {
         this.idStep = step.getIdStep();
         this.name = step.getName();
         this.description = step.getDescription();
-        this.stageId = step.getStageId();
-        this.commentaryList = step.getCommentaryList();
+        this.stageId = step.getStageId().getIdStage();
+        //this.commentaryList = step.getCommentaryList();
     }
 
+    public StepDTO() {
+    }
+
+    
+    
+    
     public Integer getIdStep() {
         return idStep;
     }
@@ -58,22 +65,52 @@ public class StepDTO implements Serializable {
         this.description = description;
     }
 
-    public Stage getStageId() {
+    public Integer getStageId() {
         return stageId;
     }
 
-    public void setStageId(Stage stageId) {
+    public void setStageId(Integer stageId) {
         this.stageId = stageId;
     }
 
-    public List<Commentary> getCommentaryList() {
-        return commentaryList;
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 73 * hash + Objects.hashCode(this.idStep);
+        hash = 73 * hash + Objects.hashCode(this.name);
+        hash = 73 * hash + Objects.hashCode(this.description);
+        hash = 73 * hash + Objects.hashCode(this.stageId);
+        return hash;
     }
 
-    public void setCommentaryList(List<Commentary> commentaryList) {
-        this.commentaryList = commentaryList;
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final StepDTO other = (StepDTO) obj;
+        if (!Objects.equals(this.name, other.name)) {
+            return false;
+        }
+        if (!Objects.equals(this.description, other.description)) {
+            return false;
+        }
+        if (!Objects.equals(this.idStep, other.idStep)) {
+            return false;
+        }
+        if (!Objects.equals(this.stageId, other.stageId)) {
+            return false;
+        }
+        return true;
     }
+
     
-    
+
 
 }

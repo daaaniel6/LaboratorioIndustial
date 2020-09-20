@@ -45,9 +45,8 @@ INSERT INTO rol_user (id_rol, name_rol) VALUES
 --
 -- Volcado de datos para la tabla `user`
 --
-
+--(1, 'admin', 'admin@cunoc.edu.gt', 12345678, 'PBKDF2WithHmacSHA256:3072:b4iXBXxi5t0hCgR8hp0tq32Nk0heMA7hphPuK0BWyIDuMwgZbDVtplgbEuwKI1xXIV39GoGcvDEGI9Tl3Hzllw==:1bLDMjf/8Kx7pL4KlcvJ9uDVqNyG3ejvBIgw2sIBBow=', 1, 3, 1),
 INSERT INTO `user` (carnet, `name`, email, phone, `password`, state, id_rol, id_career) VALUES
-(1, 'admin', 'admin@cunoc.edu.gt', 12345678, 'PBKDF2WithHmacSHA256:3072:b4iXBXxi5t0hCgR8hp0tq32Nk0heMA7hphPuK0BWyIDuMwgZbDVtplgbEuwKI1xXIV39GoGcvDEGI9Tl3Hzllw==:1bLDMjf/8Kx7pL4KlcvJ9uDVqNyG3ejvBIgw2sIBBow=', 1, 3, 1),
 (14567891, 'Estudiante Dos', 'Correo@eschool', 12345678, 'PBKDF2WithHmacSHA256:3072:ANd9UdVHNuZOSyhEAydBIBvxly7J8jd598a64N6TyAMgi6TNqPS7BESqEsl6E5+BKBV+KLAikJDGoHzQhZk+yg==:Pl2janKvI12jYMIjjDkAwpufvMOc8WSGyluZwcMI4q4=', 1, 1, 2),
 (20630963, 'Estudiante Tres', 'Correo@gmail.com', 12345678, 'PBKDF2WithHmacSHA256:3072:Mmk6qIn2k7jkWmUKnZZxEIBVh/aBm+Sa9f9irdNCoHxPHJgdZQYy/niaB/LjvoXIy8u8Id2+9W8u/2I06z9CuQ==:89dgKfT2AlvgBQZ5ng2+wcm1sG9S+kl3LThkqJy1CBU=', 1, 1, 2),
 (201630851, 'Estudiante Uno', 'correoooooo@es.com', 12345678, 'PBKDF2WithHmacSHA256:3072:iSG5Us4Tx758hZLKK2psqQrsHUNfdSMsTqi6lmi0lKyxtyt0l0Wp5OZ7I9MRUjyLT5LTdQHAVRjenQAARkGMmA==:eiVRkGlLo1JTn6iQ3qhUlBmZ6126Ui1wDSMseKZATXc=', 1, 1, 3),
@@ -59,30 +58,30 @@ INSERT INTO `user` (carnet, `name`, email, phone, `password`, state, id_rol, id_
 -- Volcado de datos para la tabla measure
 --
 
-INSERT INTO measure (id_measure, `name`) VALUES
-(1, 'mililitros'),
-(2, 'milimetros'),
-(3, 'milimetros cuadrados'),
-(4, 'gramos');
+--INSERT INTO measure (id_measure, `name`) VALUES
+--(1, 'mililitros'),
+--(2, 'milimetros'),
+--(3, 'milimetros cuadrados'),
+--(4, 'gramos');
 
 --
 -- Volcado de datos para la tabla supply
 --
 
-INSERT INTO supply (`code`, internal_code, `name`, expiration_date, date_of_admission, cost, quantity, availability, description, id_measure) VALUES
-(1, 'afds', 'Pintura Amarilla', '2020-05-14', '2020-03-03', 15.6, 13.2, 1, 'jdgjdgh', 1),
-(2, 'dsfa56', 'Pintura Roja', '2019-12-10', '2020-03-05', 19.5, 45, 1, 'fsdadasf', 1),
-(3, 'dhg46', 'Maisena', '2020-06-12', '2020-03-19', 15.2, 12, 1, 'fsda', 4),
-(4, 'sdaf', 'nose', '2020-08-13', '2020-03-04', 14.2, 16.4, 0, 'gfds', 3);
+--INSERT INTO supply (`code`, internal_code, `name`, expiration_date, date_of_admission, cost, quantity, availability, description, id_measure) VALUES
+--(1, 'afds', 'Pintura Amarilla', '2020-05-14', '2020-03-03', 15.6, 13.2, 1, 'jdgjdgh', 1),
+---(2, 'dsfa56', 'Pintura Roja', '2019-12-10', '2020-03-05', 19.5, 45, 1, 'fsdadasf', 1),
+--(3, 'dhg46', 'Maisena', '2020-06-12', '2020-03-19', 15.2, 12, 1, 'fsda', 4),
+--(4, 'sdaf', 'nose', '2020-08-13', '2020-03-04', 14.2, 16.4, 0, 'gfds', 3);
 
 --
 -- Volcado de datos para la tabla product
 --
 
-INSERT INTO product (id_product, `name`, description) VALUES
-(1, 'Playeras', 'playeras descripcion'),
-(3, 'Tazas', 'tazas coleccionables'),
-(2, 'LLaveros', '');
+--INSERT INTO product (id_product, `name`, description) VALUES
+--(1, 'Playeras', 'playeras descripcion'),
+--(3, 'Tazas', 'tazas coleccionables'),
+--(2, 'LLaveros', '');
 
 --
 -- Volcado de datos para la tabla design
