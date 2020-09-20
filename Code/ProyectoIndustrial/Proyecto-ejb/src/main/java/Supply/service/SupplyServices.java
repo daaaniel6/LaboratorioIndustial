@@ -6,13 +6,10 @@ import Modify.service.ModifySupplyService;
 import Supply.Measure;
 import Supply.Supply;
 import Supply.exception.MandatoryAttributeSupplyException;
-import Supply.repository.SupplyRepository;
 import User.User;
 import User.exception.UserException;
-import User.repository.UserRepository;
 import static config.Constants.PERSISTENCE_UNIT_NAME;
 import java.time.LocalDate;
-import java.util.Optional;
 import javax.ejb.EJB;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
@@ -25,8 +22,6 @@ public class SupplyServices {
 
     private EntityManager entityManager;
     private ModifySupplyService modifySupplyService;
-    private UserRepository userRepository;
-    private SupplyRepository supplyRepository;
 
     @PersistenceContext(name = PERSISTENCE_UNIT_NAME)
     public void setEntityManager(EntityManager entityManager) {
@@ -36,16 +31,6 @@ public class SupplyServices {
     @EJB
     public void setModifySupplyService(ModifySupplyService modifySupplyService) {
         this.modifySupplyService = modifySupplyService;
-    }
-
-    @EJB
-    public void setUserRepository(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
-
-    @EJB
-    public void setSupplyRepository(SupplyRepository supplyRepository) {
-        this.supplyRepository = supplyRepository;
     }
 
     public SupplyServices() {
@@ -73,24 +58,15 @@ public class SupplyServices {
     }
 
     public Supply modifyQuantity(Supply supplyToChange, Double newQuantity, User user, String noteModify) throws MandatoryAttributeSupplyException {
-        if (supplyToChange == null || user == null) {
-            throw new MandatoryAttributeSupplyException("Debe indicar el insumo y/o usuario");
-        }
-
-        Optional<Supply> selectedSupply = supplyRepository.findSupplyByID(supplyToChange.getCode());
-        Optional<User> selectedUser = userRepository.getUserByID(user.getCarnet());
-
         if (newQuantity == null) {
             throw new MandatoryAttributeSupplyException("Atributo Cantidad Obligatorio");
-        } else if (!selectedSupply.isPresent() && !selectedUser.isPresent()) {
-            throw new MandatoryAttributeSupplyException("Insumo o usuario incorrecto");
         } else {
-
-            selectedSupply.get().setQuantity(supplyToChange.getQuantity() - newQuantity);
-            saveModificationHistory(selectedSupply.get(), selectedUser.get(), ModificationType.CANTIDAD, newQuantity, noteModify);
+            
+            supplyToChange.setQuantity(supplyToChange.getQuantity()-newQuantity);
+            saveModificationHistory(supplyToChange, user, ModificationType.CANTIDAD, newQuantity, noteModify);
         }
-        entityManager.merge(selectedSupply.get());
-        return selectedSupply.get();
+        entityManager.merge(supplyToChange);
+        return supplyToChange;
     }
 
     public Supply modifySupply(Supply supply) throws UserException {

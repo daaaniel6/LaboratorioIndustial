@@ -14,7 +14,6 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import static config.Constants.PERSISTENCE_UNIT_NAME;
-import java.util.Optional;
 
 @Stateless
 @LocalBean
@@ -25,13 +24,6 @@ public class CareerRepository {
 
     public void setEntityManager(EntityManager entityManager) {
         this.entityManager = entityManager;
-    }
-    
-    public Optional<Career> findCareerById(Integer idCareer) throws UserException {
-        if (idCareer == null) {
-            throw new UserException("Carrear is null");
-        }
-        return Optional.ofNullable(entityManager.find(Career.class, idCareer));
     }
 
     public List<Career> getCareer(Career career) throws UserException {

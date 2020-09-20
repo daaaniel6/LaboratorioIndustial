@@ -46,59 +46,55 @@ public class NecessarySupply implements Serializable {
 <span class="nc" id="L46">        this.quantity = quantity;</span>
 <span class="nc" id="L47">    }</span>
 
-    
-
-    
-    
     @Override
     public boolean equals(Object o) {
-<span class="pc bpc" id="L55" title="1 of 2 branches missed.">        if (this == o) {</span>
-<span class="fc" id="L56">            return true;</span>
+<span class="pc bpc" id="L51" title="1 of 2 branches missed.">        if (this == o) {</span>
+<span class="fc" id="L52">            return true;</span>
         }
-<span class="nc bnc" id="L58" title="All 2 branches missed.">        if (!(o instanceof NecessarySupply)) {</span>
-<span class="nc" id="L59">            return false;</span>
+<span class="nc bnc" id="L54" title="All 2 branches missed.">        if (!(o instanceof NecessarySupply)) {</span>
+<span class="nc" id="L55">            return false;</span>
         }
-<span class="nc" id="L61">        NecessarySupply necessarySupply = (NecessarySupply) o;</span>
-<span class="nc" id="L62">        return Objects.equals(getIdNecessarySupply(), necessarySupply.getIdNecessarySupply());</span>
+<span class="nc" id="L57">        NecessarySupply necessarySupply = (NecessarySupply) o;</span>
+<span class="nc" id="L58">        return Objects.equals(getIdNecessarySupply(), necessarySupply.getIdNecessarySupply());</span>
 
     }
 
     @Override
     public int hashCode() {
-<span class="nc" id="L68">        return Objects.hash(getIdNecessarySupply());</span>
+<span class="nc" id="L64">        return Objects.hash(getIdNecessarySupply());</span>
 
     }
 
     public Integer getIdNecessarySupply() {
-<span class="fc" id="L73">        return idNecessarySupply;</span>
+<span class="fc" id="L69">        return idNecessarySupply;</span>
     }
 
     public void setIdNecessarySupply(Integer idNecessarySupply) {
-<span class="fc" id="L77">        this.idNecessarySupply = idNecessarySupply;</span>
-<span class="fc" id="L78">    }</span>
+<span class="fc" id="L73">        this.idNecessarySupply = idNecessarySupply;</span>
+<span class="fc" id="L74">    }</span>
 
     public double getQuantity() {
-<span class="nc" id="L81">        return quantity;</span>
+<span class="nc" id="L77">        return quantity;</span>
     }
 
     public void setQuantity(double quantity) {
-<span class="nc" id="L85">        this.quantity = quantity;</span>
-<span class="nc" id="L86">    }</span>
+<span class="nc" id="L81">        this.quantity = quantity;</span>
+<span class="nc" id="L82">    }</span>
 
     public Design getDesignId() {
-<span class="fc" id="L89">        return designId;</span>
+<span class="fc" id="L85">        return designId;</span>
     }
 
     public void setDesignId(Design designId) {
-<span class="fc" id="L93">        this.designId = designId;</span>
-<span class="fc" id="L94">    }</span>
+<span class="fc" id="L89">        this.designId = designId;</span>
+<span class="fc" id="L90">    }</span>
 
     public Supply getSupplyCode() {
-<span class="nc" id="L97">        return supplyCode;</span>
+<span class="nc" id="L93">        return supplyCode;</span>
     }
 
     public void setSupplyCode(Supply supplyCode) {
-<span class="nc" id="L101">        this.supplyCode = supplyCode;</span>
-<span class="nc" id="L102">    }</span>
+<span class="nc" id="L97">        this.supplyCode = supplyCode;</span>
+<span class="nc" id="L98">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

@@ -5,7 +5,6 @@ import User.RolUser;
 import User.User;
 import User.exception.UserException;
 import java.util.List;
-import java.util.Optional;
 import javax.ejb.Local;
 
 @Local
@@ -18,8 +17,6 @@ public interface UserFacadeLocal {
     public User updateUser(User user) throws UserException;
 
     public List<User> getUser(User user) throws UserException;
-    
-    public Optional<User> getUserByID(Integer carnet);
 
     public Career createCareer(Career career) throws UserException;
 
@@ -64,8 +61,4 @@ public interface UserFacadeLocal {
      * @throws UserException
      */
     public boolean resetPassword(Integer userID, String userMail) throws UserException;
-    
-    public Optional<RolUser> findRolUserById(int idRolUser) throws UserException;
-    
-    public Optional<Career> findCareerById(Integer idCareer) throws UserException;
 }

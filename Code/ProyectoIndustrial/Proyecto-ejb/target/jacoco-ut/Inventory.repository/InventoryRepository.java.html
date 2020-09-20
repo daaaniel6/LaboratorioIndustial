@@ -13,7 +13,6 @@ import Production.repository.ProductionRepository;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Optional;
 import javax.ejb.EJB;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
@@ -24,7 +23,7 @@ import javax.ejb.Stateless;
  */
 @Stateless
 @LocalBean
-<span class="nc" id="L27">public class InventoryRepository {</span>
+<span class="nc" id="L26">public class InventoryRepository {</span>
 
     private DesignRepository designRepository;
     private ProductionRepository productionRepository;
@@ -32,18 +31,18 @@ import javax.ejb.Stateless;
 
     @EJB
     public void setDesignRepository(DesignRepository designRepository) {
-<span class="nc" id="L35">        this.designRepository = designRepository;</span>
-<span class="nc" id="L36">    }</span>
+<span class="nc" id="L34">        this.designRepository = designRepository;</span>
+<span class="nc" id="L35">    }</span>
 
     @EJB
     public void setProductionRepository(ProductionRepository productionRepository) {
-<span class="nc" id="L40">        this.productionRepository = productionRepository;</span>
-<span class="nc" id="L41">    }</span>
+<span class="nc" id="L39">        this.productionRepository = productionRepository;</span>
+<span class="nc" id="L40">    }</span>
 
     @EJB
     public void setProductRepository(ProductRepository productRepository) {
-<span class="nc" id="L45">        this.productRepository = productRepository;</span>
-<span class="nc" id="L46">    }</span>
+<span class="nc" id="L44">        this.productRepository = productRepository;</span>
+<span class="nc" id="L45">    }</span>
 
     /**
      * This method return the best Productions base on the best score by Product
@@ -54,16 +53,16 @@ import javax.ejb.Stateless;
      * @return
      */
     public List&lt;ProductionUnits&gt; getBestProductsBaseOnAvailableMaterial() {
-<span class="nc" id="L57">        List&lt;Product&gt; products = productRepository.getAll().get();</span>
-<span class="nc" id="L58">        List&lt;Production&gt; productions = productionRepository.getBestProductions(products);</span>
+<span class="nc" id="L56">        List&lt;Product&gt; products = productRepository.getAll().get();</span>
+<span class="nc" id="L57">        List&lt;Production&gt; productions = productionRepository.getBestProductions(products);</span>
 
-<span class="nc" id="L60">        List&lt;ProductionUnits&gt; result = new LinkedList&lt;&gt;();</span>
+<span class="nc" id="L59">        List&lt;ProductionUnits&gt; result = new LinkedList&lt;&gt;();</span>
 
-<span class="nc" id="L62">        productions.forEach((production) -&gt; {</span>
-<span class="nc" id="L63">            result.add(new ProductionUnits(production, maxUnitsByAvailableSupplies(production)));</span>
-<span class="nc" id="L64">        });</span>
+<span class="nc" id="L61">        productions.forEach((production) -&gt; {</span>
+<span class="nc" id="L62">            result.add(new ProductionUnits(production, maxUnitsByAvailableSupplies(production)));</span>
+<span class="nc" id="L63">        });</span>
 
-<span class="nc" id="L66">        return result;</span>
+<span class="nc" id="L65">        return result;</span>
     }
 
     /**
@@ -73,7 +72,7 @@ import javax.ejb.Stateless;
      * @return
      */
     public double totalCost(DesignUnits designUnits) {
-<span class="nc" id="L76">        return unitCost(designUnits) * designUnits.getUnits();</span>
+<span class="nc" id="L75">        return unitCost(designUnits) * designUnits.getUnits();</span>
     }
 
     /**
@@ -83,12 +82,12 @@ import javax.ejb.Stateless;
      * @return
      */
     public double unitCost(DesignUnits designUnits) {
-<span class="nc" id="L86">        Design design = designRepository.findDesignByID(designUnits.getDesign().getIdDesign()).get();</span>
-<span class="nc" id="L87">        double cost = 0;</span>
-<span class="nc bnc" id="L88" title="All 2 branches missed.">        for (NecessarySupply necessarySupply : design.getNecessarySupplyList()) {</span>
-<span class="nc" id="L89">            cost += (necessarySupply.getSupplyCode().getCost() * necessarySupply.getQuantity());</span>
-<span class="nc" id="L90">        }</span>
-<span class="nc" id="L91">        return cost;</span>
+<span class="nc" id="L85">        Design design = designRepository.findDesignByID(designUnits.getDesign().getIdDesign()).get();</span>
+<span class="nc" id="L86">        double cost = 0;</span>
+<span class="nc bnc" id="L87" title="All 2 branches missed.">        for (NecessarySupply necessarySupply : design.getNecessarySupplyList()) {</span>
+<span class="nc" id="L88">            cost += (necessarySupply.getSupplyCode().getCost() * necessarySupply.getQuantity());</span>
+<span class="nc" id="L89">        }</span>
+<span class="nc" id="L90">        return cost;</span>
     }
 
     /**
@@ -98,14 +97,14 @@ import javax.ejb.Stateless;
      * @return
      */
     public List&lt;SupplyQuantity&gt; getNecessarySupplies(DesignUnits designUnits) {
-<span class="nc" id="L101">        Design design = designRepository.findDesignByID(designUnits.getDesign().getIdDesign()).get();</span>
-<span class="nc" id="L102">        ArrayList&lt;SupplyQuantity&gt; necesarySupplies = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L100">        Design design = designRepository.findDesignByID(designUnits.getDesign().getIdDesign()).get();</span>
+<span class="nc" id="L101">        ArrayList&lt;SupplyQuantity&gt; necesarySupplies = new ArrayList&lt;&gt;();</span>
 
-<span class="nc bnc" id="L104" title="All 2 branches missed.">        for (NecessarySupply necessaryS : design.getNecessarySupplyList()) {</span>
-<span class="nc" id="L105">            necesarySupplies.add(new SupplyQuantity(necessaryS.getSupplyCode(), (necessaryS.getQuantity() * designUnits.getUnits())));</span>
-<span class="nc" id="L106">        }</span>
+<span class="nc bnc" id="L103" title="All 2 branches missed.">        for (NecessarySupply necessaryS : design.getNecessarySupplyList()) {</span>
+<span class="nc" id="L104">            necesarySupplies.add(new SupplyQuantity(necessaryS.getSupplyCode(), (necessaryS.getQuantity() * designUnits.getUnits())));</span>
+<span class="nc" id="L105">        }</span>
 
-<span class="nc" id="L108">        return necesarySupplies;</span>
+<span class="nc" id="L107">        return necesarySupplies;</span>
     }
 
     /**
@@ -116,14 +115,14 @@ import javax.ejb.Stateless;
      * @return
      */
     public List&lt;DesignUnits&gt; DesignWithUnitsPlaces(Integer id, String nameProduction) {
-<span class="nc" id="L119">        List&lt;Design&gt; designs = designRepository.getDesign(id, nameProduction);</span>
-<span class="nc" id="L120">        List&lt;DesignUnits&gt; designUnits = new ArrayList&lt;&gt;();</span>
-<span class="nc bnc" id="L121" title="All 2 branches missed.">        for (Design design : designs) {</span>
-<span class="nc bnc" id="L122" title="All 2 branches missed.">            if(design.getDesignData() != null){</span>
-<span class="nc" id="L123">            designUnits.add(new DesignUnits(design, 1));</span>
+<span class="nc" id="L118">        List&lt;Design&gt; designs = designRepository.getDesign(id, nameProduction);</span>
+<span class="nc" id="L119">        List&lt;DesignUnits&gt; designUnits = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L120" title="All 2 branches missed.">        for (Design design : designs) {</span>
+<span class="nc bnc" id="L121" title="All 2 branches missed.">            if(design.getDesignData() != null){</span>
+<span class="nc" id="L122">            designUnits.add(new DesignUnits(design, 1));</span>
             }
-<span class="nc" id="L125">        }</span>
-<span class="nc" id="L126">        return designUnits;</span>
+<span class="nc" id="L124">        }</span>
+<span class="nc" id="L125">        return designUnits;</span>
     }
 
     /**
@@ -137,26 +136,25 @@ import javax.ejb.Stateless;
      * @return
      */
     public int maxUnitsByAvailableSupplies(Production production) {
-<span class="nc" id="L140">        Optional&lt;Production&gt; result = productionRepository.findByIdProduction(production.getIdProduction());</span>
-<span class="nc bnc" id="L141" title="All 2 branches missed.">        if (result.get().getPostDesign() == null) {</span>
-<span class="nc" id="L142">            return maxUnitsByDesign(result.get().getDesignId());</span>
+<span class="nc bnc" id="L139" title="All 2 branches missed.">        if (production.getPostDesign() == null) {</span>
+<span class="nc" id="L140">            return maxUnitsByDesign(production.getDesignId());</span>
         } else {
-<span class="nc" id="L144">            return maxUnitsByDesign(result.get().getPostDesign());</span>
+<span class="nc" id="L142">            return maxUnitsByDesign(production.getPostDesign());</span>
         }
     }
 
     private int maxUnitsByDesign(Design design) {
-<span class="nc bnc" id="L149" title="All 2 branches missed.">        if (!design.getNecessarySupplyList().isEmpty()) {</span>
-<span class="nc" id="L150">            int units = (int) (design.getNecessarySupplyList().get(0).getSupplyCode().getQuantity() / design.getNecessarySupplyList().get(0).getQuantity());</span>
-<span class="nc bnc" id="L151" title="All 2 branches missed.">            for (NecessarySupply necessarySupply : design.getNecessarySupplyList()) {</span>
-<span class="nc" id="L152">                int intAux = (int) (necessarySupply.getSupplyCode().getQuantity() / necessarySupply.getQuantity());</span>
-<span class="nc bnc" id="L153" title="All 2 branches missed.">                if (intAux &lt; units) {</span>
-<span class="nc" id="L154">                    units = intAux;</span>
+<span class="nc bnc" id="L147" title="All 2 branches missed.">        if (!design.getNecessarySupplyList().isEmpty()) {</span>
+<span class="nc" id="L148">            int units = (int) (design.getNecessarySupplyList().get(0).getSupplyCode().getQuantity() / design.getNecessarySupplyList().get(0).getQuantity());</span>
+<span class="nc bnc" id="L149" title="All 2 branches missed.">            for (NecessarySupply necessarySupply : design.getNecessarySupplyList()) {</span>
+<span class="nc" id="L150">                int intAux = (int) (necessarySupply.getSupplyCode().getQuantity() / necessarySupply.getQuantity());</span>
+<span class="nc bnc" id="L151" title="All 2 branches missed.">                if (intAux &lt; units) {</span>
+<span class="nc" id="L152">                    units = intAux;</span>
                 }
-<span class="nc" id="L156">            }</span>
-<span class="nc" id="L157">            return units;</span>
+<span class="nc" id="L154">            }</span>
+<span class="nc" id="L155">            return units;</span>
         } else {
-<span class="nc" id="L159">            return 0;</span>
+<span class="nc" id="L157">            return 0;</span>
         }
     }
 }

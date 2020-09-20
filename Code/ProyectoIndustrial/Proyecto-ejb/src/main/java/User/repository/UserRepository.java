@@ -58,11 +58,11 @@ public class UserRepository {
         if (user.getState() != null) {
             predicates.add(criteriaBuilder.equal(userR.get("state"), user.getState()));
         }
-        if (user.getRolUser() != null && user.getRolUser().getIdRolUser() != null) {
-            predicates.add(criteriaBuilder.equal(userR.get("rolUser").get("idRol"), user.getRolUser().getIdRolUser()));
+        if (user.getRolUser() != null) {
+            predicates.add(criteriaBuilder.equal(userR.get("rolUser"), user.getRolUser()));
         }
-        if (user.getCareer() != null && user.getCareer().getIdCareer() != null) {
-            predicates.add(criteriaBuilder.equal(userR.get("career").get("idCareer"), user.getCareer().getIdCareer()));
+        if (user.getCareer() != null) {
+            predicates.add(criteriaBuilder.equal(userR.get("career"), user.getCareer().getIdCareer()));
         }
         criteriaQuery.where(predicates.stream().toArray(Predicate[]::new));
         TypedQuery<User> query = entityManager.createQuery(criteriaQuery);
