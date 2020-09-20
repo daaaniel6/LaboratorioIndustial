@@ -6,7 +6,9 @@
 package gt.edu.usac.cunoc.ingenieria.group;
 
 import Group.GroupIndustrial;
+import Group.GroupUser;
 import Group.facade.GroupFacadelocal;
+import User.User;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJB;
@@ -37,40 +39,64 @@ public class GroupResource {
     @GET
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public GroupIndustrialDTO getGroupIndustrialById(@PathParam("id") Integer id) {
-        return new GroupIndustrialDTO(groupFacadelocal.findById(id).get());
+    public GroupDTO getGroupIndustrialById(@PathParam("id") Integer id) {
+        GroupIndustrialDTO groupIndustrialDTO = new GroupIndustrialDTO(groupFacadelocal.findById(id).get());
+        List<GroupUser> listGroupUser = groupFacadelocal.findById(id).get().getGroupUserList();
+        List<User> users = new ArrayList<>();
+        for (GroupUser groupUser : listGroupUser) {
+            users.add(groupUser.getUserCarnet());
+        }
+        return new GroupDTO(groupIndustrialDTO, users);
     }
-    
+
+    /**
+     * devuelve un json con todos los grupos creados y su lista de integrantes
+     *
+     * @return List<GroupDTO>
+     */
     @GET
-    public List<GroupIndustrialDTO> getGroupsIndustrial() {
-        List<GroupIndustrialDTO> result = new ArrayList<>();
-        groupFacadelocal.getAll().forEach((mod) -> {
-            result.add(new GroupIndustrialDTO(mod));
-        });
+    public List<GroupDTO> getGroupsIndustrial() {
+        List<GroupDTO> result = new ArrayList<>();
+        List<GroupIndustrial> groupIndustrialList = new ArrayList<>();
+        groupIndustrialList = groupFacadelocal.getAll();
+
+        for (GroupIndustrial groupIndustrial : groupIndustrialList) {
+            List<User> users = new ArrayList<>();
+            for (GroupUser user : groupIndustrial.getGroupUserList()) {
+                users.add(user.getUserCarnet());
+            }
+
+            result.add(new GroupDTO(new GroupIndustrialDTO(groupIndustrial), users));
+
+        }
         return result;
     }
-    
+
 //    @POST //crear Grupo
 //    @Consumes(MediaType.APPLICATION_JSON)
-//    public Response createProduction(GroupIndustrialDTO groupIndustrialDTO) {
+//    public Response createProduction(GroupDTO groupDTO) {
 //
 //        try {
-//            GroupIndustrialDTO create = new GroupIndustrialDTO(
-//                    groupFacadelocal.createGroup(
-//                            new GroupIndustrial(groupIndustrialDTO.getIdGroup(), groupIndustrialDTO.getInformation(),
-//                                    groupIndustrialDTO.getName(), groupIndustrialDTO.getSection(),listado)
-//                    )
+//
+//            GroupIndustrial groupIndustrial = new GroupIndustrial(
+//                    groupDTO.getGroupIndustrialDTO().getIdGroup(),
+//                    groupDTO.getGroupIndustrialDTO().getInformation(),
+//                    groupDTO.getGroupIndustrialDTO().getName(),
+//                    groupDTO.getGroupIndustrialDTO().getSection()
 //            );
+//            
+//            groupFacadelocal.createGroup( groupIndustrial,groupDTO.getUsers());
 //
 //            return Response
 //                    .ok()
-//                    .entity(create)
+//                    .entity(groupDTO)
 //                    .build();
 //        } catch (Exception e) {
 //            return Response.status(Response.Status.BAD_REQUEST).build();
 //        }
 //
 //    }
+
 //    @PUT //modificar Produccion
 //    public Response updateProduction(GroupIndustrialDTO groupIndustrialDTO, String information, String section) {
 //        try {
@@ -94,11 +120,10 @@ public class GroupResource {
 //        }
 //
 //    }
-//    
+
     //----------------------------------------------------------------------------
-    
 //    @DELETE
-//    @Path("/user/{idGroupUser}")
+//    @Path("/users/{idGroupUser}")
 //    public Response removeStep(@PathParam("idGroupUser") Integer id) {
 //        try {
 //            groupFacadelocal.removeUserFromGroup(groupFacadelocal.findGroupUserById(id).get());
@@ -107,9 +132,4 @@ public class GroupResource {
 //            return Response.status(Response.Status.NOT_FOUND).build();
 //        }
 //    }
-
-    
-    
-    
-
 }
