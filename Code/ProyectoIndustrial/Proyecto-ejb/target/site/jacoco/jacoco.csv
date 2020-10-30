@@ -1,7 +1,7 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
 Proyecto-ejb,Modify.facade,ModifyFacade,26,0,0,0,7,0,6,0,6,0
-Proyecto-ejb,Group,GroupIndustrial,71,32,3,1,26,14,12,8,10,8
 Proyecto-ejb,Group,GroupUser_,3,0,0,0,1,0,1,0,1,0
+Proyecto-ejb,Group,GroupIndustrial,71,32,3,1,26,14,12,8,10,8
 Proyecto-ejb,Group,GroupIndustrial_,3,0,0,0,1,0,1,0,1,0
 Proyecto-ejb,Group,GroupUser,12,31,0,0,5,14,1,9,1,9
 Proyecto-ejb,User,Career,23,37,3,1,5,17,3,8,1,8
